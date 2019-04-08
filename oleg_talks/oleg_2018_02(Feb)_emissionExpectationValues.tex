@@ -1,0 +1,179 @@
+\section{Emission power (13th Feb)}
+ With regards to the signal that leaks through our system:
+ \begin{itemize}
+ 	\item Remember, that the maximal coherent emission is \[ \frac{\hbar\omega\Gamma_1}{8}, \]\noindent = 1/8 of a single photon (see Eq.~\ref{maximalCoherentEmission}). This occurs at a Rabi oscillation peak. 
+ 	
+ 	\begin{itemize}
+ 		\item \red{You can measure this power with the SPA i.e. you measure 1/8 of a single photon power;}
+ 		\item Then, you can tune your VNA power to match this $ 8\times $ coherent signal power, and be supplying exactly one photon to the system. Then there will be no leakages, as the photon will be absorbed by the system, with no leftover for leaking;
+ 	\end{itemize}
+ 	\item The total number of photons in the system can be found from 
+ 	\begin{equation}\label{key}
+ 		N = \frac{\Omega}{\Gamma_1}
+ 	\end{equation}
+ 	 
+ \end{itemize} 
+ 
+ 
+\section{Oleg talk 9th Feb 2018}
+ I was doing measurements with C++ when Oleg came in to check on the results.
+ 
+ \begin{enumerate}
+ 	\item First of all, we do not need to supply a \xpi-pulse to the system, because \textbf{the total emission from the atom will be}:
+ 	
+ 	\[
+ 		\text{\textbf{Total emission}} \propto \rho_{11} = \frac{1-\isigmaz}{2}.
+ 	\]
+ 	
+ 	\noindent Part of this may be in the form of coherent emission ($ \propto \isigmaplusminus $) or incoherent emission - whichever is left over. This had been measured previosuly, where the thin part is coherent emision, and the broad part is incoherent.
+ 	
+ 	\ipic{4cm}{Incoherent}
+ 	
+ 	\red{Because you want to measure the power of the incoherent emission (which will have the decay profile) you MUST use a filter that will encompass its width}. And guess what - the width of the incoherent peak is realted to the relaxation rate $ \Gamma_1 $. Therefore to pick up the signal, you must have a filter with a range DC - $ \Gamma_1/2\pi $ (gamma is measured in radians) to cut out the correct down converted region!
+ 	
+ 	\item The coherent signal will have no phase information, while the coherent one will. Thus, after the mixer, coherent and incoherent outputs from the mixer
+ 	
+ 	\ipicCaption{5cm}{phaseCohInc}{You can average coherent emission because the phase of the ougoing signal is going to be repetitive. You cannoy average incoherent emission, since the phase jumps around like a maniac. }
+
+ 	(In fact even with coherent emission, the fact that you are sampling every 2.5ns means that sample $ N $ from one run, will not coincide with sample $ N $ from another run.) \red{\textbf{Use an external clock to trigger the VNA clock}}
+ 	
+ 	But with incoherent you have to take the square of the outputs from channel A and channel B. There is no other choice
+ 	
+ 	\paragraph{Coherent at at sample point N}
+ 	\[
+ 	\left\lbrace\begin{aligned}
+ 	s_I &= n + A\sin(\phi)\\
+ 	s_Q &= n + A\cos(\phi)\\
+ 	\end{aligned}\right.\Rightarrow
+ 	\text{ average the output to get}
+ 	\left\lbrace\begin{aligned}
+ 	\bar{s}_I &= \bar{n}/\sqrt{N} + A\sin(\phi) \approx A\sin(\phi)\\
+ 	\bar{s}_Q &= \bar{n}/\sqrt{N} + A\cos(\phi) \approx A\cos(\phi)\\
+ 	\end{aligned}\right.
+ 	\]
+ 	\iframe{For coherent radiation (which will not have any kind of decay), we just average ChA and ChB and then take the squares.}
+ 	
+ 	\paragraph{Incoherent at sample point N}
+ 	\[
+ 	\begin{aligned}\left\lbrace\begin{aligned}
+ 	s_I &= n + A\sin(\phi_i)\\
+ 	s_Q &= n + A\cos(\phi_i)\\
+ 	\end{aligned}\right.\Rightarrow
+ 	{s_I^2+s_Q^2} &= 2n^2 + A^2 + 2nA(\sin(\phi_i)+\cos(\phi_i))\\
+ 	& = 2n^2 + A^2 +2\sqrt{2}An\sin\big(\phi_i + \frac{\pi}{4}\big)
+ 	\end{aligned}
+ 	\]
+ 	
+ 	Perfoming an average of these values will result in:
+ 	\[
+ 		\overline{s_i^2 + s_q^2} = 2\bar{n}^2/\sqrt{N} + A^2 + A2\sqrt{2}n\sin(\varphi + \pi/4)/\sqrt{N}
+ 	\]
+ 	\iframe{So for incoherent measurement, you will have to square \textbf{every single incoming} pair of values and average them, in the hope that the sheet number of measurement will kill off the noise to a stable value.}
+ 	
+ 	\item Now, about the leaking signal. Oleg mentioned that simply averaging, will allow us to distinguish the peaks.
+ \end{enumerate}
+
+\newpage
+\section{Oleg talk 7th Feb 2018}
+ Here we talked about the paper \textbf{Resonance fluorescence on an artificial atom}. The question arose as to how the equation for the scattered wave $ 2ikI_{sc}/2 = i\omega^2c\phi_p\iaverage{\sigma_{-}}$ was derived.
+ 
+ \begin{enumerate}
+ 	\item Beggining with the telegraph equations for the voltage in the line:
+ 	\begin{equation}\label{7thFeb1}
+ 		\left\lbrace\begin{aligned}
+	 		V_{sc}(t) &= \iabs{V_{sc}}e^{i(kx - \omega t)}\\
+	 		\difffrac{V}{x} & = l\difffrac{I}{t}
+ 		\end{aligned}\right. \Rightarrow \difffrac{V}{x} = ikV_{sc}
+ 	\end{equation}
+ 	Since there is an equal an opposite voltage being emiited in the two directions from the atom, the voltage difference in the line will be
+ 	\begin{equation}\label{7thFeb3}
+ 		\difffrac{V}{x} = 2ikV_{sc}.
+ 	\end{equation}
+ 	
+ 	Now, because the atom emits the voltage from a very specific point on the line \red{we get a boundary condition, that the voltage must undergo a discontinous step at this point so Eq.~\eqref{7thFeb2} becomes}
+ 	\begin{equation}\label{7thFeb4}
+ 	\frac{dV}{dx} = 2ikV_{sc}\delta(x)
+ 	\end{equation}
+ 	
+	\item Second, we use the standard expression for voltage $ V = \dot{\Phi} $ and sub in the expression for $ \dot{\Phi} = i\omega l \iaverage{\sigma_{-}}$:
+	\begin{equation}\label{7thFeb2}
+		V  = {i\omega l \phi_p\iaverage{\sigma_{-}}}
+	\end{equation} 
+	
+	\noindent where $ \phi_p $ is the dipole moment of the atom.
+	
+	\item Integrating Eq.~\eqref{7thFeb4} and subbing into Eq.~\eqref{7thFeb2} we arrive at
+	
+	\begin{equation}\label{7thFev5}
+		2ikV_{sc} = i\omega l\phi_p\iaverage{\sigma_{-}}.
+	\end{equation}
+	
+\end{enumerate}
+ 
+ 
+\newpage
+\section{Oleg talk 2nd Feb 2018}
+ Here we discussed how the voltage operator actually results in coherent and incohernet emission.
+ 
+ \begin{itemize}
+ 	\item The voltage operator is defined as:
+ 	
+ 	\begin{equation}\label{feb22018}
+ 		\hat{V}^{+} = i\frac{\hbar\Gamma_1}{\phi}\sigma^{-},
+ 	\end{equation}
+ 	
+ 	\noindent the `-' coming from the fact that the atom must relax in order for voltage to be produced. The average produced field would be
+ 	
+ 	\[
+ 		\iaverage{\hat{V}^{+}} = i\frac{\hbar\Gamma_1}{\phi}\iaverage{\sigma^{-}},
+ 	\]
+ 	
+ 	\item Now, the power resulting from this voltage, which is effectively noise as the atom relaxes spontaneously, is given by the correlation function:
+ 	
+ 	\begin{equation}\label{feb22018:1}
+ 		\begin{aligned}
+ 			\iaverage{V^2(\omega)} = & \frac{1}{2\pi}\int_{-\infty}^{\infty}\iaverage{\hat{V}^{-}(0)\hat{V}^{+}(\tau)}e^{i\omega \tau}d\tau\\
+ 			= & \frac{\hbar^2\Gamma_1^{2}}{\phi^2}\frac{1}{2\pi}\int_{-\infty}^{\infty}\iaverage{\sigma_{+}(0)\sigma_{-}(\tau)}e^{i\omega \tau}d\tau
+ 		\end{aligned}
+ 	\end{equation}
+ 	
+ 	\item \red{Using a trick in Olegs book, one can find that the term $ \iaverage{\sigma_{+}(0)\sigma_{-}(\tau)} $ can be decomposed as:
+ 		\begin{itemize}
+ 			\item \textbf{Total sum is} \[ \frac{1+{\isigmaz}}{2}. \]
+ 			\item \textbf{The coherent part is} \[ \iaverage{\sigma_{+}}\iaverage{\sigma_{-}}. \]
+ 			\item \textbf{Therefore the incoherent part must be the difference between the two}: \[ \frac{1+{\isigmaz}}{2} - \iaverage{\sigma_{+}}\iaverage{\sigma_{-}}. \]
+ 		\end{itemize}
+ 	} 
+ 
+ 	\item Finding the total emitted power, by integrating over the full frequency range \red{and assuming that we are dealing with stationary states (ss) that would form in the system when averaging:}
+ 	
+ 	\begin{equation}\label{feb220183}
+ \begin{aligned}
+ 		\text{Power}_\text{total} &= \frac{1}{Z}\int 	\iaverage{V^2(\omega)}  d\phi\\
+ 		& = \frac{1}{Z}\int \frac{\hbar^2\Gamma_1^{2}}{\phi^2}\frac{1}{2\pi}\int_{-\infty}^{\infty} \frac{1+{\isigmaz}_{ss}}{2} e^{i\omega \tau}d\tau   d\phi\\
+ 		& = \frac{\hbar^2\Gamma_1^2}{Z\phi^2} \frac{1+{\isigmaz}_{ss}}{2} \int\frac{1}{2\pi}\int e^{i\omega\tau}d\tau d\phi\\
+ 		& \text{Using the fact that the integral over the delta function is just 0 and } \Gamma_1 = \frac{\hbar\omega\phi^2Z}{\hbar^2}\\
+ 		& = \hbar\omega\Gamma_1  \frac{1+{\isigmaz}_{ss}}{2}
+ \end{aligned}
+ 	\end{equation}
+ 	
+ 	\noindent Now, because we are driving continously, decoherence will result in our rotation of the state from \iket{0} to \iket{1} to form an intermediate value when $ \isigmaz = 0 $ and so the maximum emitted power from the atom will be:
+ 	
+ 	\iframe{\begin{equation}\label{key}
+ 		\text{Power}_\text{total} = \frac{\hbar\omega\Gamma_1}{2}	
+ 	\end{equation}}
+
+	
+	\item Now, redoing the same, but only considering the coherent contribution i.e. instead of $  \frac{1+{\isigmaz}_{ss}}{2} $ use $ \iaverage{\sigma_{+}}\iaverage{\sigma_{-}} $ we round up at:
+	
+	\begin{equation}\label{maximalCoherentEmission}
+		 		\begin{aligned}
+			 		\text{Power}_\text{coherent} &= \hbar\omega\Gamma_1 \iaverage{\sigma_{+}}_{ss} \iaverage{\sigma_{-}}_{ss} = \text{ upon subbing in the obtained expectationv values }\\
+			 		& = \hbar\omega\Gamma_1\bigg(\frac{2\Gamma_1\Omega}{2\Gamma_1^2+\Omega^2}\bigg)\\&\Rightarrow \text{max value } = \frac{\hbar\omega\Gamma_1}{8}
+		 		\end{aligned}
+	\end{equation}
+	
+	 \end{itemize}
+	\newpage
+
+\newpage

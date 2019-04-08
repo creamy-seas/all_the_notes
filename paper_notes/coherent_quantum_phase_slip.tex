@@ -1,0 +1,40 @@
+ \section{Coherent quantum phase slip}
+  One wants to observe the coherent quantum phase slip - the tunneling of fluxes that changes the phase across a JJ. 
+  
+  \begin{itemize}
+  	\item To describe the system, we create state \iket{0} and \iket{1} of the phase winding number, which depend on the external flux;
+  	\item To describe the interaction, via the tunneling of fluxes, we incorporate the amplitude $ E_s $.
+  \end{itemize}
+
+  Together we have a two level interacting system as in previous cases
+  \[
+  \mathcal{H} = \begin{pmatrix}
+  I_p\delta\Phi & -E_s/2\\-E_s/2 & -I_p\delta\Phi
+  \end{pmatrix} = \frac{\Delta E}{2}\big(\cos(\theta)\sigma_z - \sin(\theta)\sigma_x\big)
+  \]
+  
+  \subsection{Observing the slip}
+   In order to observe the quantum phase slip, we need a variation of the order parameter. The strength of the variation
+   
+   \[
+   	\mathcal{G} \propto \frac{1}{\xi^3},
+   \]
+   
+   \noindent is large if $ \xi^3 $ - the volume occupied by the cooper pairs, is small. However, even in disordered superconductors, where $ \xi^3 $ is small, $ \mathcal{G} $ is still to small!
+   
+   In fact, in order to get large fluctuations, we need \red{superconductivity to be almost supressed!} i.e. $ \xi\approx\xi_\text{loc} $, which happens at the insulator-superoconductor transition, at which points CP are very localised. If this is achieved, then the strength of the interactions $ E_s $ scales as
+   
+   \[
+   E_s \propto \exp(-\alpha N_{ch}),
+   \]
+   
+   \noindent with the number of conducting channels in the superconductor \ra make the wire thin TiN film, which ticks both of the above parameters.
+   
+   \subsection{Measurements}
+    The constriction is placed near a resonator, which given a base frequency, and then a probe tone is sent in.
+    
+    The mapping is consistent with the coherent phase slip version of the qubit (black lines) and not consitent with the simulations for a normal RF SQUID (dotted line), which is evidence for the slip.
+    \ipicCaption{6cm}{coherentPhaseSlip1}{To plot out this curve, we swepe the probe tone. The energy of this probe tone adds to the energy of the resonator harmonics, allowing the weak probe of up to 35GHz, to plot out higher energy values,}
+  
+ \newpage
+ 

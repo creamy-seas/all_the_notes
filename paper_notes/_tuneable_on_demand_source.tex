@@ -1,0 +1,285 @@
+\section{Tuneable on-demand single-photon source}
+ \iframe{\textbf{Important parameters}:
+ 	
+ 	$ Z = 50\Omega $ impedance in tranmission lines; 1cm microwave fields; $ C_e/C_c\approx5 $; $ C_c\approx1fF$; impendance between two lines due to coupling $ Z_c=\frac{1}{i\omega(C_c+C_e)} \approx3k\Omega $; transmitted power $ \approx \iabs{\frac{2Z}{Z_c}}\approx10^{-3} $; sweep $ \pm50m\Phi_0 $; energies $ \approx 10GHz $; $ I_p = 24nA $; $ \Delta \approx h\times 6GHz $; power from -125 to -149dBm (i.e. on the scale of 1 mW); $ \omega ZC_{e/c} << 1 $.
+ }
+
+ A transmon acts as a single photon source. One is able to tune the magnetic field $ \Phi $ to change the frequency of the emitted photons (by changing the separation of the energy levels $ \hbar\omega_{10} $).
+
+ \begin{enumerate}
+ 	\item A $ \Omega t = \pi $ pulse comes in, exciting the transmon, as described in Sec.~\ref{subsec:Rabi};
+ 	\item The emission mainly goes through the C\isub{e} as this has a larger capacitance.
+  \end{enumerate}
+ \ipic{3cm}{tansmon1} 
+
+ \ipicCaption{3cm}{tansmon3}{Two JJ parllel to a DC squid. $ \alpha = 0.7 $ is the ratio $ \frac{\text{critical current in DC SQUID}}{\text{critical current in JJs}} $}
+ 
+
+\subsection{Driving}
+	\ipic{4cm}{tansmon4}
+ Driving of a two level system described in Sec.~\ref{subsec:twoLevelDerivation} is performed by incident field
+ 
+ \[
+ 	V_0(x,t) = V_0e^{i(kx-\omega t)},
+ \]
+ 
+ \noindent whose wavelength of 1cm is much larger than the size of the atom, so can be considered to be of a fixed value at the atom position $ x=0 $. The reflected and incident fields in the 1D line create a standing wave
+ 
+ \[
+ 	2V_0\cos(\omega t) = \big[V_0e^{i(kx-\omega t)} + V_0e^{i(-kx-\omega t)}\big]\isub{x=0},
+ \]
+ 
+ \noindent which interacts with the two level system we have created in Eq.~\eqref{eq:tunableEnergy}, \alert{depending on the dipole moment, $ \nu_a $, and capacitance, $ C_c $,} giving a Hamiltonian
+ 
+ \[
+ 	\begin{aligned}
+	 	\mathcal{H} & = -\frac{\Delta E}{2}\sigma_z + 2V_0C_c\nu_a\cos(\omega t)\sigma_x\\
+	 	& = -\frac{\Delta E}{2}\sigma_z - \hbar\Omega\cos(\omega t)\sigma_x,\\
+ 	\end{aligned}
+ \]
+ 
+ \noindent where $ \nu_a $ is the electric dipole moment of the atom. We apply a unitary transformation as in Sec.~\ref{subsec:Rabi}, \alert{using HALF OF THE REQUIRED ANGLE IN THE ARGUMENT}
+ 
+ \[
+ 	U(t) = \exp\big[-i\omega t/2\big],
+ \]
+ 
+ \noindent \alert{using that $ \hbar\omega = \Delta E + \hbar\delta\omega $}resulting in a Hamiltonian according to Eq.~\eqref{uninewschrodinger},
+ 
+ \begin{equation}
+ \begin{aligned}
+ \mathcal{H'} & = U\mathcal{H}U^{\dagger} - i\hbar U\dot{U}^{\dagger}\\
+ & = \blue{-\frac{\Delta E}{2} e^{-i\omega t/2\sigma_z} \sigma_z e^{+i\omega t/2\sigma_z}} -\hbar\Omega\frac{e^{i\omega t}+e^{-i\omega t}} {2} e^{-i\omega t/2\sigma_z} \sigma_x e^{i\omega t/2\sigma_z} \blue{- i\hbar e^{-i\omega t/2\sigma_z} \bigg(i\frac{\omega}{2}\sigma_z\bigg) e^{i\omega t/2\sigma_z}}\\
+ & = \blue{\frac{\hbar\delta\omega}{2}\sigma_z} - \frac{\hbar\Omega}{2}\bigg(e^{i\omega t}+e^{-i\omega t}\bigg)e^{-i\omega_0t/2\sigma_z}\red{e^{(-1)i\omega_0t/2\sigma_z}\sigma_x}\\
+ & = \frac{\hbar\delta\omega}{2}\sigma_z -\frac{\hbar\Omega}{2}\bigg(e^{i\omega t}+e^{-i\omega t}\bigg){e^{-i\omega_0t\sigma_z}\sigma_x}\\
+ & = \frac{\hbar\delta\omega}{2}\sigma_z -\frac{\hbar\Omega}{2}\bigg(e^{i\omega t}+e^{-i\omega t}\bigg)\begin{pmatrix}
+ e^{-i\omega_0t}&0\\0&e^{+i\omega_0t}
+ \end{pmatrix}\begin{pmatrix}
+ 0&1\\1&0
+ \end{pmatrix}\\
+ & = \frac{\hbar\delta\omega}{2}\sigma_z -\frac{\hbar\Omega}{2}\bigg(e^{i\omega t}+e^{-i\omega t}\bigg)\begin{pmatrix}
+ 0&e^{i\omega_0t}\\e^{-i\omega_0t}&0
+ \end{pmatrix}
+ \\
+ & = \frac{\hbar\delta\omega}{2}\sigma_z -\frac{\hbar\Omega}{2}\begin{pmatrix}
+ 0&1+e^{2i\omega_0t}\\1+e^{-2i\omega_0t}&0
+ \end{pmatrix}
+ \\
+ & \approx \frac{\hbar\delta\omega}{2}\sigma_z -\frac{\hbar\Omega}{2}\begin{pmatrix}
+ 0&1\\1&0
+ \end{pmatrix}
+ \\
+ & \approx \frac{\hbar\delta\omega}{2}\sigma_z -\frac{\hbar\Omega}{2}\sigma_x
+ \end{aligned}
+ \label{eqn:detunedDrive}
+ \end{equation}
+ 
+ \iframe{
+ 	\begin{equation}
+ 	\Delta E = \sqrt{(2I_p\delta\Phi)^2+\Delta_N^2},
+ 	\end{equation}
+ 
+ 	\noindent being driven by a field through the $ C_c $ capacitor
+ 	
+ 	 \begin{equation}\label{eqn:tuneableVOltage}
+ 	 	 V_0\cos(\omega t) \xrightarrow{\text{reflected wave + interaction}} 2V_0\cos(\omega t)C_c\nu_a \equiv -\hbar\Omega\cos(\omega t),
+ 	 \end{equation} 
+ 	 
+ 	 \noindent where 
+ 	 \begin{itemize}
+ 	 	\item $ \omega = \Delta E - \delta\omega $
+ 	 	\item $ \hbar\Omega = -2V_0C_c\nu_a$
+ 	 \end{itemize}
+  
+    \noindent giving rise to a system
+    
+    \begin{equation}\label{eqn:tunableDrive}
+	    \frac{\hbar\delta\omega}{2}\sigma_z -\frac{\hbar\Omega}{2}\sigma_x
+    \end{equation}
+
+}
+ 
+ \subsection{Stationary state coherent emission}	
+  Coherent emission is related to the equator superposition on the Bloch sphre that the driving field initiates in the atom, and if you forgot what that is, glance over at Ch.~\ref{sec:newIdeas}. In the stationary state the coherent state on the equator of the Bloch sphere, will result in an average output field in the control (c) and emission (e) lines 
+	
+	 \[V_{c,e}(t)= i2\omega Z{C_{c,e}}\nu_a\iaverage{\sigma^{-}}e^{-i\omega t}\] 
+	 
+	 \noindent \alert{at the frequency of the driving $ \omega $.}
+ \[
+ 	\text{Line impedance } \mathbf{Z} \ra \text{noise } \mathbf{S_v(\omega) = 2\hbar\omega Z} \ra \text{relaxation } \mathbf{\Gamma_1^{c,e} = S_v(\omega) \frac{(C_{c,e}\nu_a)^{2}}{\hbar^2}},
+ \]
+ 
+ \noindent and while we cannot measure impedance directly, relaxation rates $ \Gamma_1^{c,e} $ can be spectroscopically evaluated, so substituing in the values
+ 
+ {\[
+ \begin{aligned}
+ 	x<0,\ V_c(x,t) & = i\frac{\hbar\Gamma_1^{c}}{C_c\nu_a}\iaverage{\sigma^{-}}e^{i(-kx-\omega t)}\\
+  	x>0, V_e(x,t) & = i\frac{\hbar\Gamma_1^{e}}{C_e\nu_a}\iaverage{\sigma^{-}}e^{i(kx-\omega t)}\\
+  	\end{aligned}
+ \]}
+
+ We solve the stationary state equation of motion $ \dot{\rho} = -i\big[\mathcal{H},\rho\big]+ \mathcal{L} \equiv 0 $, where $ \mathcal{H} = \frac{\hbar\delta\omega}{2}\sigma_z -\frac{\hbar\Omega}{2}\sigma_x$ and $ \mathcal{L} = \begin{pmatrix}
+ 	\Gamma_1\rho_{11} & -\Gamma_2\rho_{01}\\ -\Gamma_2\rho_{10} & -\Gamma_1\rho_{11}
+ \end{pmatrix} $, find $ \iaverage{\sigma^{-}} = \rho_{10} $, and evaluate the reflection and tranmission coefficients - see \texttt{tuneable on demand.mathematica}
+ 
+ \[
+ 	\begin{aligned}
+	 	r_\text{control line} & = \frac{V_0(0,t) + V_c(0,t)}{V_0(0,t)} \hspace{2cm} \text{(driving field is also reflected from the tranmission line end)}\\
+	 	t_{ce} & = \frac{V_e(0,t)}{V_0(0,t)}\\
+	 	V_0(x,t) & = \frac{\hbar\Omega}{2C_c\nu_a}e^{i(kx-\omega t)} \hspace{2cm} \text{from Eq.~\eqref{eqn:tuneableVOltage}}.
+ 	\end{aligned}
+ \]
+ 
+  \iframe{{ \alert{So a coherent field will be emitted at the driving field frequency $ \omega $}
+  		\[
+  		\begin{aligned}
+  		V_0\cos(\omega t) \xrightarrow{\text{Field comes in}} & V_0\cos(\omega t)C_c\nu_a \xrightarrow{\text{coherent emission} \sigma^{-}}  i\frac{\hbar\Gamma_1^{e,c}}{C_{e,c}\nu_a}\iaverage{\sigma^{-}}e^{i(\pm kx-\omega t)}\\
+  		& \longrightarrow r_c = 1-\frac{2\Gamma_{1}^{c}}{2\Gamma_2}\frac{1}{1-i\delta\omega/\Gamma_2}, t_ce = -\frac{2\Gamma_{1}^{e}}{2\Gamma_2}\frac{C_c}{C_e}\frac{1}{1-i\delta\omega/\Gamma_2}
+  		\end{aligned}
+  		\]}
+  	
+  	}
+    	\ipicCaption{5cm}{tunePic1}{Map of the qubit can recover the qubit energy levels. The Smitch chart on the right monitors the reflected real and imaginary components. This can be used to extract relaxation rates $ \Gamma_{1}^{c}, \Gamma_{1}^{e} $.}
+ 
+ \subsection{Stationary state incohrent emission (due to relaxation)}
+ 	 Whenever the atom is in the excited state, there is the possibility of relaxation giving a power of
+ 	
+ 	\[
+ 		W_{c,e}(t) = \hbar\omega \Gamma_1^{c,e}\rho_{11},
+ 	\]
+ 	
+ 	\noindent and if we start of with the excited state \iket{1}, then the $ \rho_{11} = e^{-\Gamma_1t} $
+	
+	\iframe{
+		So there is also incoherent relaxation that will produce a field in the control and emission lines. This is due to relaxation of the atom - an incoherent process. \alert{The emission occurs at the atom frequency $ \Delta E/\hbar $, since it is disconnceted from the driving field - if the atom is excited then incoherent emission will occur, independent of the driving field.}
+	}
+\newpage
+ \subsection{Pulsed operation\label{subsec:pulsedOperation}}
+  {\color{black!80} To consider the effect of pulsed driving (not the stationary state), let us look at Eq.~\eqref{eqn:tunableDrive} at resonance, $ \delta\omega = 0 $, in which case the unitary eveolution in the system
+  	
+  	\[
+  	U(t) = \exp\big[-i\mathcal{H}t/\hbar\big] = \exp\big[i\frac{\Omega t}{2}\sigma_x\big] \xrightarrow{Eq.~\eqref{uniRotation}} \cos(\Omega t/2)\mathbb{I} + i\sin(\Omega t/2)\sigma_x,
+  	\]
+  	
+  	\noindent leading to Rabi osicllations of the initial ground state
+  	
+  	\begin{equation}\label{eqn:drivingExample}
+  	\ket{\Psi} = U\ket{0} = \cos(\frac{\Omega t}{2})\ket{0}+e^{i\pi/2}\sin(\frac{\Omega t}{2})\ket{1} \ra 
+  	\rho = \frac{1}{2}\begin{pmatrix}
+  	1+\cos(\Omega t) & e^{-i\pi/2}\sin(\Omega t)\\ e^{+i\pi/2}\sin(\Omega t) & 1-\cos(\Omega t)
+  	\end{pmatrix},
+  	\end{equation}
+  }
+  \noindent where $ \Delta t $ of the pulse can be used to rotate the vector by a required amount. 
+  
+  \iframe{\alert{Rabi oscillations are done with pulses = this is not a stationary state! }
+  		
+  		\begin{itemize}
+  			\item \alert{Coherent emission $ \propto \iaverage{\sigma^{-}} = \rho_{10}$}, so is maximised for when the suporposed states have 50\% population i.e. $ \sin(\Omega t) = 1, \cos(\Omega t)=0 $;
+  			\item \alert{Incoherent emission $ \propto \isigmaz = \rho_{00} - \rho_{11} = 2\cos(\Omega t) $}, so is shifted by $ \pi/2 $ compared to coherent emission
+  		\end{itemize}
+  }
+
+  \ipicCaption{5cm}{tunePic2}{In this \red{pulsed (not stationary)} regime, we shall monitor the coherent emission by tuning to the driving field frequency $ \omega $ and monitoring Rabi oscillations i.e. we change $\Delta t $ and observe coherent emission at the driving field frequency with VNA.\newline\indent Incoherent emissions we pick up with a SPA tuned to $ \Delta E/\hbar $. The two can be seen on the RHS, with the thin bright line (coherent) and spread out red dot (incoherent).}
+  \newpage
+	\subsection{Single photon source}
+	 For the single photon source incoherent emission (due to atom relaxation $ \propto \isigmaz $) is used. So from the above discussion, we tune the pulse length $ \Delta t $ so that we are in the position of the ``white arrow' by using a pulse of length $ \Delta t= 6.5ns $ so that the atom evolves to have $ \rho_{11}=1 $ \ra \alert{atom is in excited state}
+	 
+	 \iframe{\alert{A pulse of length $ \Delta t = 6.5ns $ will put the atom in the excited state and cause to to relax, giving off incoherent emission over a time period $ 1/\Gamma_1 $ - the time it takes to relax.}
+	 	
+	 The error in the emitted photon frequency will be $ \Delta E/\hbar \pm \Gamma_1 $ -it comes from the finite relaxation time. Sending periodic pulses every $ T=100ns >> 1ns$, we get a single photon every 100ns being produced.}
+	
+	\ipicCaption{7cm}{tunePic3}{The $ \pi $ pulse is tuned for a given $ \Omega $ so that the atom is driven to an excited state. It takes a time 6.5ns. Then the atom relaxes with a rate $ \Gamma_1 $ to emit a photon of energy $ \Delta E/\hbar $.}
+	
+	Then feed this into an ADC, which samples at 4ns (250MHz) and repeatadly take measurements \ra send pulse $ \Delta t $ in \ra read out on ADC. \alert{Take background noise too \ra square it \ra subtract from the pulsed values. Required $ 10^8 $ averaging}
+	
+	\ipicCaption{3cm}{tunePic4}{Every incohrent relaxation produces a photon. Typically the relaxation lasts around $ 1/\Gamma_1 $ = 100ns during which the photon will be measured.
+	}
+\newpage
+ \subsection{The experiment}
+ \begin{enumerate}
+ 	\item Load the transmon into the cryostat;
+ 	\item Characterisation measurements;
+ 	\item Rabi oscillation measurements;
+ 	\item Single photon detection.
+ \end{enumerate}
+
+ \subsection{Load transmon}
+  	 Bond the transmon and load it into one of the stands on the cryostat. The arrangement is shown below: We load onto the PCB and bond the transmission line and ground plane.
+  	
+  	\ipic{8cm}{setupPhoton1}
+  	
+  	The system is pumped and cooled to base temperature.
+  	
+ \subsection{Trace out qubit spectrum} 
+  \textbf{Trace out qubit spectrum} by standard VNA technique: send in pulse and measure output as a function of the current in the magnetic coil.
+  	\ipic{4cm}{tunePic1}
+  	
+ \iframe{\texttt{PhotonSource\_Dec8'17\_mfield\_02\_data.vi}
+ 	
+ 	Energy at the degeneracy point it 7.5GHz.
+ 
+ Low power is used. The phase gives the best readout.
+	}
+  	
+  	
+ \subsection{Rabi oscillation measurements}
+  	 \textbf{Measure Rabi oscillations} by using VNA and pulse generator, as described in Sec.~\ref{subsec:pulsedOperation}. We are applying a pulse of strength $ \Omega $ for a time $ t $, after which the evolution
+  	 
+  	 \[
+  	 \ket{\Psi} = U\ket{0} = \cos(\frac{\Omega t}{2})\ket{0}+e^{i\pi/2}\sin(\frac{\Omega t}{2})\ket{1} \ra 
+  	 \rho = \frac{1}{2}\begin{pmatrix}
+  	 1+\cos(\Omega t) & e^{-i\pi/2}\sin(\Omega t)\\ e^{+i\pi/2}\sin(\Omega t) & 1-\cos(\Omega t)
+  	 \end{pmatrix},
+  	 \]  
+  	 
+  	 \noindent takes place. \alert{Coherent emission $ \propto \iaverage{\sigma^{-}} = \rho_{10}$}, so is maximised for when the diagonal states have 50\% population i.e. $ \sin(\Omega t) = 1, \cos(\Omega t)=0 $. It undergoes periodic oscillations.
+  	 
+  	 \ipic{6cm}{rabi2}
+
+  	\iframe{\begin{itemize}
+  			\item Input pulses are chopped to have a width of $ \Delta t $, repeating this pattern every 100ns (10MHz) by a chopper 1;
+  			  		\ipic{3cm}{chopper}
+  			\item Output pulses are sliced so that the VNA only signals directly after pumping (\alert{or else the VNA will also be registering the input pulses!}) They have a fixed width of 40ns by chopper 2;
+  			\item The VNA accumulates signals with a \alert{bandwidth of 5Hz i.e. 0.2s}. This means that the pulse pattern is repeated 0.2s/100ns = 2million times and averaged to get the Rabi oscillation signal.
+  		\end{itemize}}
+		  			\ipicCaption{7cm}{pulseReading}{We drive the atom first. Then we open a window for the VNA to measure emission from the atom}
+  	
+  	\begin{itemize}
+  		\item Set a current $ I =0 $ (to go to degeneracy);
+  		 \item Tune VNA to the frequency of the qubit at this field (i.e. identify dip in transmission);
+  		 \item Hook up the pulse generator and mix it with the VNA signal;
+  		 \iframe{\alert{The pulse generator gives out 2 signals \ra one can be used for chopping, the other as a trigger at 4V!}}
+  		 \item Set the internal frequency of the pulse generator to 10MHz, so that the signal repeats every 100ns;
+  		 \item \iframe{Since the two pulse channels (one for input, one for output chopping) are not aligned, due to the input pulses being delayed as they travel into and out of the system, we need to align the pulses:
+  		 	\begin{itemize}
+  		 		\item We set both pulses to 10ns and then increment the delay of the first pulse, $ T_\text{delay} $ to get maximum readout:
+  		 		\ipic{3cm}{tDelay}
+  		 	\end{itemize}}
+  	 	\item We set a delay $ T_\text{delay} $ to both pulses so that they start at the beginning of the 100ns period. As $ \Delta t $ increases, $ T_\text{delay2} $ is also increased linearly;
+  	 	\item Take Rabi oscillations measurement at degeneracy point, then background measurements. Subtract from each other to get the signal;
+  	 	\item Do for a range of powers, which effectively changes $ \Omega $ and thus the oscillation frequency;
+	\end{itemize}
+  \iframe{\alert{The end goal, is to find such a $ \Delta t$ when the system first reaches its excited states. Call this value $ \Delta t_\text{excited} $}}
+  \newpage 
+ \subsection{Pulse measurements}
+ 		\iframe{The VNA is tuned to the transmon frequency $ \omega $ and set to continuously output. Power output $ \Omega $ must not be too high, so that there is no oversaturation in the output line (and we can measure individual photons), but not too low either, so that $ t_\text{excite} $ is longer than 10ns.}
+ 		 \iframe{The chopper is configured to $ \Delta t_\text{excited} $, repeat rate of $ t_\text{repeat} = 200ns $ (5MHz) from one channel}
+ 		 \alert{The second output from the chopper is sent as a trigger to the SPDevice. This will trigger the collection of data for the next $ n $ number of cycles by the SPDigitiser.}
+ 		\iframe{In the program we set $ \mathbf{n_\text{pulses}} = 5, \mathbf{t_\text{sampling} = 2.5ns}, t_\text{delay} = 100ns \ra $ number of samples $ \approx 600 $}
+ 		\ipic{5.5cm}{onePulse}
+ 		 Repeat these cycles and average to get \[ \bar{V} =\sum_i^{N}\frac{V_i}{N} \] \noindent    where $ N\sim 10^{9} = 1000\text{ million} $ samples.
+ 		\iframe{Take background signal $ \bar{V_b} $ for when there are no pulses also.}
+		
+		\red{The photon signal is then
+		
+		\[
+			V_\text{signal} = \bar{V}^2 - \bar{V_b}^2
+		\]}
+
+
+
+
+
+
+\newpage

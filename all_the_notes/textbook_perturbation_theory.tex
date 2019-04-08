@@ -1,0 +1,153 @@
+\section{Perturbation Theory}
+\iframe{A \red{perturbation} applied to a system
+
+\begin{equation}
+\label{eqn:pertHamiltonian}
+\hat{H}(t) = \hat{H}_0+\red{\lambda\hat{V}(t)}.
+\end{equation}
+\noindent We need to find the evolution of the initial state to the final state
+\begin{equation}\label{key}
+	\ket{\psi(0)} \ira \ket{\psi(t)}.
+\end{equation}
+
+\noindent \textbf{We use eigenstates $\ket{\phi}_i$ of the Hermetian operator $\hat{H}_0$ that form a basis.}
+}
+
+\begin{enumerate}
+	\item The state at an arbitrary time is a weighted superposition
+	\begin{equation}
+		\label{eqn:pertStates}
+		\begin{aligned}
+		\ket{\psi(t)}_I & = \sum_j c_j(t)\ket{\phi_j}\qquad\hfill\text{interaction picture - operator evolves}\\
+		\ket{\psi(t)}_S & = \sum_j c_j(t)\exp\left[\frac{-iE_j\hbar}{t}\right]\ket{\phi_j}\qquad \hfill\text{Schrodinger picture - state evolves}
+		\end{aligned}
+	\end{equation} 
+	\item Solving the \schrodinger equation in the iteraction picture (see Chapter~\ref{sec:interaction})
+	\begin{equation}\label{key}
+		\begin{aligned}
+			i\hbar\ipartial{\ket{\psi(t)}_I}{t} & = \bigg(U_0^\dagger\lambda\hat{V}(t)U_0\bigg)\ket{\psi(t)}_I \Rightarrow\\
+			i\hbar\ipartial{}{t}\bigg[\sum_j c_j(t)\ket{\phi_j}\bigg] & = \bigg(U_0^\dagger\lambda\hat{V}(t)U_0\bigg)\bigg[\sum_k c_k(t)\ket{\phi_k}\bigg]\\
+		\end{aligned}.
+	\end{equation}
+	\item Taking out the time dependent terms, and `sandwiching'
+	\begin{equation}\label{key}
+		\begin{aligned}
+		\sum_j \ipartial{c_j(t)}{t}\textcolor{red}{\bra{\phi_m}}\ket{\phi_j} & = \frac{\lambda}{i\hbar} \sum_k \bigg[ \textcolor{red}{\bra{\phi_m}}U_0^\dagger\bigg]\hat{V}(t)c_k(t)\bigg[U_0\ket{\phi_k}\bigg]\Rightarrow\\
+		\sum_j \ipartial{c_j(t)}{t}\ \delta_{\red{m}j} & = \frac{\lambda}{i\hbar} \sum_k \bigg[ \textcolor{red}{\bra{\phi_m}}e^{+i\red{E_m}t/\hbar}]\hat{V}(t)c_k(t)\bigg[e^{-iE_kt/\hbar}\ket{\phi_k}\bigg] \Rightarrow\\
+		\end{aligned}
+	\end{equation}
+	\noindent where we used
+	\begin{equation}\label{key}
+		U(t)\ket{\psi(t)} = \exp[-i\hat{H}t/\hbar]\ket{\psi} = \sum_n\frac{1}{n!}\bigg[\frac{-i\hat{H}t}{\hbar}\bigg]^n\ket{\psi} = \sum_n\frac{1}{n!}\bigg[\frac{-iEt}{\hbar}\bigg]^n\ket{\psi} = \exp[-iEt/\hbar]\ket{\psi}.
+	\end{equation}
+	\item This evaluates to 
+	\begin{equation}\label{eqn:use}
+		\begin{aligned}
+			\ipartial{c_{\red{m}}(t)}{t} & = \frac{\lambda}{i\hbar} \sum_k c_k(t)e^{i(\red{E_m}-E_k)t/\hbar} \red{\bra{\phi_m}}\hat{V}(t)\ket{\phi_k}\Rightarrow\\
+			\ipartial{c_{\red{m}}(t)}{t} & = \frac{\lambda}{i\hbar} \sum_k c_k(t)e^{i(\red{E_m}-E_k)t/\hbar} \left\langle\hat{V}(t)\right\rangle_{\red{m}k}.
+			\end{aligned}
+	\end{equation}
+	\item A useful thing to do now, is to expand the `weighting factors' $ c_m(t) $ as a power series of the small parameter $ \lambda $:
+	\iframe{\begin{equation}\label{expansion}
+		c_{m}(t) = c_{m}^{(0)}(t)+\lambda c_{m}^{(1)}(t)+\lambda^2c_m^{(2)}(t)+\cdots 
+	\end{equation}}.
+	\vspace{-1em}
+	
+	\textbf{\noindent Now lets sub in this expansion into Eq.~\ref{eqn:use} and compare terms with $ \lambda $ powers on the LHS and RHS}:
+	\begin{enumerate}
+		\item 
+		\begin{equation}
+			\mathbf{\lambda^{0}} \ira \difffrac{c^{(0)}_m(t)}{t} = 0.
+		\end{equation}
+		\noindent The initial state of the system before any perturbation ($ \lambda = 0 $) is an eigenstate $ \iket{\Psi(0)}~=~\iket{\phi_i} $. Since this initial weight $ c_j^{(0)} $ doesn't change:
+		\iframe{\begin{equation}\label{lam0}
+		\red{\mathbf{c^{(0)}_m}(t) = \text{ constant } = \braket{\phi_m|\Psi(0)} = \delta_{m,i}.}
+		\end{equation}}
+		
+		\item $ \mathbf{\lambda^{1}} $
+		\begin{equation}\label{lam1}
+		\begin{aligned}
+		\difffrac{c^{(1)}_m(t)}{t} & = \frac{1}{i\hbar}\sum_{k}c_{k}^{(0)}(t)e^{i\omega_{mk}t} \left\langle\hat{V}(t)\right\rangle_{mk}\\
+		& = \frac{1}{i\hbar}\sum_{k}\delta_{k,i}e^{i\omega_{mk}t} \left\langle\hat{V}(t)\right\rangle_{mk}\\
+		& = \frac{1}{i\hbar}e^{i\omega_{mi}t} \left\langle\hat{V}(t)\right\rangle_{mi}\\
+		\end{aligned}
+		\end{equation}
+		
+		\noindent giving weights of the for the initial state component, $ c_i^{(1)}(t) $ and the others that arise, $ c_m^{(1)}(t) $:
+		
+		\iframe{
+			\begin{equation}\label{key}
+				\begin{aligned}
+					c_{i}^{(1)}(\tau) & = \frac{1}{i\hbar}\int_{0}^{\tau}dt\hat{V}_{ii}(t)\\
+					c_{m}^{(1)}(\tau) & = \frac{1}{i\hbar}\int_{0}^{\tau}dt\hat{V}_{mi}(t)\exp\left[i\omega_{mi}t\right]
+				\end{aligned}
+			\end{equation}	
+		}
+	\end{enumerate}
+\end{enumerate}
+\noindent 
+
+ \noindent 
+  
+ \begin{enumerate}
+ 
+ 	\item $ \mathbf{\lambda^{2}} $
+ 	\begin{equation}\label{lam2}
+ 	\begin{aligned}
+ 	\difffrac{c^{(2)}_m(t)}{t} & = \frac{1}{i\hbar}\sum_{k}c_{k}^{(1)}(t)e^{i\omega_{mk}t} \left\langle\hat{V}(t)\right\rangle_{mk}\\
+ 	& = \frac{1}{i\hbar}\sum_{k}\bigg[\frac{1}{i\hbar}\int_{0}^{t}dt\hat{V}_{mi}(t)\exp\left[i\omega_{mi}t\right]\bigg]e^{i\omega_{mk}t} \left\langle\hat{V}(t)\right\rangle_{mk}
+ 	\end{aligned}
+ 	\end{equation}
+ 	
+ \end{enumerate}
+
+\subsection{Fermi's golden rule}
+ \iframe{So up to this point, we have determined that we have the evolution following a perturbation in the interactin picture
+ 	
+ 	\begin{equation}\label{key}
+ 		\begin{aligned}
+ 		\ket{i} & \ira \iket{\Psi(t)} = \sum_m c_m(t)\ket{m} \equiv \iket{i} + \sum_m c_{m}^{(1)}(t)\iket{m}\\
+			& c_{m}(t) = c_{m}^{(0)}(t)+\lambda c_{m}^{(1)}(t)+\lambda^2c_m^{(2)}(t)+\cdots\\
+			& c_{m}^{(0)}(t) = \text{ const } = \delta_{m,i}\\
+			& c_{i}^{(1)}(\tau) = \frac{1}{i\hbar}\int_{0}^{\tau}dt\hat{V}_{ii}(t)\\
+			& c_{m}^{(1)}(\tau) = \frac{1}{i\hbar}\int_{0}^{\tau}dt\hat{V}_{mi}(t)\exp\left[i\omega_{mi}t\right]
+ 		\end{aligned}
+ 	\end{equation}	
+ }
+
+\noindent The probability that upon measurement, we collapse into state \iket{j}:
+
+\begin{equation}\label{key}
+	\begin{aligned}
+		\text{Prob(collapsing into $ \iket{j} $)} = \iabsSquared{\bra{j}\ket{\Psi(t)}} = \iabsSquared{\bra{j}\left(\red{\ket{i}} + \blue{\lambda\sum_m c_{m}^{(1)}(t)\iket{m}}\right)}.
+	\end{aligned}
+\end{equation}
+
+\noindent The \red{first term} goes to zero, as states \iket{i}, \iket{j} are othogonal, and in the \blue{second term} only \iket{m}=\iket{j} will be selected:
+
+\iframe{\begin{equation}\label{key}
+ \begin{aligned}
+ \text{Prob collapsing into $ \iket{j} $} & = \iabsSquared{\lambda c_j^{(1)}(t)}\\
+	& c_j^{(1)}(t) = \frac{1}{i\hbar}\int_{0}^{\tau}dt\hat{V}_{mi}(t)\exp\left[i\omega_{ji}t\right]\\
+	& \hat{V}_{ji}(t) = \bra{j}\hat{V}(t)\iket{i}
+ \end{aligned}
+\end{equation}}
+
+\red{\textbf{In the special case, that the perturbation has a frequency corresponding to the energy separation of states \iket{i}, \iket{j}}}:
+\begin{equation}\label{key}
+	\lambda \hat{V}(t) = {\hat{A}}e^{-i\omega_{ji} t},
+\end{equation}
+
+\noindent the rotation in the integral cancels out, leaving:
+\begin{equation}\label{key}
+\begin{aligned}
+\text{Prob collapsing into $ \iket{j} $} & = \iabsSquared{\frac{1}{i\hbar}\bra{j}\hat{A}\ket{i}\tau}
+& \propto \iabsSquared{\bra{j}\hat{A}\ket{i}}.
+\end{aligned}
+\end{equation}
+
+\iframe{Driving something in resonane between two states, will mean that the probability of transition (transition rate) is proprtional to 
+	\begin{equation}\label{key}
+		t_{ij} \propto \iabsSquared{\bra{j}\hat{A}\ket{i}}.
+	\end{equation}
+	}

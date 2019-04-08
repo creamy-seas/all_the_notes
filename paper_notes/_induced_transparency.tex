@@ -1,0 +1,115 @@
+\section{Electromagnetically Induced Transparency on a Single Artificial Atom}
+ \iframe{Driving a 3-level system on resoance will result in the lowest eigenstate where one of the states if completely unpopulated (read dark state chapter in \texttt{all\_the\_notes}):
+ 
+ \begin{equation}
+ \widetilde{\mathcal{H}}_{c} = -\frac{\hbar}{2}
+ \begin{pmatrix}
+ 0 & \Omega_{21} & 0\\  \Omega_{21} & 0 & \Omega_{32} \\   	
+ 0 & \Omega_{32} & 0
+ \end{pmatrix},
+ \end{equation}
+ 
+ \noindent with eigenvalues found from $ \det(\widetilde{\mathcal{H}}-\lambda\mathbb{I}) \equiv 0 $ and eigenvectors from $ (\widetilde{\mathcal{H}}-\lambda\mathbb{I})\vec{v} = 0 $:
+ 
+ \begin{equation}
+ \begin{aligned}
+ \red{E_0} &\red{= 0} & E_1 &= -\frac{\hbar}{2}\sqrt{\Omega_{21}^2+\Omega_{32}^2} & E_2 &= \frac{\hbar}{2}\sqrt{\Omega_{21}^2+\Omega_{32}^2}\\
+ \red{\vec{v}_0} & \red{= \frac{1}{\sqrt{\Omega_{21}^2 + \Omega_{32}^2}}
+ 	\begin{pmatrix}
+ 	\Omega_{32}\\0\\-\Omega_{21}
+ 	\end{pmatrix}} & 
+ \vec{v}_1  & =
+ \begin{pmatrix}
+ \Omega_{21}\\ -\sqrt{\Omega_{21}^2 + \Omega_{32}^2} \\ \Omega_{32}
+ \end{pmatrix} &
+ \vec{v}_2  & =
+ \begin{pmatrix}
+ \Omega_{21}\\ \sqrt{\Omega_{21}^2 + \Omega_{32}^2} \\ \Omega_{32}
+ \end{pmatrix}\\
+ \end{aligned}
+ \end{equation} 
+ 
+ \noindent This forbids the transition \iket{1} \ira \iket{2}, and waves $ \omega_{21} $ will be scattered. \red{\textbf{The transmission of the probe field is measured exclusively in this paper.}}
+ 
+ In general, \iket{1} \ira \iket{3} is forbidden around the degeneracy point, due to the symmetry of the eigenstate wavefunctions.
+}
+ 
+ 
+%	\iframe{The dipole energies from atomic transition:
+%		\[
+%			\hbar\Omega = I_0\phi,
+%		\]
+%		\noindent where $ I = I_0\exp\big(i\omega t  - kx\big) $ is the current of the driving field in the wire and $ \phi_{ij} $ is from the matrix:
+%		
+%		\[
+%			\underline{\phi} = M\underline{\xi}i_\text{persistent},
+%		\]
+%		
+%		\noindent where $ M $ is wire-atom mutual inductance and $ i_\text{persistent} $ is the persistent current in the loop \textbf{and $ \xi $ is a dimensionless matrix}
+%	}
+	
+	\subsection{Atom emission and coupling}
+	 Coupling is performed by driving microwaves through a mutual inductor
+	 
+	 \begin{equation}\label{key}
+	 	\hbar\Omega_{ij}\grey{\cos(\omega_{ij} t)} = \red{\vartheta_{ij}}\iabs{I_{mw}}\grey{\cos(\omega_{ij} t)}\qquad \red{\vartheta_{ij} = MI_p\zeta_{ij}}.
+	 \end{equation}
+	 
+	 \noindent The atom will scatter waves according to
+	 \[
+	 	I_\text{sc}(x,t) = \big[i\frac{\hbar\Gamma_{21}}{\phi_{21}}\iaverage{\sigma_{21}}\big]e^{ik\iabs{x}-\omega_{21}t},
+	 \]
+	 
+	 \noindent and \iaverage{\sigma_{21}} is found from the stationary state of the Master equation $ \dot{\rho} = 0 $. The transmission coefficient is:
+	 
+	 \[
+	 	\begin{aligned}
+		 	t = & \frac{\text{Input current + scattered current}}{\text{Input current}} \ge 1\\
+		 	& = 1 + \big[i\frac{\hbar\Gamma_{21}}{\phi_{21}}\iaverage{\sigma_{21}}\big]\red{e^{ik\iabs{x}-\omega_{21}t}}/\frac{\hbar\Omega_{21}}{\phi_{21}}\quad \red{\text{ignore}}\\
+		 	& = 1 + i\frac{\Gamma_{21}}{\Omega_{21}}\iaverage{\sigma_{21}}
+	 	\end{aligned}
+	 \]
+	 
+	 \iframe{The relaxation rate is caused by quantum noise in the 1D space:
+		\[
+			\Gamma_{21} = \hbar\omega_{21}\bigg(\frac{MI_\text{persistent}}{\hbar}\bigg)^2\frac{1}{Z}
+		\] 
+ 	}
+ 
+ \subsection{Two tone measurement}
+  \textit{All measurements are done on the probe tone, $ \Omega_p $, which falls into the range of the cryogenic amplifier.}
+  
+  \begin{itemize}
+  	\item First we send in the probe tone, $ \Omega_p $, and when in resonance, we will have a dip in transmission (emitted waves are exactly antiphase with the driving ones).
+  
+  \ipic{5cm}{ElectromagneticallyInducedTransparencySingleArtificialAtom1}
+  
+   \item Then we add on the control tone, $ \Omega_{c} $, which is much stronger.
+   
+   \textbf{\red{This depopultes levels \iket{2} and \iket{1} (system driven to \iket{3}) and therfore the probe tone, driving \iket{1} \lra \iket{2}, is no longer being abosrbed and $ \Omega_p $ transmission increases.}}
+   
+   This is seen as white patches in the $ \Omega_p $ transmission which we use for probing - it indicates that $ \Omega_c $ is on resonance with \iket{2}\lra\iket{3}.
+   
+   \ipic{5cm}{ElectromagneticallyInducedTransparencySingleArtificialAtom2}
+   
+   \item Finally we drive a very strong $ \Omega_{31} $ tone, which populates the third level. Once again, this causes the probe $ \Omega_{21} $ to strengthen whenever we hit a resonant \iket{1}\lra\iket{3} transition, since level \iket{1} becomes unpopulated, and there is nothing to absorb $ \Omega_{32} $ = the probe tone.
+   
+  However at the degeneracy point, $ \delta\Phi = 0 $, when \iket{1}\lra\iket{3} is forbidden, the probe tone is abosorbed as usual.
+  
+  \ipic{5cm}{ElectromagneticallyInducedTransparencySingleArtificialAtom3}
+   
+  \end{itemize}
+  
+\subsection{How strong is the absorbtion - how strong is the induced transparency?}
+  To see just how much the probe is being absorbed, we plot the probe transmission as a funciton of the control field strength. As the control $ \Omega_{32} $ gets stronger, level \iket{1} becomes depopulated and the probe passes through more and more easily. The splitting is Autler Townes spliiting of \iket{2} under strong control fields.
+  
+  \ipic{5cm}{ElectromagneticallyInducedTransparencySingleArtificialAtom4}
+ 
+ Plotting these tranmission dips with the driving power on the x-axis profoundly reveals this splitting, and a slice along $ \delta\omega_p = 0 $ shows how the \red{\textbf{$ \Omega_c $}} can control tranmission of the probe, $ \Omega_p $.
+ 
+ \ipicCaption{5cm}{ElectromagneticallyInducedTransparencySingleArtificialAtom5}{As the control gets stronger, the probe $ \Omega_{21} $ passes through easier and easier. Thus the control field can be used to extinct the probe to up to 96\%.}
+ 
+ 
+ \newpage
+ 
+ 

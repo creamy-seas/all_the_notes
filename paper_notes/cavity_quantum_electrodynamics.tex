@@ -1,0 +1,223 @@
+\section{Cavity quantum electrodynamics for superconducting electrical circuits: an architecture for quantum computation\label{sec:CavityQunatumElectrodynamics}}
+
+  We can monitor the states of atoms in a cavity by monitoring changes in its transmission as atoms fall through the cavity
+  
+  \ipic{7cm}{cavityPic1}
+
+  {\LARGE \[ 
+ 	\mathcal{H} =\blue{\frac{\Delta E}{2}\sigma_z}+\blue{{\hbar\omega_r}a^\dagger a} + \red{g_0\bigg({a\sigma^+}+{a^{\dagger}\sigma^-}\bigg)},
+ 	\]}
+ 
+ \noindent which gives rise to energy levels depicted in Fig.\ref{qrLadder}  which we write out in terms of the basis states, recalling that $ \sigma_z=\iupKetBra- \idownKetBra$, $\sigma^+=\ketbra{\uparrow}{\downarrow}$, $\sigma^-=\ketbra{\downarrow}{\uparrow}$, $ a = \sqrt{N+1}\ketbra{N}{N+1} $, $ a^\dagger = \sqrt{N+1}\ketbra{N+1}{N} $:
+ 
+ \begin{equation}
+ \begin{aligned}
+ \mathcal{H} & = \blue{\bigg[\frac{\Delta E}{2}\big(\iupKetBra-\idownKetBra\big)\bigg]\otimes\mathbb{I}_{N}} + \blue{\mathbb{I}_{n}\otimes\bigg[\hbar\omega_r\sum_{N}N\ketbra{N}{N}\bigg]} +\\ 
+ &\ +  \red{g_0\bigg[\ketbra{\uparrow}{\downarrow}\sqrt{N+1}\sum_{N}\ketbra{N}{N+1}+\ketbra{\downarrow}{\uparrow}\sum_{N}\sqrt{N+1}\ketbra{N+1}{N}\bigg]}\\
+ & = \sum_{N}\quad\blue{\bigg(\hbar N\omega_r-\frac{\Delta E}{2}\bigg)\ketbra{\downarrow,N}{\downarrow,N}+\bigg(\hbar N\omega_r+\frac{\Delta E}{2}\bigg)\ketbra{\uparrow,N}{\uparrow,N} \leftarrow \text{ diagonal }}\\
+ &\ +  \red{g_0\sqrt{N+1}\bigg[\ketbra{\uparrow,N}{\downarrow,N+1}+\ketbra{\downarrow,N+1}{\uparrow,N}\bigg] \leftarrow \text{ cross terms }}\\
+ \end{aligned}
+ \end{equation}
+ 
+ \noindent and in matrix form
+ 
+ \begin{equation}\label{eqn:qubitCavityHamil}
+ \mathcal{H} = \kbordermatrix{
+ 	& \ket{\downarrow,N} & \ket{\uparrow,N} & \ket{\downarrow,N+1} & \ket{\uparrow,N+1} \\
+ 	\bra{\downarrow,N} &\blue{\hbar N\omega_r-\frac{\Delta E}{2}} & 0 & 0 & 0\\
+ 	\bra{\uparrow,N} & 0 & \blue{\hbar N\omega_r+\frac{\Delta E}{2}} & \red{g_0
+ 		\sqrt{N+1}} & 0\\
+ 	\bra{\downarrow,N+1} & 0 & \red{g_0\sqrt{N+1}} & \blue{\hbar (N+1)\omega_r-\frac{\Delta E}{2}} & 0\\
+ 	\bra{\uparrow,N+1} & 0 & 0 & 0 & \blue{\hbar (N+1)\omega_r+\frac{\Delta E}{2}}.\\
+ }
+ \end{equation}
+ 
+ \iframe{\alert{Now we find the eingestates assuming that $ \Delta = \frac{\Delta E}{\hbar} - \omega_r $ is the atom-cavity detuning.}}
+ 
+ \begin{itemize}
+ 	\item For the ground state,
+ \[
+ 	\iket{\downarrow,0}  = \begin{pmatrix} 1 \\0\\0\\\vdots
+ 	\end{pmatrix}\text{ with energy } -\frac{\Delta E}{2}.
+ \]
+ 
+ \item Then diagonalising an arbitrary middle matrix (N value incremented for convenience)
+ 
+ \begin{equation}\begin{aligned}
+ \mathcal{H}_{\text{middle}} 
+ 	& = \kbordermatrix{&\ket{\uparrow,N} & \ket{\downarrow,N+1}\\
+ 								\bra{\uparrow,N} & \blue{\hbar\omega_r(N+\frac{1}{2}) + \hbar\Delta} & \red{g_0\sqrt{N+1}}\\
+ 								\bra{\downarrow,N+1} & \red{g_0\sqrt{N+1}} & \blue{\hbar\omega_r(N+\frac{1}{2}) - \hbar\Delta}}\\ 
+ 	&= \blue{\hbar\omega_r(N+\frac{1}{2})\mathbb{I} +\frac{ \hbar\Delta}{2}\sigma_z} + \red{g_0\sqrt{N+1}\sigma_x}\\
+ 	& = \blue{\hbar\omega_r(N+\frac{1}{2})\mathbb{I}} + \frac{1}{2}\sqrt{(\hbar\Delta)^2 + 4g_0^2(N+1)} \bigg(\cos(\theta)\sigma_z + \sin(\theta)\sigma_x\bigg)\\
+ 	& = \hbar\omega_r(N+\frac{1}{2})\mathbb{I} + E_{\text{coupled}}(\cos(\theta)\sigma_z + \sin(\theta)\sigma_x)\\
+ 	& \text{where } E_\text{coupled} = \frac{\hbar}{2}\sqrt{\Delta^2 + 4(g_0/\hbar)^2(N+1)};\qquad \tan(\theta) = \frac{g_0\sqrt{N+1}}{\hbar\Delta/2}.
+ \end{aligned}
+ \end{equation}
+ 
+{ \noindent By applying a rotation of $ \theta/2 $ about the y-axis
+ 
+ \[
+ 		U = \exp\big[i\frac{\theta}{2}\sigma_y\big] = \cos(\theta/2)\mathbb{I} + i\sin(\theta/2)\sigma_y,
+ 	\]}
+ 
+ \noindent we will end up as in Eq.~\eqref{tuneEq1} with 
+ \[
+ 	\mathcal{H'} = \hbar\omega_r(N+\frac{1}{2})\mathbb{I} + \frac{E_\text{coupled}}{2}\sigma_z = \begin{pmatrix}
+ 		\hbar\omega_r(N+\frac{1}{2}) + \frac{E_\text{coupled}}{2} & 0\\0& \hbar\omega_r(N+\frac{1}{2}) - \frac{E_\text{coupled}}{2}
+ 	\end{pmatrix}
+ \] 
+ 
+ \noindent with eigenstates \iket{\tilde{0}}, \iket{\tilde{1}} at energies $ \hbar\omega_r(N+\frac{1}{2}) \pm \frac{E_\text{coupled}}{2} $ (or in the original basis)
+ \iframe{
+ \[
+ 	 \begin{aligned}
+ 	 \iket{+,N} & = U^{\dagger}\ket{\tilde{1}} 				= \bigg(\cos(\theta/2)\mathbb{I}-i\sin(\theta/2)\sigma_y\bigg)
+ 				\begin{pmatrix}1\\0 \end{pmatrix} = 
+ 				\begin{pmatrix} \cos(\theta/2)\\\sin(\theta/2)\end{pmatrix} \\
+ 	\iket{-,N} & = U^{\dagger}\ket{\tilde{0}} = \begin{pmatrix}
+ 	-\sin(\theta/2)\\\cos(\theta/2)
+ 	\end{pmatrix} \equiv -\sin(\theta/2)\iket{\uparrow,N} + \cos(\theta/2)\iket{\downarrow,N+1}\\
+ 	\\&\text{Energies}_{\pm} = \hbar\omega_r(N+\frac{1}{2}) \pm \frac{E_\text{coupled}}{2}
+ 	\end{aligned}
+ \]}
+ \end{itemize}
+ 
+  \ipic{5cm}{cavityPic2}
+ 
+ The eingenstate spectrum of the \iket{\pm,N} states is ladder-like.  For a single photon, and on resonance, $ \Delta = 0 $ the entangled states are
+ 
+ \[
+ 	\iket{\pm,1} = \frac{\iket{\uparrow,0} \pm \iket{\downarrow,1}}{\sqrt{2}} \quad \text{ with energies } \hbar\omega_r(N+\frac{1}{2}) \pm g_0,
+ \]
+ 
+ \noindent will flip flop between the original levels with a Rabi frequnecy $ 2g_0/2\pi $. As the atom is excited for exactly half of the state, with a decay rate $ \gamma $ , and the cavity is excited for the other half of the state, with a decay rate $ \kappa $ the net decay rate is $ \frac{\gamma+\kappa}{2} $ and to observe Rabi oscillations between the original states
+ 
+ \[
+ 	2g > \frac{\kappa+\gamma}{2} \qquad\qquad\text{\red{to see Rabi oscillation before decay == \textbf{strong coupling}}}
+ \]
+ 
+ \subsection{Adding detuning}
+ \alert{What if there is detuning, and we want to find the rate of decay of the eigenstate \iket{\pm,1}? We need to approximate how much of this state corresponds to an excited atom, \iup and how much to an excited photon.} 
+ 
+ Expasnion of $ \iket{-,1} = -\sin(\theta/2)\iket{\uparrow,0} + \cos(\theta/2)\iket{\downarrow,1} $ for $ g/\Delta<<1 $ leads to 
+ 
+ \[
+ 	\begin{aligned}
+	 	\iket{-,1} &\approx \frac{-g}{\Delta}\iket{\uparrow,0} + \iket{\downarrow,1} \ra \text{ atom decay } = \frac{-g}{\Delta} \text{ cavity decay = 1}\ra \Gamma = (g/\Delta)^2\gamma+\kappa\\
+	 	\iket{+,1} & \approx \iket{\uparrow,0} + \frac{g}{\Delta}\iket{\downarrow,1}\ra \text{ atom decay =1, }\text{cavity decay =} \frac{-g}{\Delta} \ra \Gamma = \gamma+  (g/\Delta)^2\kappa
+ 	\end{aligned}
+ \]
+
+ Another way to treat this problem, is to apply a unitary transformation (I won't quote the exact form) and arrive at the Hamiltonian:
+ 
+ \[
+ 	U\mathcal{H}U\idagger \approx \omega_r+\frac{g^2}{\Delta}\sigma_z a\idagger a + \frac{\sigma_z}{2}\big[\Omega + \frac{g^2}{\Delta}\big]
+ \]
+ \noindent which we interpret as
+ \begin{itemize}
+ 	\item Stark/Lambda shift of the atom energy;
+ 	\item The atom 'pulls' the cavity frequency by $ g^2/\Delta $.
+ \end{itemize}
+
+ \subsection{Realisation}
+  To relise, we put the atom at the maximum voltage of a `cut out' resonator:
+  
+  \ipic{4cm}{cavity_qed_1}
+  Advantages:
+  \begin{itemize}
+  	\item The coupling strength is very large because of the small sizes of the elements. The voltage between theground plane and resonator is 0.2\,V/m,which is 100 times stronger than for a regular cavity;
+  	\item The geometry of the resonator fixes its frequency \ra no 1/f noise;
+  	\item Atom will emit directly into the line, and with a high enough quality factor, losses are minimised.
+  \end{itemize}
+ 
+ \subsection{Cooper pair box}
+  Controleed with a bias capacitor system $ C_g, V_g $ and operated in the regime where energies do not surpass superconducting energy gap.
+  
+  \iframe{Genereally we derive the energy of the system for when we have a single JJ, by writting:
+ 	\[
+ 		\mathcal{H} = E_C{\left(\hat{N}-N_\text{ext}\right)^2}- E_J\cos\left(\phi\right)
+ 	\]
+ 	
+ 	\noindent and arriving at
+ 	
+ 	\[
+ 	\begin{aligned}
+ 	\mathcal{H} & = \begin{pmatrix}
+ 	-\epsilon/2 & -E_J/2\\
+ 	-E_J/2 & \epsilon/2\\
+ 	\end{pmatrix}\\
+ 	\epsilon/2 = \frac{\text{energy diff}}{2} & = \frac{E_CN_\text{ext}^2-E_C(1+N_\text{ext})^2}{2} = -\frac{E_C}{2}\big(1+2N_\text{ext}\big)
+ 	\end{aligned}
+ 	\]
+ 	
+ 	 	\noindent which is a two level system, with solutions:
+ 	 	
+ 	 	\[
+ 	 	E = \pm \frac{\Delta E}{2}, \qquad \ket{\psi}_0 = \begin{pmatrix}
+ 	 	\cos(\theta/2) \\ \sin(\theta/2)
+ 	 	\end{pmatrix}, \qquad \ket{\psi}_1 = \begin{pmatrix}
+ 	 	\sin(\theta/2) \\ \cos(\theta/2)
+ 	 	\end{pmatrix}, \Delta E = \sqrt{\epsilon^2+E_J^2}
+ 	 	\]
+ 	 	
+ 	 	\red{We need to change the separation of these two levels, and the only way this can be done is by changing $ E_J $ \ra we need to introduce a second JJ to make a SQUID:}
+ 	 	
+ 	 	Two JJ in a loop give a total current
+ 	 	
+ 	 	\begin{equation}
+ 	 	I = I_{c1}\sin(\phi_1)+I_{c2}\sin(\phi_2),
+ 	 	\end{equation}
+ 	 	
+ 	 	\noindent which along with the phase quantisation $ \phi_1+\phi_2+\phi_\text{ext} = 2\pi m $ and symmetric JJs $I_{c1}=I_{c2}=I_c$ results in
+ 	 	
+ 	 	\begin{equation}
+ 	 	\begin{aligned}
+ 	 	I & = 2I_c\sin(\frac{\phi_1+\phi_2}{2})\cos(\frac{\phi_1-\phi_2}{2})) \\
+ 	 	 &  =I_{cs}(\Phi_\text{ext})\sin(\phi)\\
+ 	 	& I_{cs} = 2I_c|\cos(\pi\Phi_\text{ext}/\Phi_0)|\\
+ 	 	& \phi = (\phi_1+\phi_2)/2
+ 	 	\end{aligned},
+ 	 	\end{equation}
+ 	 	
+ 	 	\noindent where now the critical current $I_{cs}$ is controlled by an external field. 
+ 	 	
+ 	 	\red{Since we derive the Josephson energy using $ \int VIdt = E_J\cos(\phi)$ }, the fact that $ I \ra I_cs $ will mean that 
+ 	 	\[
+ 	 		E_J \ra E_J\cos(\pi\Phi_\text{ext}/\Phi_0)
+ 	 	\]
+ 	 	
+ 	 	\noindent \textbf{Which we can now control!}
+  }
+  
+ \subsection{Euler Lagrange equations}
+  As detailed in Kauers notes, the system described by the largrangian
+  
+  \[
+  	\mathcal{L} = T - U,
+  \]
+  
+  \noindent will move between configurations such that the integral $ S = \int \mathcal{L}(q,\dot{q},t) $ is maximised. This can be reinterpreted in the Euler Lagrange equation
+  
+  \[
+  	\frac{d}{dt}\big(\frac{\partial\mathcal{L}}{\partial \dot{q}}\big) - \frac{\partial\mathcal{L}}{\partial q} = 0.
+  \]
+  
+  In appendix A of the paper we do this for a transmission line of length $ L $:
+  \begin{itemize}
+  	\item \[ 
+  		\mathcal{L} = \int_{-L/2}^{L/2}dx\big(\frac{l}{2}j^2-\frac{1}{2c}q^2\big)
+  	\]
+  	\item Using charge neutrality boundary conditions and solving Euler lagrange for $ \theta~=~\int_{-L/2}^{x}d\tilde{x}q(\tilde{x},t) $ - the total charge between the end of the pipe and position x, we get wave-like solutions
+  	
+  	\[
+  		\theta(x,t) = \sqrt{\frac{2}{L}}\sum_{k_o}\phi_o(t)\cos(\frac{k_o\pi x}{L}) + \sqrt{\frac{2}{L}}\sum_{k_e}\phi_e(t)\sin(\frac{k_e\pi x}{L}) 
+  	\]
+  	
+  	\ipic{3cm}{line_theta}
+  	
+  	\item Placing the solved $ \theta $ back into the lagrangian results in Lagrangian of Hamronic oscillators
+  \end{itemize}
+  
+   \newpage
+ 

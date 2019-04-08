@@ -1,0 +1,50 @@
+% -*- TeX-master: "../paper_notes.tex" -*-
+
+\section{The Josephson effect $ e/h $ \cite{clarke1970}}
+\iframe{ Explanation of how the Josephson effect comes about:
+  \begin{itemize}
+  \item There are two equations important for the Josephson junction:
+    \begin{equation}\label{key}
+      \begin{aligned}
+        E & = \frac{\Phi_0}{2\pi}(1-cos(\Delta\phi))\\
+        j & = j_c\sin(\Delta\phi).
+      \end{aligned}
+    \end{equation}
+ 		
+  \item \textbf{\red{What we control is the current, $ j $:}}
+ 		
+    \red{\begin{center} Increase $ j $ \ra Increase $ \delta\phi $ (to $ \pi/2 $) \ra decrease barrier
+        coupling energy $ E $.
+      \end{center}} Beyond the critical current, you generate a potential accross the junction - you
+    are now either emitting or absorbing a photon with each tunneling event.
+ 	
+    \ipic{3cm}{josephson_effecti}
+ 		
+  \item To derive the above equations, we look at the conjugate variables \icommutation{n}{\phi} =
+    -i. It is well known, that the time evolution of an operator $ \hat{n} $ is given by
+    \begin{equation}\label{key}
+      \begin{aligned}
+        i\hbar\difffrac{\hat{n}}{t} & = \icommutation{\mathcal{H}}{\hat{n}}+ \grey{\difffrac{\hat{n}}{t}} \equiv i\difffrac{\mathcal{H}}{\phi} \\
+        i\hbar\difffrac{\hat{\phi}}{t} & = \icommutation{\mathcal{H}}{\hat{\phi}}+ \grey{\difffrac{\hat{\phi}}{t}} \equiv -i\difffrac{\mathcal{H}}{\hat{n}} \\
+      \end{aligned}
+    \end{equation}
+ 		
+    \noindent where we allow the commutator to operate on a system state to evalute the right-hand
+    side.
+
+  \item Taking the expectation values:
+ 		
+    \begin{equation}\label{key}
+      \begin{aligned}
+        \red{j} & = 2e\difffrac{\iaverage{\hat{n}}}{t} = \frac{1}{\hbar}\difffrac{E}{\Delta\phi}\\
+        \difffrac{\iaverage{\Delta\phi}}{t} & = \frac{1}{\hbar} \difffrac{E}{\hat{n}} \equiv \frac{2}{\hbar}\Delta\mu
+      \end{aligned}
+    \end{equation}
+ 		
+    \noindent \red{\textbf{Where by definition $ \difffrac{E}{n} =2\Delta\mu$ for the transfer of a Cooper
+        pair.}}
+ 		
+  \item This above is so fundamental, that it does not depend on what type of junction is used. The
+    rest of the paper talks about how this makes it a perfect quantum standard.
+  \end{itemize}
+ }

@@ -1,0 +1,57 @@
+\section{Entanglement of two superconducting qubits in a waveguide cavity via monochromatic two-photon excitation}
+   Two transmons are used to create a mutlilevel system as in the image:
+   \ipic{4cm}{entanglmentOfQubits_1}
+  
+  For the Hamiltonian, we write it out for the combined system:
+  \[
+  	 \begin{aligned}
+  	\mathcal{H} =	&(\omega_a-\frac{\delta_a}{2})a\idagger a + \frac{\delta_a}{2}(a\idagger a)^2+\\
+  		+& (\omega_b-\frac{\delta_b}{2})b\idagger b + \frac{\delta_b}{2}(b\idagger b)^2+\\
+  		+& \Omega\cos(\omega_dt+\phi)\big[a+a\idagger+\lambda b + \lambda b\idagger\big]+\\
+  		+ & J(a\idagger b + ab\idagger)
+  	\end{aligned}
+  \]
+  
+  In the rotating frame, the effect of this Hamiltonian will be to create an operation:
+  
+  \[
+  U = \left(\begin{matrix}
+  	\cos(\Omega_Bt) & 0 & 0 & -ie^{-2i\phi}\sin(\Omega_Bt)\\
+  	  	0 & 1 & 0 & 0\\
+  	  	  	0 & 0 & 1 & 0\\
+  	  	  	  	-ie^{2i\phi}\sin(\Omega_Bt) & 0 & 0 & \cos(\Omega_Bt)\\
+  \end{matrix}\right)
+  \]
+  
+  \noindent in the \iket{00}-\iket{11} basis, where $ \Omega_B $ is some function of above variables.
+  
+  This is effectively a swap gate, when $ t = \pi/2\Omega_B $:
+  \[
+  U = \left(\begin{matrix}
+  0 & 0 & 0 & -ie^{-2i\phi}\\
+  0 & 1 & 0 & 0\\
+  0 & 0 & 1 & 0\\
+  -ie^{2i\phi} & 0 & 0 & 0\\
+  \end{matrix}\right)
+  \]
+  
+  \noindent and a $ \sqrt{\text{SWAP}} $ gate when $ t = \pi/4\Omega_B $:
+  \[
+  U = \left(\begin{matrix}
+  1/\sqrt{2} & 0 & 0 & -ie^{-2i\phi}/\sqrt{2}\\
+  0 & 1 & 0 & 0\\
+  0 & 0 & 1 & 0\\
+  -ie^{2i\phi}/\sqrt{2} & 0 & 0 & 1/\sqrt{2}\\
+  \end{matrix}\right)
+  \]
+  
+  
+  \noindent which, when applied to the ground stategives U\iket{00} = $ \frac{1}{\sqrt{2}}\big(\iket{00}-e^{-2i\phi}\iket{11}\big) $.
+  
+  When the difference between the transmon frequencies, $ \omega_a-\omega_b $, approaches the anharmonicity of the transmon $ \delta_a, \delta_b $, coupling between the transmons is enhanced (energy taken by one transmon still leaves leftover for interaction with the second)
+  
+  Then its a case of applying these operations, and measuring the expectation values to find the state of the qubit 
+  
+  \ipic{4cm}{entanglmentOfQubits_2}
+  
+ 

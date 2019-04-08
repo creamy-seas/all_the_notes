@@ -1,0 +1,107 @@
+\section{Photon source ideas\label{sec:newIdeas}}
+\begin{enumerate}
+	\item \textbf{Coherent field}, means a fixed phase relation with the two input fields. For example, supplying $ e^{i\omega_1t} $ and $ e^{i\omega_2t} \iright e^{i(\omega_1+\omega_2)t + \phi}$ where $ \phi $ is a fixed value. This allow further entanglement procedures;
+	\item \textbf{Coherence in a quibt} originates when we look at the general state\begin{equation}\label{key}
+	\iket{\psi} = \alpha\iket{0}+\beta\iket{1} \iright \rho = \imx{\iabs{\alpha}}{\alpha\iconjugate{\beta}}{\iconjugate{\alpha}\beta}{\iabs{\beta}},
+	\end{equation}
+	
+	\noindent where if the off diagonal terms \irho{01} = $ \alpha\iconjugate{\beta} $ and \irho{10} = $ \iconjugate{\alpha}\beta $ are non zero, then the system has coherence. These terms can be lost by either dephasing, or if the state spontaneously decays \irho{} \ra \irho{00} = \imatrix{1}{0}{0}{0}, with a rate \igamma{1}. SInce with density matrices, we are always talking about statistical averaging, this relaxation will, on average, means that the off digonal terms decay with a rate \igamma{1}/2 (this is a very qualitative desrciption);
+	\item \textbf{Emission by qubit} can be characterised as coherent and incoherent emission. One needs to work with \iaverage{\sigma_i} values and look at the corresponding bloch sphere. 
+	
+	\begin{figure}[h]
+		\ifigure{7cm}{sphere}
+	\end{figure}
+	
+	Recalling that
+	
+	\red{{\large \begin{equation}\label{expectationPauli}
+			\rho_{00} = \frac{\iaverage{\sigma_z}+1}{2};\quad \rho_{01}=\frac{\iaverage{\sigma_x}-i\iaverage{\sigma_y}}{2} = \iaverage{\sigma_{+}};\quad\rho_{10}=\frac{\iaverage{\sigma_x}+i\iaverage{\sigma_y}}{2} = \iaverage{\sigma_{-}};
+			\end{equation}
+			\begin{equation}\label{expectationPauli2}
+			\iaverage{\sigma_x}=\rho_{01}+\rho_{10};\quad\iaverage{\sigma_y} = i\rho_{01}-i\rho_{10};\quad\iaverage{\sigma_z}=\rho_{00}-\rho_{11}
+			\end{equation}}}
+	
+	\noindent The more a state is on the equator, the more coherence it has since a superposition is formed. Recall that, so that when the ``arrrow'' projects fully onto the equator, it means that the atom is in a superposed state e.g. $ \frac{\iket{0}+\iket{1}}{\sqrt{2}} \ra \imatrix{1/2}{1/2}{1/2}{1/2} \ra \isigma_z = 0, \isigma_x = 1$ (or some other rotation around y).
+	
+	\begin{center}
+		\textbf{Coherent emissions $ \propto \isigmax$\newline
+			Incoherent $ \propto\isigmaz $. \large}
+	\end{center}
+	
+	
+	\red{Both emissions will occur at the frequency of the qubit $ \omega_0 $ (i.e. energy level separaion), but emission from \isigmax will be sharp, while incoherent emission from \isigmaz will be broad as shown below}
+	
+	\ipic{5cm}{emission}
+	
+	Open transmission line can be thought of as a sum of many resonators, except that when a photon is emitted into it, it is never reabsorbed. Choosing one of the resonators ``making up'' the transmission line, whose energy is $ \omega_0 $ and in resonance with the qubit, we qualitatively know that it will be interacting with the qubit, it is where photons will be emiited to.
+	
+	Now draw the parrallels between:
+	
+	\begin{itemize}
+		\item The field in a resonator \hfill \ia\ and \iadagger;
+		\item Qubit\hfill excitation $ \sigma_{+} = \ketbra{1}{0} = \imatrix{0}{0}{1}{0} = (\sigma_x-i\sigma_y)/2$ and relaxation $ \sigma_{-} = \ketbra{0}{1} = \imatrix{0}{1}{0}{0} = (\sigma_x+i\sigma_y)/2$
+		
+	\end{itemize}
+	in the following way
+	
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline 
+			\textbf{Coherent field} & $ \big(\ia + \iadagger\big) $ & $ \isigmax $ \\ 
+			\hline 
+			\textbf{Photon number} & $ \ia\iadagger $& \isigmaz \\ 
+			\hline 
+		\end{tabular} 
+	\end{center}
+	
+	\item Logarithmic scale
+	
+	\begin{center}
+		\begin{tabular}{|p{0.3\linewidth}|p{0.3\linewidth}|p{0.3\linewidth}|}
+			\hline 
+			\textbf{Amplitude} & \textbf{Power} (amplitude squared) & \textbf{dBm} \\ 
+			\hline 
+			$ 10\log(\frac{A_1}{A_2}) $ & $ 10\log\big(\frac{A_1^{2}}{A_2^{2}}\big) = 20\log(\frac{A_1}{A_2}) $& $ 10\log(\frac{A_1}{1\text{\, mV}}) $ \\ 
+			\hline 
+		\end{tabular} 
+	\end{center}
+	\item The second order correlation function 
+	
+	\begin{equation}
+	\mathbf{g^2(\tau)} = \int A(t)B(t+\tau)dt,
+	\end{equation}
+	
+	\noindent where A(t) and B(t) describe the presence of photons in two output lines as schematically depicted in the figure below. The bigger capacitance means that the field will be emitted into this direction.
+	
+	\ipic{4cm}{g2exp}
+	A single photon is emitted from the transmon into the line, after which it is split by a 10\% beam splitter. Amplifiers are placed onto each line and detected as a pure microwave signal. A photon can only be detected on one of the lines, meaning that the amplitude function $ A(t), B(t) $ will look like so
+	
+	\ipic{4cm}{photonPulse}
+	
+	\noindent meaning that the second order corellation function will have peaks \textbf{whenever $ \tau = nt_0 $ and a missing peak at $ \tau=0 $}. Measuring this correlation function is a direct proof of a single photon source.
+	
+	In reality, we are measuring not the presence of a photon, but an amplitude in the transmission line, which will be subject to random noise of order $ kT >> \hbar\omega $, and the reading will have to be averaged for each channel in order to separate the photon peak.
+	
+	The general expression for the photon packet being registered will be
+	
+	\begin{equation}\label{key}
+	e^{i\omega_0 t}e^{-t/T},
+	\end{equation}
+	
+	\noindent where the $ 	e^{i\omega_0 t} $ is the coherent part, and  $ e^{-t/T} $ relates to the decoherence we shall find. This desrbies attentuating oscillations. The fast oscillations of 10GHz (1ps period) cannot possibly be registered, and we need to separate out the $ e^{-t/T} $ envelope by mixing in with a refference signal at $ \omega_0 $ and taking out the low frequency component. \red{Test this out!} Then this is the amplitude that we shall be registering by the digitiser (at around 4ns) and each of the blue dots will allow us to capture one of these photon peaks.
+	
+	\ipic{4cm}{extractedLow}
+	
+	
+	\textbf{What we have:}
+	\begin{itemize}
+		\item Photon source in the form of a transom. Attach to the transmission line from both sides;
+		\item SPI digitiser which reads of at 4ns;
+		\item Amplifiers;
+		\item \textit{Need beam splitter}
+	\end{itemize}
+	
+	The end goal is that if we can demonstrated the $ g^2(\tau) $ function, that we can perform entanglement experiments.
+\end{enumerate}
+
+\newpage 

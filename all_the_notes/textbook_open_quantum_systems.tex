@@ -1,0 +1,351 @@
+\section{Open quantum systems\label{sec:textbook_open_quantum_systems}}
+When system interacts with the environment, in other words the system is not isolated, then it becomes exceedingly hard to solve the \schrodinger for the whole system. There are too man interacting modes fir this to be feasible.
+
+Such quantum systems are referred to as \textit{open quantum systems}. We wish to solve the evolution of this specific subsystem. A key point that in this case, states become entangled, and the global state can no longer be factored a specific environment and system states. The density matrix formalism allows one to overcome this (the reduced state of an entangled state is a mixed state, which density matrices can represent).
+
+\subsection{How a mixed state arises}
+Since unitary operators preserve purity, its impossible to create a mixed state from a pure one, using unitary evolution. \textbf{Now we examine quantum evolutions which allow this}
+
+\begin{enumerate}
+	\item \textbf{Classical Randomness}
+	
+	Start off with a pure state 
+	
+	\begin{equation}
+	\rho = \ketbra{\Psi}{\Psi}.
+	\end{equation}
+	
+	\noindent and perform a unitary transformation $U_j$ with probability $p_j$. The result is
+	
+	\begin{equation}
+	\rho \rightarrow \rho'=\sum_jp_jU_j\rho U_j^\dagger,
+	\end{equation}
+	
+	\noindent recall Eq.\eqref{eqn:denMatEvolution}. Thus classical randomness has prepared a mixed state.
+	\item \textbf{From entanglement}
+	Begin with an entangled state - tensor product of two density matrices
+	
+	\begin{equation}
+	\hat{\rho}_{SB} = \hat{\rho}_{S} \otimes \hat{\rho}_{B}.
+	\end{equation}
+	
+	Unitary evolution under the \textbf{Full} Hamiltonian
+	
+	\begin{equation}
+	\rho_{SB}' = U\bigg[\rho_S(0)\otimes\rho_B(0)\bigg]U^\dagger,
+	\end{equation}
+	
+	\noindent Then we trace out the unwanted $B$ component (by taking the sandwich with the basis vectors $\left\lbrace \ket{e_i} \right\rbrace )$
+	
+	\begin{equation}
+	\begin{aligned}
+	\rho'_S & = \text{Tr}_B\left\lbrace\rho_{SB}'\right\rbrace\\
+	& = \sum_k\bra{e_k}U\bigg[\rho_S(0)\otimes\rho_B(0)\bigg]U^\dagger\ket{e_k}.
+	\end{aligned}
+	\end{equation}
+	
+	\noindent Assuming that $\mathbf{\rho_B(0) = \ketbra{e_0}{e_0}}$,
+	
+	\begin{equation}
+	\begin{aligned}
+	\rho'_S & = \sum_k\bigg[\bra{e_k}U\ket{e_0}\bigg]\rho_S(0)\bigg[\bra{e_0} U^\dagger\ket{e_k}\bigg]\\
+	& = \sum_kS_k\ \rho_S(0)\ S_k^\dagger,
+	\end{aligned}
+	\end{equation}
+	
+	\noindent $S_k$ being introduced for the super-operator concept below.
+\end{enumerate}
+
+\subsection{Superoperators}
+In parallel with the way that an operator maps one vector to another
+
+\begin{equation}
+\ket{\psi'}=\hat{O}\ket{\psi},
+\end{equation}
+
+\noindent a super-operator maps one operator (density matrix) into another
+
+\begin{equation}
+\rho'=S\big[\rho\big],
+\end{equation}
+
+\noindent for the two examples above it would have been
+
+\begin{equation}
+\rho' = S\big[\red{\rho}\big] = \quad
+\begin{cases}
+\sum_jp_jU_j\red{\rho} U_j^\dagger\\
+\sum_k\big[\bra{e_k}U\ket{e_0}\big]\red{\rho}\big[\bra{e_0} U^\dagger\ket{e_k}\big].
+\end{cases}
+\end{equation}
+
+\noindent\red{All superoperators in quantum mechanics can be written in the form}
+
+\begin{equation}
+\begin{aligned}
+& \red{S\big[\rho\big] = \sum_jK_j\rho K_j^\dagger},\\
+& \red{\sum_jK_j^\dagger K_j = \mathbb{I}.}
+\end{aligned}
+\end{equation}
+
+\noindent For the above Example 1, $K_j = \sqrt{p_j}U_j$.
+
+\red{{\large \textbf{Important properties}
+		\begin{enumerate}
+			\item Does NOT need to be unitary
+			\item If $\rho$ is Hermitian, trace 1 and non negative eigenvalues, then $\rho'$ has the same properties.
+		\end{enumerate}
+}}
+
+\subsection{Deriving equation for open quantum system}
+We would like to derive an evolution equation of the form
+
+\begin{equation}
+\label{eqn:openDesire}
+\dot{\rho}(t) = S\big[\rho(t)\big],
+\end{equation}
+
+\noindent i.e. find such a superoperator $S[]$, that returns the rate of change of the density matrix (analogy to \schrodinger is $\ket{\dot{\psi}(t)} = \frac{-i\hat{H}}{\hbar}\ket{\psi(t)}$). It only depends on the state of the system \textbf{immediately before}. 
+
+{\Large A system, whose evolution only depends on the state RIGHT NOW, is known as Markovian. No dependence on $\rho(t')$ much earlier than $t$. An example is Snakes and Ladders.}
+
+Furthemore, it should only depend on the reduced state of our system of interest (\textbf{not on the state of the other system}) $\equiv$ flow of information out of the system like the interaction of atoms with electromagnetic field - emitted photons will never return to the system practically.
+
+\vspace{2ex}
+\begin{center}
+	\textbf{{\Large We make three assumptions to find an expression for
+			\begin{equation}
+			\dot{\rho}(t) = S\big[\rho(t)\big].
+			\end{equation} }}
+\end{center}
+
+\begin{enumerate}
+	\item We work with \red{$\rho(0)$} and \red{$\rho(\delta t)$}, instead of $\rho(t)$ and $\rho(t+\delta t)$.
+	
+	\item There is a superoperator which takes $\rho(0) \rightarrow \rho(\delta t)$ (i.e. Markovian evolution)
+	
+	\begin{equation}
+	\red{\rho(\delta t) = S\big[\rho(0)\big] = \sum_jK_j(\delta t)\rho(0)K_j^\dagger(\delta t).}
+	\label{eqn:openSuperoperator}
+	\end{equation}
+	
+	\item 
+	\begin{equation}
+	\begin{aligned}
+	\dot{\rho}(t) = \lim\limits_{\delta t\rightarrow0}\frac{\rho(t+\delta t)-\rho(t)}{\delta t} \quad & \Rightarrow \quad {\rho(t+\delta t) = \rho(t) + \dot{\rho}(t)\delta t}\\
+	& \red{\Rightarrow\rho(\delta t) = \rho(0) + \underbrace{\dot{\rho}(0)}\delta t}
+	\end{aligned}
+	\label{eqn:openDerivatives}
+	\end{equation}
+	
+	\noindent This is accurate in the limit $\delta t\rightarrow0$. The highlighted $\red{\dot{\rho}(0)}$ is what we want to find.
+	
+\end{enumerate}
+\vspace{3ex}
+
+\noindent In order for Eq.\eqref{eqn:openDerivatives} and Eq.\eqref{eqn:openSuperoperator} to be the same, the Krais operators must be
+
+\begin{equation}
+K_j = 
+\begin{cases}
+K_0 & = \mathbb{I} + \delta t A\\
+K_j & = \sqrt{\delta t}L_j
+\end{cases},
+\end{equation}
+
+\noindent where $A$ and $L_j$ are linear operators, and this is proven by direct substitution into Eq.\eqref{eqn:openSuperoperator}
+
+\begin{equation}
+\begin{aligned}
+&\left\lbrace
+\begin{aligned}
+\text{\red{\textbf{Eq.\eqref{eqn:openSuperoperator}\ }}} \rho(\delta t) & = K_0\rho(0)K_0^\dagger + \sum_{j=1}^\infty K_j(\delta t)\rho(0)K_j^\dagger(\delta t)\\
+& = \big(\mathbb{I} + \delta t A\big)\rho(0)\big(\mathbb{I} + \delta t A^\dagger\big) + \delta t\sum_{j=1}^\infty L_j\rho(0)L_j^\dagger\\
+& = \rho(0) + \delta tA\rho(0) + \delta t\rho(0)A^\dagger + \underbrace{O(\delta t^2)} + \delta t\sum_{j=1}^\infty L_j\rho(0)L_j^\dagger\\
+& = \rho(0) + \delta t\bigg(A\rho(0) + \rho(0)A^\dagger + \sum_{j=1}^\infty L_j\rho(0)L_j^\dagger\bigg)\\
+\text{\red{\textbf{Eq.\eqref{eqn:openDerivatives}}}\ }\rho(\delta t) & = \rho(0) + {\dot{\rho}(0)}\delta t
+\end{aligned}
+\right. \Rightarrow\\
+& \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \Rightarrow {\dot{\rho(0)} = A\rho(0) + \rho(0)A^\dagger + \sum_{j=1}^\infty L_j\rho(0)L_j^\dagger}\\
+& \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad  \red{\Rightarrow \dot{\rho(t)} = A\rho(t) + \rho(t)A^\dagger + \sum_{j=1}^\infty L_j\rho(t)L_j^\dagger}
+\end{aligned}
+\label{eqn:openMarkovianDerivation}
+\end{equation}
+
+\noindent Next, express the linear operator $A$ as a sum of \textbf{\red{Hermitian}} operators $H=H^\dagger, M = M^\dagger$
+
+\begin{equation}
+\red{A = -\frac{i}{\hbar}H+M \qquad \Rightarrow \qquad K_0 = \mathbb{I} + \delta t\big(-\frac{i}{\hbar}H+M\big)}.
+\label{eqn:openAValueProposed}
+\end{equation}
+
+\noindent Recall, that Kraus operators must fulfil $\sum_jK_j^\dagger K_j=\mathbb{I}$, meaning that there is a constraint on the values of $H$ and $M$:
+
+\begin{equation}
+\begin{aligned}
+\mathbb{I} & = \sum_jK_j^\dagger K_j = \bigg(\mathbb{I} + \delta t\big(+\frac{i}{\hbar}H+M\big)\bigg)\bigg(\mathbb{I} + \delta t\big(-\frac{i}{\hbar}H+M\big)\bigg) + \sum_j\sqrt{\delta t}L_j^\dagger\sqrt{\delta t}L_j\\
+& = \mathbb{I} + \delta t\big(+\frac{i}{\hbar}H+M\big) + \delta t\big(-\frac{i}{\hbar}H+M\big) + \underbrace{O(\delta t^2)} + \delta t\sum_{j=1}^{\infty}L_j^\dagger L_j\\
+& = \mathbb{I} + 2\delta tM + \delta t\sum_{j=1}^{\infty}L_j^\dagger L_j \qquad \qquad \qquad \qquad \qquad \red{\Rightarrow \qquad M = -\frac{1}{2}\sum_{j=1}^{\infty}L_j^\dagger L_j}.
+\end{aligned}
+\label{eqn:openAllowedMValues}
+\end{equation}
+
+\noindent Whoa, that's a lot. Lets tie in the results of Eq.\eqref{eqn:openMarkovianDerivation}, Eq.\eqref{eqn:openAValueProposed} and Eq.\eqref{eqn:openAllowedMValues}
+
+\begin{equation}
+%\left\lbrace
+\begin{aligned}
+\dot{\rho(t)} & = A\rho(t) + \rho(t)A^\dagger + \sum_{j=1}^\infty L_j\rho(t)L_j^\dagger\\
+& = \bigg(-\frac{i}{\hbar}H +M\bigg)\rho(t) + \rho(t)\bigg(+\frac{i}{\hbar}H + M\bigg) + \sum_{j=1}^\infty L_j\rho(t)L_j^\dagger\\
+& = -\frac{i}{\hbar}\bigg(H -i\frac{\hbar}{2}\sum_{j=1}^{\infty}L_j^\dagger L_j\bigg)\rho(t) + \frac{i}{\hbar} \rho(t)\bigg(H +i\frac{\hbar}{2}\sum_{j=1}^{\infty}L_j^\dagger L_j\bigg) + \sum_{j=1}^\infty L_j\rho(t)L_j^\dagger\\
+& \Rightarrow \left\lbrace
+\begin{aligned}
+H_\text{eff} & = H - i\frac{\hbar}{2}\sum_{j=1}^{\infty}L_j^\dagger L_j\\
+\dot{\rho}(t) & = -\frac{i}{\hbar}H_\text{eff}\rho(t) + \frac{i}{\hbar} \rho(t)H_\text{eff} + \sum_{j=1}^\infty L_j\rho(t)L_j^\dagger\\
+\end{aligned}
+\right.
+\end{aligned},
+\end{equation}
+
+\noindent or fully, the Linbland form of the Master equation:
+
+\red{{\large 
+		\begin{equation}
+		\label{eqn:openResult}
+		\left\lbrace \begin{aligned}
+		\dot{\rho}(t) & = -\frac{i}{\hbar}\big[H_\text{eff},\ \rho(t)\big] + \sum_{j=1}^\infty L_j\rho(t)L_j^\dagger \\
+		H_\text{eff} & = H - i\frac{\hbar}{2}\sum_{j=1}^{\infty}L_j^\dagger L_j
+		\end{aligned}\right. .
+		\end{equation}
+}}
+
+\noindent Note that $H_\text{eff}$ is NOT Hermitian. But note how this is similar to the Von Neumann equation (Eq.\eqref{eqn:vonNeuman}) $\dot{\rho}(t) = -i\hbar\left[H,\rho(t)\right]$ form. This allows us to digest what the different parts of the master equation contribute:
+
+\begin{itemize}
+	\item \textbf{System Hamiltonian}
+	
+	\red{$-\frac{i}{\hbar}\big[H_\text{eff},\ \rho(t)\big]$} - the deterministic part of the equation, describing the evolution of closed system with Hamiltonian $H_\text{eff}$. It is
+	\begin{enumerate}
+		\item Deterministic (can predict evolution)
+		\item Non-unitary, so purity is \textbf{\red{is not preserved}}.
+	\end{enumerate}
+	
+	\item \textbf{Quantum jumps}
+	
+	\red{$\sum_{j=1}^\infty L_j\rho(t)L_j^\dagger$} - irreversible dynamics due to coupling with the environment.
+\end{itemize}
+
+\subsection{Example application}
+As an example, consider spontaneous emission by an atom. We need to identify the two parts of Eq.\eqref{eqn:openResult}.
+
+\begin{enumerate}
+	\item The closed system, is that of an atom in state $\ket{e}$ or $\ket{g}$, with a Hamiltonian
+	
+	\begin{equation}
+	\label{eqn:exampleH}
+	H = \hbar\omega\ketbra{e}{e}.
+	\end{equation}
+	
+	\item Irreversible dynamics occur due to the atom interacting with the modes in the surrounding electromagnetic field. We use the Jaynes-Cummings Hamiltonian for the single mode in Sec.\ref{sec:lightAtom}. In that case, the photon could be reabsorbed by the atom, \textbf{but not in this case}, so the evolution is Markovian. A single jump operator
+	
+	\begin{equation}
+	\label{eqn:exampleJump}
+	L = \gamma\ketbra{g}{e},
+	\end{equation}
+	
+	\noindent is used, to embody the spontaneous decay of an atom. 
+\end{enumerate}
+
+Next we evaluate the effective Hamiltonian
+
+\begin{equation}
+\begin{aligned}
+H_\text{eff} & = H - i\frac{\hbar}{2}\sum_{j=1}^{\infty}L_j^\dagger L_j\\
+& = \hbar\omega\ketbra{e}{e} -i\frac{\hbar}{2}\big(\gamma\ketbra{g}{e}\big)^\dagger\big(\gamma\ketbra{g}{e}\big)\\
+& = \hbar\omega\ketbra{e}{e} -i\frac{\hbar}{2}|\gamma|^2\ketbra{e}{g}\ketbra{g}{e}\\
+& = \red{\bigg(\hbar\omega-\frac{i\hbar}{2}|\gamma|^2\bigg)\ketbra{e}{e}},
+\end{aligned}
+\end{equation}
+
+\noindent and as an aside, we can see that $U = \exp\left[-i\frac{\hbar\omega_\text{eff}\ketbra{e}{e}}{\hbar}t\right] = \exp\bigg[-|\gamma|^2t\ketbra{e}{e}\bigg]\exp\bigg[i\omega t\ketbra{e}{e}\bigg]$ is not norm preserving (with and exponential decay).
+
+We want to find the time evolving state of the form
+
+\red{\begin{equation}
+	\begin{aligned}
+	\rho(t) & = \rho_\text{ee}(t)\ketbra{e}{e} + \rho_\text{gg}(t)\ketbra{g}{g}\\
+	\dot{\rho}(t) & = \dot{\rho}_\text{ee}(t)\ketbra{e}{e} + \dot{\rho}_\text{gg}(t)\ketbra{g}{g}
+	\end{aligned}.
+	\label{eqn:exampleForm}
+	\end{equation}}
+
+Subbing Eq.\eqref{eqn:exampleH}, Eq.\eqref{eqn:exampleJump} and Eq.\eqref{eqn:exampleForm} into the master equation
+
+\begin{equation}
+\begin{aligned}
+& \left\lbrace
+\begin{aligned}
+\red{\dot{\rho}(t)} & \red{= -\frac{i}{\hbar}\big[H_\text{eff}\rho(t)-\rho(t)H_\text{eff}^\dagger\big] + L\rho(t)L^\dagger}\\
+& H_\text{eff}\rho(t) = \hbar\bigg(\omega-\frac{i}{2}|\gamma|^2\bigg)\rho_\text{ee}(t)\ketbra{e}{e}\\
+& \rho(t)H_\text{eff}^\dagger = \hbar\bigg(\omega+\frac{i}{2}|\gamma|^2\bigg)\rho_\text{ee}(t)\ketbra{e}{e}\\
+& L\rho(t)L^\dagger = \gamma\ketbra{g}{e}\bigg(\rho_\text{ee}(t)\ketbra{e}{e} + \rho_\text{gg}(t)\ketbra{g}{g}\bigg)\gamma^*\ketbra{e}{g} = |\gamma|^2\rho_\text{ee}(t)\ketbra{g}{g}
+\end{aligned}
+\right. \Rightarrow\\
+& \qquad\qquad\qquad\qquad\qquad\qquad\Rightarrow \begin{aligned}
+\dot{\rho}(t) & = -\frac{i}{\hbar}\bigg(-i\hbar|\gamma|^2\bigg)\rho_\text{ee}(t)\ketbra{e}{e}+|\gamma|^2\rho_\text{ee}(t)\ketbra{g}{g}\\
+& = -|\gamma|^2\rho_\text{ee}(t)\ketbra{e}{e}+|\gamma|^2\rho_\text{ee}(t)\ketbra{g}{g}
+\end{aligned}
+\end{aligned},
+\end{equation}
+
+\noindent resulting in
+
+\red{\begin{equation}
+	\dot{\rho}(t) = 
+	\left\lbrace
+	\begin{aligned}
+	&\dot{\rho}_\text{ee}(t)\ketbra{e}{e} + \dot{\rho}_\text{gg}(t)\ketbra{g}{g}\quad \leftarrow\text{desired soltuion}\\
+	& -|\gamma|^2\rho_\text{ee}(t)\ketbra{e}{e}+|\gamma|^2\rho_\text{ee}(t)\ketbra{g}{g} \quad \leftarrow\text{Master equation}
+	\end{aligned}
+	\right. ,
+	\end{equation}}
+
+\noindent or in matrix form
+
+\begin{equation}
+\dot{\rho}(t) = 
+\begin{bmatrix}
+\dot{\rho}_\text{ee} & \dot{\rho}_\text{eg}\\
+\dot{\rho}_\text{eg} & \dot{\rho}_\text{gg}\\
+\end{bmatrix}
+= 
+\begin{bmatrix}
+-|\gamma|^2\rho_\text{ee} & 0\\
+0 & |\gamma|^2\rho_\text{ee}\\
+\end{bmatrix}.
+\end{equation}
+
+\noindent These simple first order differential equations are solved for the initial state $\rho(0) = \ketbra{e}{e}$ to get (using the fact that trace sum must be 1, so $\rho_\text{gg} = 1 - \rho_\text{ee})$
+
+\begin{equation}
+\begin{aligned}
+\rho_{ee}(t) & = e^{-|\gamma|^2t}\\
+\rho_{ee}(t) & = 1 - e^{-|\gamma|^2t}\\
+\end{aligned},
+\end{equation}
+
+\noindent so the probability of an atom being in the excited state decays, as expected.
+
+\red{\subsection{Summary of method}
+	\begin{enumerate}
+		\item Find the Hamiltonian for the system $H$.
+		\item Find the relevant jump operators $L_j$.
+		\item Compute the effective Hamiltonian $H_\text{eff}=H - i\frac{\hbar}{2}\sum_{j=1}^{\infty}L_j^\dagger L_j$.
+		\item Express the desired form of the state we want to find $\rho(t)$ e.g $\rho_\text{ee}(t)\ketbra{e}{e} + \rho_\text{gg}(t)\ketbra{g}{g} + \rho_\text{ge}(t)\ketbra{g}{e} + \rho_\text{eg}(t)\ketbra{e}{g}$.
+		\item Substitute $\rho(t)$ and $H_\text{eff}$ into the master equation and evaluate the rate of change $\dot{\rho}(t) = -\frac{i}{\hbar}\left[H_\text{eff}\rho(t)-\rho(t)H_\text{eff}^\dagger\right] + L\rho(t)L^\dagger$.
+		\item Integrate the density matrix, to get the state at any given time. {\Large Or for the stationary state $\dot{\rho}=0$, solve set of linear differential equations.}
+\end{enumerate}}
+\newpage
+
+
+

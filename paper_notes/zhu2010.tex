@@ -1,0 +1,24 @@
+\section{Coherent operation of gap tuneable qubit \cite{zhu2010}}
+ \iframe{
+ 	\noindent The best place to work with the qubit is at the degeneracy points, where the curvature of the energy bands it low, and there is low flux sensitivity. \red{\textbf{The problem is that once you are there it is impossible to control the energy separation}} $ \Delta $ in the resulting Hamiltonian (see RF SQUID - Degenerate Case Chapter in \texttt{all\_the\_notes})
+ 	\begin{equation}\label{key}
+ 		\mathcal{H} = -\frac{\varepsilon}{2}\sigma_z - \frac{\Delta(\alpha)}{2}\sigma_x.
+ 	\end{equation}
+ 	
+ 	What the addition of the SQUID does, is controll the Josephson energy of the 3-rd junction by effectively varying the critical current ($ \alpha $):
+ 	
+ 	\begin{equation}\label{key}
+ 		\red{\alpha} E_J \ra \red{2\alpha{\cos\left(\pi \frac{\Phi}{\Phi_0}\right)}} E_J
+ 	\end{equation}
+ 	
+ 	\noindent allowing the control of the tunneling element. The resulting two level system has an energy separation
+ 	
+ 	\begin{equation}\label{key}
+ 		\Delta E = \sqrt{\varepsilon^2 + \Delta(\alpha)^2}
+ 	\end{equation}
+ 	
+ 	\begin{itemize}
+ 		\item Two current wires are used. Wire A biases both the qubit and the SQUID. Wire B biases just the qubit \ra this way both the SQUID can be set to control $ \Delta E $ and the magnetic field on the qubit can be swept too.
+ 		\item The paper shows how the critical current is controlled in such a setup and takes some rabi oscillations.
+ 	\end{itemize}
+ }

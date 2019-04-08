@@ -1,0 +1,23 @@
+% -*- TeX-master: "../paper_notes.tex" -*- -*- TeX-master: "../paper_notes.tex" -*-
+
+\section{Capacitive loss induced during JJ fabrication}
+\label{sec:capac-loss-induc}
+
+\begin{framed}\noindent
+  The goal  is to  improve the time  $ T_{1} $  of fabricated  qubits.  They are  usually much
+  shorter than the time  constant of the resonators they attach to, and  thus are the limiting
+  factor.
+
+  When making a JJ, you go through the process of
+  \begin{enumerate}
+  \item Rinse wafer in sonic acetone, and rinse in deionized water;
+  \item Dip wafer in HF to remove oxide layer;
+  \item Blow in nitrogen and deposit 100\,nm of Al;
+  \item \red{Optical lithography}  to define resonators \ra develop resist  and develop Al not
+    covered by resist with etching solution;
+  \item \red{EBL lithography} for JJ \ira  \red{\textbf{before depositing ion mill the surface
+        to etch away AlOx on resonator, in order to make good contact between it and the JJ}};
+  \item This last process leaves behind a dielectric, which causes a lot of losses (microwaves
+    loose energy in these regions)
+  \end{enumerate}
+\end{framed}

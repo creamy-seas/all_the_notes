@@ -1,0 +1,15 @@
+.dumbjump
+_output
+*pdf
+*aux
+*bbl
+*bcf
+*blg
+*fdb_latexmk
+*fls
+*log
+*out
+*xml
+*gz
+*toc
+auto

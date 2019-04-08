@@ -1,0 +1,93 @@
+% -*- TeX-master: "../paper_notes.tex" -*-
+\section{Coherent     quantum     dynamics     of     a     superconducting     flux     qubit
+  \cite{chiorescu2003}\cite{chiorescu2004}}
+\iframe{\noindent Proposal to  readout current states by using a  SQUID inductively coupled to
+  the qubit system.
+
+  It is also possible to use the SQUID as a harmonic oscillator that is coupled to the system.
+}
+ 
+ \subsection{Fabircation}
+ Thee 3JJ,  where one is smaller  than the other  two by a  factor of 0.8. The  typical mutual
+ inductance
+ 
+ \[ 
+   M = 9\mu H
+ \]
+  
+ \ipicCaption{4cm}{flux_circuit}{Two resistors are  used to remove leakages in  the lines. The
+   qubit is symmetrical, to avoid exciting the SQUID. }
+  
+ \begin{itemize}
+ \item MW are fed in to interact with the qubit;
+ \item $  I_b $ passses through  the qubit to  the ground (shown  in diagram). It may  put the
+   SQUID in a resistive mode;
+ \item $ V_{out} $  will measure any potential difference due to the  qubit being in resistive
+   mode, relative to the same ground as above.
+ \end{itemize}
+
+ \subsection{Readout}
+ \begin{enumerate}
+ \item The SQUID  shares one of its branches with  the qubit, so the system has  a high mutual
+   inductance.
+ \item  \red{The flux  inside a  SQUID  is quantisaed,  and  when the  qubits current  creates
+     additional flux, the SQUID will respond by generating its own persistent current so that
+     \[
+       \Phi_0 \equiv \Phi_\text{qubit}(i_\text{qubit}) + \Phi_\text{SQUID}(I_\text{SQUID})
+     \]}
+ \item Send in short 50\,ns. The SQUIDs persistent current, $ I_\text{SQUID} $, (determined by
+   the state of  the qubit as mentioned above)  will add onto the bias  pulse applied, putting
+   the device in the resistive state:
+   \[
+     I_\text{branch} = I_\text{SQUID} + i_\text{bias} \iRa V_\text{out} = \ialigned{I_\text{branch}R &&\text{if $ I_\text{branch} > i_\text{critical} $}\\
+       0 &&\text{if $ I_\text{branch} < i_\text{critical} $}} \]
+ \end{enumerate}
+
+ Therefore from start to finish, the effect is:
+ \[
+   \text{Qubit   state}   \ira   i_\text{qubit}  \ira   \Phi_\text{qubit}   \ira   i_\text{SQUID}
+   \xrightarrow{i_\text{bias}} i_\text{branch} \ira V_\text{out}.
+ \]
+  
+ \iframe{
+   \begin{itemize}
+   \item \noindent State monitoring is just a case of varying $ i_\text{bias} $ until we get a
+     50\% switching rate of the voltage. Thus $ i_\text{bias} $ probes the state of the system
+     (e.g.  bigger  $ i_\text{bias}  $  means  that $  I_\text{SQUID}  $  is small  and  hence
+     $ i_\text{qubit} $ is large, giving the state of the qubit).
+   \item  $ i_\text{bias}  \equiv i_\text{background}  $ is  chosen so  that the  SQUID has  a 50\%
+     probability of showing a voltage.
+   \item $  i_\text{bias} $ will  actually change the  phase of the qubit  when we read  out -
+     \red{this  is  good,  because at  the  degeneracy  point  there  is an  equal  amount  of
+       circulation in both directions,  so the expectation value of current  in 0. By applying
+       this shift before readout, we get a measurable current going, allowing $ V_\text{out} $
+       to be more responsive.}
+   \end{itemize}}
+
+ \ipicCaption{6cm}{coherent_quantum_1}{\red{\textbf{The shift  of the  bias current is  due to
+       the induced phase that we talked about.}}}
+  
+ \subsection{Ramsey Fringes}
+ Here we apply a $ \pi/2$-pulse to put the atom in superposition, allow \iket{0} and \iket{1} to
+ evolve  separately,  flip  themwith  \piulse  and   project  back  onto  the  z-axis  with  a
+ $ \pi/2$-pulse .
+  
+ In effect, think of the \piulse as reversing the noise-driven diffusion of the qubit phase at
+ the midpoint in  time of the free evolution.  Depending on the position of the  pi pulse, the
+ \iket{0} and \iket{1} compobnents will have different dephasing
+  
+ \ipic{4cm}{coherent_quantum_2}
+  
+ Dephasing is linked to fluctuating energy levels.
+  
+ \subsection{Rabi oscillations}
+ \ipic{5cm}{chiorescu2004_1}
+    
+ Apply a driving  field, to induce Rabi oscillations between  states \iket{00}\lra\iket{11} or
+ \iket{10}\lra\iket{01}. The Rabi osicllations are really  weak, and a strong driving power is
+ required for \iket{00}\lra\iket{11}, which shifts the Rabi frequency.
+  
+ \ipicCaption{5cm}{chiorescu2004_2}{Rabi  oscillations for  two different  transitions in  the
+   system. Note the supressed transition after a $ \pi $ pulse in the left hand side figure - we
+   return to the ground state and thus cannot reach state \iket{10}.}
+ \newpage

@@ -1,0 +1,199 @@
+\section{Resonance Fluorescence in an artificial atom\label{sec:resonanceFluorescence}}
+ \iframe{Took a single artificial atom and drove it in a 2-level configuration}
+ 
+ It is important to look at home an atom interacts with resonant microwaves - how it absorbs and emits them, \red{how much is can change them}. Natural atoms in cavities operate in 3D, and hence will always result in a mode mis-match, preventing destructive interference.
+ 
+ \begin{itemize}
+ 	\item A two level atom is placed into a transmission line - the strong coupling means that emitted radiation can be fully detected.
+ 	\item Atom is $ \sim 10\,\mu$m, compared with 1\,cm size of the incident microwaves.
+ 	\item Waves are formed, and there is a source term
+ 	
+ 	\begin{equation}\label{key}
+ 		\difffrac{^2I}{x^2} - \frac{1}{v^2}\difffrac{^2I}{t^2} = c\delta(x)\difffrac{^2I}{t^2}
+ 	\end{equation}
+ \end{itemize}
+
+ 
+
+ \subsection{Two Level system derivation\label{subsec:twoLevelDerivation}}
+We begin with a two levels system \iket{0} and \iket{1}, corresponding to persistent current states. The energies depend on the detuning of the flux $ \delta\Phi $ from $ \Phi_0(N+1/2) $. Then we add flux tunneling $ \Delta_N $, which depends on the energy of the SQUID:
+
+\[ \begin{aligned}
+\mathcal{H} = \begin{pmatrix}
+I_p\delta\Phi & 0 \\ 0 & -I_p\delta\Phi
+\end{pmatrix} \Rightarrow
+\mathcal{H} = & \begin{pmatrix}
+I_p\delta\Phi & -\Delta/2\\-\Delta/2 & -I_p\delta\Phi
+\end{pmatrix}\\
+= & \frac{2I_p\delta\Phi}{2}\sigma_z - \frac{\Delta_N}{2}\sigma_x\\
+= & \frac{\sqrt{(2I_p\delta\Phi)^2+\Delta_N^2}}{2}\bigg(\frac{2I_p\delta\Phi}{\sqrt{(2I_p\delta\Phi)^2+\Delta_N^2}}\sigma_z - \frac{\Delta_N}{\sqrt{(2I_p\delta\Phi)^2+\Delta_N^2}}\sigma_x\bigg)\\
+= & \frac{\Delta E}{2}\big(\cos(\theta)\sigma_z - \sin(\theta)\sigma_x\big),
+\end{aligned}
+\]
+
+\noindent where $ \Delta E = \sqrt{(2I_p\delta\Phi)^2+\Delta_N^2}  $ and the angle $ \theta $ is defined as below:
+
+\ipic{5cm}{tansmon2}
+
+
+\noindent Now, to find the eigenstates, we need to rotate our frame to the z-axis (where we have a diagonal matrix). So we perform a unitary transformation to rotate the state by $ 2\alpha = \theta $ \red{about the y-axis}
+
+\begin{equation}
+\mathbf{U=e^{i\frac{\theta}{2}\sigma_y}} =  \cos(\alpha)\mathbb{I}+i\sin(\alpha)\sigma_y
+\end{equation}
+
+\noindent to rotate the basis in this plane. \red{\textbf{Note that the transformation uses an angle HALF of the required turn}}. The {Hamiltonian} will be transformed
+
+\begin{equation}\label{tuneEq1}
+\begin{aligned}
+\mathcal{H}' & = U\mathcal{H}U^{\dagger} = U \bigg[\frac{\Delta E}{2}\big(\sigma_z\cos(\theta)-\sigma_x\sin(\theta)\big)\bigg]\bigg[\cos(\theta/2)\mathbb{I}\red{\mathbf{-}}i\sin(\theta/2)\sigma_y\bigg]\\
+& = U \bigg[\cos(\theta/2)\mathbb{I}+i\sin(\theta/2)\sigma_y\bigg]\bigg[\frac{\Delta E}{2}\big(\sigma_z\cos(\theta)-\sigma_x\sin(\theta)\big)\bigg]\\
+& = UU\mathcal{H} =\frac{\Delta E}{2} \bigg[\cos(\theta)\mathbb{I}+i\sin(\theta)\sigma_y\bigg]\bigg[\big(\sigma_z\cos(\theta)-\sigma_x\sin(\theta)\big)\bigg]\\
+& = \frac{\Delta E}{2}\bigg[\cos^2(\theta)\sigma_z-\sin(\theta)\cos(\theta)\sigma_x+i\sin(\theta)\cos(\theta)\red{\sigma_y\sigma_z}-i\sin^2(\theta)\red{\sigma_y\sigma_x}\bigg]\\
+& = \frac{\Delta E}{2}\bigg[\cos^2(\theta)\sigma_z-\sin(\theta)\cos(\theta)\sigma_x+i\sin(\theta)\cos(\theta)\red{i\sigma_x}-i\sin^2(\theta)\red{-i\sigma_z}\bigg]\\
+& = \frac{\Delta E}{2}\sigma_z,
+\end{aligned}
+\end{equation}
+
+
+\noindent with eigenstates  $ \iket{\tilde{0}}, \iket{\tilde{1}} $ at energies $ -\Delta E/2, +\Delta E/2 $ respectively. Recalling that the transformation we applied was
+
+\begin{equation}
+\tilde{\Psi} = U\Psi \quad\Rightarrow\quad \Psi = U^{\dagger}\tilde{\Psi},
+\end{equation}
+
+\noindent in the initial eigenbasis, the two states will read
+
+\begin{equation}
+\begin{aligned}
+\iket{0}_{\text{initial}} & = U^{\dagger}\ket{\tilde{0}} = \bigg(\cos(\theta/2)\mathbb{I}+i\sin(\theta/2)\sigma_y\bigg)\begin{pmatrix}
+1\\0
+\end{pmatrix} = \begin{pmatrix}
+\cos(\theta/2)\\\sin(\theta/2)
+\end{pmatrix} \\
+\iket{1}_{\text{initial}} & = U^{\dagger}\ket{\tilde{1}} = \begin{pmatrix}
+-\sin(\theta/2)\\\cos(\theta/2)
+\end{pmatrix}.
+\end{aligned}
+\end{equation}
+
+
+\noindent So ultimately, rotating by $ \theta $ will rotate the basis so as to elengantly take into account the interaction term.
+\ipic{3cm}{together}
+\iframe{This gives a tunable two level system with splitting:
+	
+	\begin{equation}\label{eq:tunableEnergy}
+	\Delta E = \sqrt{(2I_p\delta\Phi)^2+\Delta_N^2}.
+	\end{equation}
+	
+	\noindent eigenstates:
+	\begin{equation}\label{eqn:tunableEnergy2}
+		\begin{aligned}
+			\iket{\tilde{0}} & = \imatrixcol{1}{0}&\iket{\tilde{1}} &= \imatrixcol{0}{1}\\
+			\iket{0} &= \imatrixcol{\cos(\theta/2)}{\sin(\theta/2)} & \iket{1} &= \imatrixcol{-\sin(\theta/2)}{\cos(\theta/2)}
+		\end{aligned}
+	\end{equation}
+
+	Expectation values are unaffected by the basis we are working in:
+	\begin{equation}
+	_I\bra{\psi}\hat{O}_I\ket{\psi}_I = _S\bra{\psi}U_0U_0^\dagger\hat{O}_SU_0U_0^\dagger\ket{\psi}_s \equiv _S\bra{\psi}\hat{O}_S\ket{\psi}_S
+	\end{equation}
+}
+
+
+  \subsection{Deriving the interaction strength}
+  \ipic{4cm}{atomFlux}
+   Let us take a step back, to appreciate the original Hamiltonian for the flux qubit that is driven by a resonant field:
+   
+   \begin{equation}\label{eqn:resonanceFluorescence2}
+   	\mathcal{H} = -\frac{2I_p\delta\Phi}{2}\sigma_z - \frac{\Delta}{2}\sigma_x + \red{\hbar\Omega}\sigma_x\cos(\omega t) \quad \red{\hbar\Omega \equiv \varphi_pI_0 \text{ is coupling strength}}
+   \end{equation}
+  
+  \noindent The current field that will be scattered by the atom, as it transitions from the excited degenerate state (this is at $ \theta = 0 $ in Eq.~\eqref{eqn:tunableEnergy2}) \isuperposition{-} to the other \isuperposition{+} 
+  
+  \begin{equation}\label{eqn:resonanceFluorescence3}
+  	\begin{aligned}
+	  	\bra{\uparrow}I_p\ket{\downarrow} &\equiv \bra{\uparrow}\difffrac{\mathcal{H}}{\Phi}\ket{\downarrow} \\
+	  	& \red{= I_p\sigma_x \qquad\qquad \text{ how???}}
+  	\end{aligned} %I_p\frac{\bra{0} - \bra{1}}{\sqrt{2}}\bigg[\ketbra{0}{0} - \ketbra{1}{1}\bigg]\isuperposition{+}
+  \end{equation}
+  
+   \iframe{Either way, this persitent current operator $ I_p\sigma_x $ we map to the Flux operator:
+  
+  \begin{equation}\label{eqn:dipoleOperator}
+  	\begin{aligned}
+  	\hat{\Phi} & = M\hat{I} = MI_p\sigma_x = \phi_p\sigma_x\\
+  	\dot{\Phi} & \red{ = i\omega\varphi_p\isigmaminus \qquad \text{why?}}
+  	\end{aligned}
+  \end{equation}
+  \noindent from which we can recover the interaction between the atom and transmission line. Classically when we have a flux, and a current the interaction energy $ \propto I \times \Phi $:
+  \[
+  	\mathcal{H}_\text{int} = -\varphi_p\sigma_x \times I(0,t)
+  \]
+}
+  
+With a charge qubit, we would be having persistent voltage instead of persistent current. In analogy to Eq.~\eqref{eqn:resonanceFluorescence3} we have:
+  
+  \[
+  	V_p = \bra{\Psi_0}\difffrac{\mathcal{H}}{q}\ket{\Psi_1},
+  \]
+  
+  \noindent but thre is the problem, that unlike with flux, you cannot differentiatiate the Hamilotnian with respect to charge as it is discreete. Instead, we make the approximation
+  
+  \[
+  	\difffrac{\mathcal{H}}{q} = \Delta U = U(n_1, n_2, n_3+1) - U(n_1, n_2, n_3),
+  \]
+  
+  \noindent where $ n_1, n_2 $ and $ n_3 $ are the electron numbers defined in the image. Only $ n_3 $, situated closest to the transmission line, can generate a scattered field, so only its number must be considered.
+  
+  \ipic{4cm}{charges}
+
+\subsection{The electric fields}
+\begin{itemize}
+	\item \textbf{Incident field} \hfill $ I_0e^{ix-i\omega t} $;
+	\item \textbf{Scattered @ x=0} \hfill $ I_{sc}e^{il\iabs{x}-i\omega t} $.
+\end{itemize}
+
+\noindent The net wave is then
+
+\begin{equation}\label{eqn:resonanceFluoresnce1}
+I(x,t) = \big(I_0e^{ikx} + I_{sc}e^{ik\iabs{x}}\big)e^{-i\omega t},
+\end{equation}
+
+
+\noindent and it must satisfy the telegraph equation:
+
+\[
+\begin{aligned}
+&\left\lbrace \begin{aligned}
+V & = -\difffrac{\Phi}{t} = -L\difffrac{I}{t}\\
+I & = -\frac{dQ}{dt} = -C\frac{dV}{dt}
+\end{aligned}\right.\Rightarrow \text{ per unit length} \Rightarrow \left\lbrace \begin{aligned}
+\difffrac{V}{x} & = - l\difffrac{I}{t}\\
+\difffrac{I}{x} & = - c\frac{dV}{dt},
+\end{aligned}\right.\\
+& \qquad\qquad \Rightarrow \difffrac{I^2}{x^2} = lc\difffrac{I^2}{t^2}
+\end{aligned}
+\label{tlineDiff}
+\]
+
+However, because out atom, located at $ x = 0 $, we also apply the scattering boundary condition of the emitting atom, by adding on a source term to the equation:
+
+\[
+\difffrac{^2I}{x^2} - \frac{1}{v^2}\difffrac{^2I}{t^2} = \red{c\difffrac{^2\Phi}{t^2}\delta(x) \qquad \text{ - source term}}
+\]
+
+Putting in Eq. ~\eqref{eqn:dipoleOperator} and Eq.~\eqref{eqn:resonanceFluoresnce1} and intergrating over $ x $ will yield:
+\begin{equation}\label{key}
+\begin{aligned}
+	I \times ik + \int I\times \frac{\omega^2}{v^2}dx &= -c\omega^2\varphi_p\isigmaminus\\
+	ik\times I = -\omega^2 c \varphi_p\isigmaminus.
+\end{aligned}
+\end{equation}
+
+
+
+
+
+\newpage
+

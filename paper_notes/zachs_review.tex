@@ -1,0 +1,53 @@
+% -*- TeX-master: "../paper_notes.tex" -*-
+
+\section{Zachs reserach review}
+\begin{itemize}
+\item  Zachs review  is  about using  non  classical states,  the  phase, during  interference
+  measurement, can be lowered
+  \[
+    \Delta\theta = \frac{1}{\sqrt{N}} \ra \frac{1}{N}.
+  \]
+\item Then, there's a word salad about how  MZI count photons with a Poisson distribution, and
+  how the HBT setup measures the $ g^{(2)}(\tau) $ function;
+\item Another explanation of how one measures phase evolution with a Ramsey interferometer and
+  how its similar to MZI:
+  \[
+    \begin{aligned}
+      & \pi/2-pulse &\text{beam splitter}\\
+      &\text{free phase evolution} & &\text{optical path difference accumuating phase}
+    \end{aligned}
+  \]
+\item Then about quantum state entanglement, which is measured by fidelity
+  \begin{equation}\label{key}
+    F(\rho,\sigma) = \itrace{\sqrt{\rho}\sigma\sqrt{\rho}},
+  \end{equation}
+  \noindent  where  $  \sigma $  is  a  pure  quantum  state  (pure  means can  be  represented  by
+  wavefunction, mixed needs  density matrix). For this we  need the density matrix, $  \rho $, of
+  the system which we do with quantum state tomogrpahy, recovering $ \rho_{ij} $ values;
+\item More salad about proof of entangled state and eavesdropping;
+\item \textbf{Coherent state} e.g. laser beam
+  \begin{equation}\label{key}
+    \ket{\alpha} = e^{-\iabs{\alpha}^2/2}\sum_{n-0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n}\qquad \hat{a}\ket{\alpha} = \alpha\ket{\alpha}.
+  \end{equation}
+ 		
+  \noindent The coherent state has several interesting properties:
+  \begin{equation}\label{key}
+    \begin{aligned}
+      \Delta x &=\Delta p\\
+      \text{Photon number} \iaverage{n}& = \iabsSquared{\alpha}.
+    \end{aligned}
+  \end{equation}
+\item Finally we get  to the notion of squeezed states - \red{reduction  of noise in a certain
+    quadrature -  amplitude or momentum  (phase).} To generate  squeezed state, we  operate on
+  vacuum  state  with  squeezing  operator,  $ \hat{S}(r)  $,  and  coherent  state  operator,
+  $ \hat{D}(\alpha) $:
+  \begin{equation}\label{key}
+    \ket{\alpha,r} = \hat{D}(\alpha)\hat{S}(r)\ket{0}.
+  \end{equation}
+  \noindent When $  \alpha = 0 $,  we have the squeezed vacuum  state, which can be  written as the
+  superposition of even photon number states. \red{Note that squeezed vaccum here, refferes to
+    the fast that the uncertainty in quadrature is smaller than for the vacuum state.}
+\end{itemize}
+
+\newpage
+

@@ -1,0 +1,80 @@
+\section{Changing the basis}
+\begin{center}
+	An operator is \textbf{unitary} if its Hermetian conjugate is its inverse i.e. $UU^{\dagger} = U^{\dagger}U = \mathbb{I}$
+\end{center}
+
+Unitary operators are 
+\begin{itemize}
+	\item Norm preserving;
+	\item Inner product preserving,
+\end{itemize}
+
+Making then ideal for transformation of basis to
+
+\begin{center}
+	\textbf{One can always transforms from $\left\lbrace \ket{\beta_i} \right\rbrace$ to $\left\lbrace \ket{\alpha} \right\rbrace$ by $\mathbf{U\ket{\beta_i} = \ket{\alpha_i}}$.}
+\end{center}
+
+Let us find the matrix form of the operator $U$ that results in $\iket{\alpha_i} \xrightarrow{U} \iket{\beta_i}$.
+
+We begin with 
+
+\begin{equation}
+\iket{\Psi} = \sum_jc_j\iket{\alpha_i},
+\end{equation}
+
+and apply the closure relation, using the $\left\lbrace \ket{\beta_i} \right\rbrace$ basis.
+
+\begin{equation}
+\begin{aligned}
+\iket{\Psi} & = \sum_jc_j\left( \sum_k \ket{\beta_k}\bra{\beta_k} \right) \ket{\alpha_j} \\
+& = \sum_k \left(\sum_jc_j \braket{\beta_k|\alpha_j} \right) \ket{\beta_k}\\
+& = \sum_{j,k} c_j\red{U_{kj}\iket{\beta_k}},
+\end{aligned}
+\end{equation}
+
+\noindent the result of which is the transformation of \iket{\Psi_{\left\lbrace \ket{\alpha_j} \right\rbrace}} to \iket{\Psi_{\left\lbrace \ket{\beta_j} \right\rbrace}}, by applying suitable weightings $U_kj$ in the new basis.
+
+The elements $U_{k,j} = \braket{\beta_k|\alpha_j}$ are the matrix elements on the unitary of operator
+
+\begin{equation}
+\begin{aligned}
+U & = \begin{bmatrix}
+U_{00} & U_{01} & U_{02} & \cdots & U_{0n}\\
+U_{10} & U_{11} & U_{12} & \cdots & U_{1n}\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+U_{m0} & U_{m1} & U_{m2} & \cdots & U_{mn}
+\end{bmatrix}
+= \begin{bmatrix}
+\braket{\beta_0|\alpha_0} & \braket{\beta_0|\alpha_1} & \braket{\beta_0|\alpha_2} & \cdots & \braket{\beta_0|\alpha_n}\\
+\braket{\beta_1|\alpha_0} & \braket{\beta_1|\alpha_1} & \braket{\beta_1|\alpha_2} & \cdots & \braket{\beta_1|\alpha_n}\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+\braket{\beta_m|\alpha_0} & \braket{\beta_m|\alpha_1} & \braket{\beta_m|\alpha_2} & \cdots & \braket{\beta_m|\alpha_n}\\
+\end{bmatrix}
+\end{aligned}
+\end{equation}
+
+Thus when one perform the unitary operation
+
+\begin{equation}
+\begin{aligned}
+\red{\ket{\alpha_k} = U\iket{\beta_k}} & \equiv \red{U_{kj}\iket{\beta_k}} = 
+\begin{bmatrix}
+\braket{\beta_0|\alpha_0} & \braket{\beta_0|\alpha_1} & \braket{\beta_0|\alpha_2} & \cdots & \braket{\beta_0|\alpha_n}\\
+\braket{\beta_1|\alpha_0} & \braket{\beta_1|\alpha_1} & \braket{\beta_1|\alpha_2} & \cdots & \braket{\beta_1|\alpha_n}\\
+\vdots & \vdots & \vdots & \ddots & \vdots\\
+\braket{\beta_m|\alpha_0} & \braket{\beta_m|\alpha_1} & \braket{\beta_m|\alpha_2} & \cdots & \braket{\beta_m|\alpha_n}\\
+\end{bmatrix} 
+\left[ \begin{matrix}
+0\\0\\\vdots\\ 1\\\vdots
+\end{matrix}\right] \leftarrow \text{in $\left\lbrace \ket{\beta_j} \right\rbrace$ basis}\\
+& = \begin{bmatrix}
+\braket{\beta_0|\alpha_k} \\\braket{\beta_1|\alpha_k}\\\vdots\\\braket{\beta_m|\alpha_k}
+\end{bmatrix}\leftarrow \text{now expressed in the $\left\lbrace \ket{\alpha_j} \right\rbrace$ basis}\\
+& = \sum_j \braket{\beta_j|\alpha_k} \ket{\beta_j},
+\end{aligned}
+\end{equation}
+
+so one has effectively projected \iket{\alpha_k} onto \textbf{every single component} of the $\left\lbrace \ket{\beta_i} \right\rbrace$ basis. 
+\newpage 
+
