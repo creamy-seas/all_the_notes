@@ -1,6 +1,0 @@
-PWD /Users/CCCP/creamy_seas/monday_starts_on_saturday/all_the_notes/paper_notes
-INPUT /usr/local/texlive/2016/texmf.cnf
-INPUT /usr/local/texlive/2016/texmf-dist/web2c/texmf.cnf
-INPUT /usr/local/texlive/2016/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT dunsworth2017.tex
-OUTPUT dunsworth2017.log

@@ -1,63 +1,72 @@
-\newpage \section{Cheshire Cat States}
- \iframe{It was shown that there was nothing `quantum' about the statistics of light measured in two beams of an interferometer. A classical explanation would explain the changes in phase and interference. 
+% -*- TeX-master: "../paper_notes.tex" -*-
+
+\newpage \section{Cheshire Cat  States} \iframe{It was shown that there  was nothing `quantum'
+  about  the statistics  of light  measured in  two beams  of an  interferometer. A  classical
+  explanation would explain the changes in phase and interference.
  
 \begin{center}
-	\red{\textbf{There is no sign of light being a quantum object - i.e. having a wavefunction and collapsing upon point of measurements. In fact, the undergraduate test for the Mach-Zender interferometer can also be interpreted classically}}
+  \red{\textbf{There is no sign  of light being a quantum object -  i.e. having a wavefunction
+      and  collapsing upon  point of  measurements. In  fact, the  undergraduate test  for the
+      Mach-Zender interferometer can also be interpreted classically}}
 \end{center}}
- \noindent The overarching idea is that for polarised photons sent into two arms of an interferometer:
- \begin{itemize}
- 	\item A measurement of \textit{polarisation} in 1 arm, predefines the state in the other;
- 	\item A measurement of \textit{existence} in arm-2, predefines the state in the other.
- \end{itemize}
+\noindent  The overarching  idea  is that  for  polarised photons  sent into  two  arms of  an
+interferometer:
+\begin{itemize}
+\item A measurement of \textit{polarisation} in 1 arm, predefines the state in the other;
+\item A measurement of \textit{existence} in arm-2, predefines the state in the other.
+\end{itemize}
  
-  \ipic{6cm}{artherton2015}
+\ipic{6cm}{artherton2015}
   
- \begin{enumerate}
- 	\item A Wollaston prism sends $ H $-polarised photons into $ L $ and $ V $-polarised photons into $ R $.
- 	\grey{(The half wave plate balances out the powers of $ H $ and $ V $ polarisation in the original beam)}:
+\begin{enumerate}
+\item A Wollaston prism sends  $ H $-polarised photons into $ L $  and $ V $-polarised photons
+  into  $ R  $.  \grey{(The  half wave  plate balances  out the  powers of  $ H  $ and  $ V  $
+    polarisation in the original beam)}:
  	
- 	\begin{equation}\label{key}
- 		\ket{\Psi}_i = \frac{1}{\sqrt{2}}\kbordermatrix{&\\ 
- 			\Ket{H,L} & 1 \\
- 			\Ket{H,R} & 0 \\
- 			\Ket{V,L} & 0 \\
- 			\Ket{V,R} & 1 
- 		}.
+ 	\begin{equation}\label{chesirecat1}
+          \ket{\Psi}_i = \frac{1}{\sqrt{2}}\kbordermatrix{&\\ 
+            \Ket{H,L} & 1 \\
+            \Ket{H,R} & 0 \\
+            \Ket{V,L} & 0 \\
+            \Ket{V,R} & 1 
+          }.
  	\end{equation}
- 	\item The non-polarising beam splitter (NPBS) acts only on the subspace of \iket{L} and \iket{R} (the spatial modes), casting into the \iket{1}, \iket{2} subspace
+      \item The non-polarising beam splitter (NPBS) acts  only on the subspace of \iket{L} and
+        \iket{R} (the spatial modes), casting into the \iket{1}, \iket{2} subspace
  	
- 	\begin{equation}\label{key}
- 		\hat{BS} = \frac{1}{\sqrt{2}}\kbordermatrix{
- 			& \iket{L} & \iket{R}\\
- 			\bra{1} & 1 &  -1\\
- 			\bra{2} & 1 & 1
- 		}
-		\iratext{in full subpsace $ \otimes\mathbb{I}_{H,V} $}
-		\frac{1}{\sqrt{2}}\kbordermatrix{
-			& \iket{H, L} & \iket{H, R} & \iket{V, L} & \iket{V, R}\\
-			\bra{H, 1} & 1 & 0 & -1 & 0\\
-			\bra{H, 2} & 0 & 1 & 0 & -1 \\
-			\bra{V, 1} & 1 & 0 & 1 & 0 \\
-			\bra{V, 2} & 0 & 1 & 0 & 1 \\
-		}
- 	\end{equation}
- 	
- 	\item Thus at the output the state after NPBS is (unnormalised)
- 	\begin{equation}\label{key}
- 		\ket{\Psi}_F = \hat{BS}\ket{\Psi_i} = \kbordermatrix{
- 			& \\
- 			\ket{H, 1} & 1 \\
- 			\ket{H, 2} & -1 \\
- 			\ket{V, 1} & 1 \\
- 			\ket{V, 2} & 1
- 		}
+ 	\begin{equation}\label{chesirecat2}
+          \hat{BS} = \frac{1}{\sqrt{2}}\kbordermatrix{
+            & \iket{L} & \iket{R}\\
+            \bra{1} & 1 &  -1\\
+            \bra{2} & 1 & 1
+          }
+          \iratext{in full subpsace $ \otimes\mathbb{I}_{H,V} $}
+          \frac{1}{\sqrt{2}}\kbordermatrix{
+            & \iket{H, L} & \iket{H, R} & \iket{V, L} & \iket{V, R}\\
+            \bra{H, 1} & 1 & 0 & -1 & 0\\
+            \bra{H, 2} & 0 & 1 & 0 & -1 \\
+            \bra{V, 1} & 1 & 0 & 1 & 0 \\
+            \bra{V, 2} & 0 & 1 & 0 & 1 \\
+          }
  	\end{equation}
  	
- 	\item  A \textbf{Horizontal }polariszer before detector 1, will `trace out' any \iket{V} components:
- 	\begin{equation}\label{key}
- 		\hat{PH}\ket{\Psi}_F = \left[\ketbra{H}{H}\right]\ket{\Psi}_F = \frac{1}{\sqrt{2}}\ket{H}(\iket{1} + \iket{2}).
+      \item Thus at the output the state after NPBS is (unnormalised)
+ 	\begin{equation}\label{chesirecat3}
+          \ket{\Psi}_F = \hat{BS}\ket{\Psi_i} = \kbordermatrix{
+            & \\
+            \ket{H, 1} & 1 \\
+            \ket{H, 2} & -1 \\
+            \ket{V, 1} & 1 \\
+            \ket{V, 2} & 1
+          }
  	\end{equation}
- \end{enumerate}
+ 	
+      \item A \textbf{Horizontal }polariszer before detector  1, will `trace out' any \iket{V}
+        components:
+ 	\begin{equation}\label{chesirecat4}
+          \hat{PH}\ket{\Psi}_F = \left[\ketbra{H}{H}\right]\ket{\Psi}_F = \frac{1}{\sqrt{2}}\ket{H}(\iket{1} + \iket{2}).
+ 	\end{equation}
+      \end{enumerate}
 
  
- \newpage 
+      \newpage

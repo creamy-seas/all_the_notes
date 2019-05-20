@@ -1,8 +1,15 @@
-\newpage \section{Tutorial to improve student understanding of single photon experiment\label{sec:tutorial}} The tutorial gives a quick run through of how one can use beam splitters to create
-interference in with a single photon source. \red{Whenever one creates interference between the two paths, he looses information about which arm the photon was in (and it's always 50/50, due to even
-  splitting by the first beam splitter) but gain insight into the accumulated phase difference between the two arms}.
+% -*- TeX-master: "../paper_notes.tex" -*-
+\newpage
+\section{Tutorial   to   improve   student   understanding   of   single   photon
+  experiment\label{sec:tutorial}} The tutorial  gives a quick run  through of how
+one  can use  beam  splitters to  create  interference in  with  a single  photon
+source. \red{Whenever one  creates interference between the two  paths, he looses
+  information about which  arm the photon was  in (and it's always  50/50, due to
+  even  splitting  by  the  first  beam  splitter)  but  gain  insight  into  the
+  accumulated phase difference between the two arms}.
    
-The states of the photon are characterised as \iket{U}, \iket{L} (upper lower) \iket{H} and \iket{V} (horizontal, vertical). The basis of state is thus
+The states  of the photon are  characterised as \iket{U}, \iket{L}  (upper lower)
+\iket{H} and \iket{V} (horizontal, vertical). The basis of state is thus
 \[
   \kbordermatrix{& \iket{U,V} & \iket{U,H} & \iket{L,V} & \iket{L,H}\\
     \Bra{U,V} & 0 & 0 & 0& 0\\
@@ -12,7 +19,7 @@ The states of the photon are characterised as \iket{U}, \iket{L} (upper lower) \
 \]
    
 \iframe{The operators are
-  \begin{equation}\label{key}
+  \begin{equation}\label{photontutorial1}
     \begin{aligned}
       \text{BS1} & = \frac{1}{\sqrt{2}}\begin{pmatrix}-1&1\\1&1\end{pmatrix}\\
       \text{BS2} & = \frac{1}{\sqrt{2}}\begin{pmatrix}1&-1\\1&1\end{pmatrix}\\
@@ -22,35 +29,55 @@ The states of the photon are characterised as \iket{U}, \iket{L} (upper lower) \
   \end{equation}
 }
 \begin{itemize}
-\item \textbf{No second beam splitter} \ipicCaption{6cm}{tut_2}{After the first beam splitter, the state will be a mixed superpositions, and the mirrors and phase shifter will only change the phase of
-    the top left and bottom right elements. The detecors project this state with equal probability, and therefore 0.5 of the time photon flies in from the bottom, and 0.5 from the top arms. But phase
-    gets washed out!}
+\item \textbf{No  second beam splitter} \ipicCaption{6cm}{tut_2}{After  the first
+    beam splitter, the state will be  a mixed superpositions, and the mirrors and
+    phase shifter  will only change  the phase of the  top left and  bottom right
+    elements.  The  detecors  project  this state  with  equal  probability,  and
+    therefore 0.5 of the  time photon flies in from the bottom,  and 0.5 from the
+    top arms. But phase gets washed out!}
   \[
-    \imatrixcol{1}{0} \iratext{\text{BS1}} \frac{1}{\sqrt{2}}\imatrixcol{-1}{1} \iratext{\text{M}} \frac{1}{\sqrt{2}}\imatrixcol{1}{-1}\iratext{PS}\iket{\text{Final}} =
+    \imatrixcol{1}{0}  \iratext{\text{BS1}}  \frac{1}{\sqrt{2}}\imatrixcol{-1}{1}
+    \iratext{\text{M}}
+    \frac{1}{\sqrt{2}}\imatrixcol{1}{-1}\iratext{PS}\iket{\text{Final}}         =
     \frac{1}{\sqrt{2}}\imatrixcol{e^{i\phi}}{-1}.
   \]
    	
-  \iframe{\red{Now, D1 respond to the photon from direction \iket{U} = \imatrixcol{1}{0}.} The probability of a photon collapsing to this state is the square of the cross-product:
+  \iframe{\red{Now,  D1  respond   to  the  photon  from   direction  \iket{U}  =
+      \imatrixcol{1}{0}.} The probability of a photon collapsing to this state is
+    the square of the cross-product:
     \[
       \Bra{U}\iket{\text{Final}}^2 = \frac{1}{2}.
     \]
-    \textbf{So the detector picks up, which arm the photon was travelling in (the state collapses), and it will be 50/50 in both arms.}  }
-\item \textbf{Standard mixing experiment} \ipicCaption{6cm}{tut_1}{Here the second beamsplitter will combine the state in both arms using off diagonal matrix elements. This creates interference and
-    dependence on $ \phi $} Here, before measuring with detectors, we have a second beam splitter:
+    \textbf{So the detector picks up, which arm the photon was travelling in (the
+      state collapses), and it will be 50/50 in both arms.}  }
+\item  \textbf{Standard  mixing   experiment}  \ipicCaption{6cm}{tut_1}{Here  the
+    second beamsplitter  will combine the state  in both arms using  off diagonal
+    matrix elements.  This creates interference  and dependence  on $ \phi  $} Here,
+  before measuring with detectors, we have a second beam splitter:
   \[
-    \frac{1}{\sqrt{2}}\imatrixcol{e^{i\phi}}{-1} \iratext{\text{BS2}}\frac{1}{2}\imatrixcol{e^{i\phi}+1}{e^{i\phi}-1},
+    \frac{1}{\sqrt{2}}\imatrixcol{e^{i\phi}}{-1}
+    \iratext{\text{BS2}}\frac{1}{2}\imatrixcol{e^{i\phi}+1}{e^{i\phi}-1},
   \]
-  \noindent which changes the direction of photon propagation - the wavefunction is spread between both detectors.  \iframe{Upon measurement by D1, we have the collapse the wavefunction to
+  \noindent which changes the direction  of photon propagation - the wavefunction
+  is spread between both detectors.  \iframe{Upon  measurement by D1, we have the
+    collapse the wavefunction to
     \[
       \Bra{U}\iket{\text{Final}}^2 = \frac{1+\cos(\phi)}{2},
     \]
   }
-  \noindent \textbf{so the second beamsplitter was able to combine the two states in the two arms, loosing information about the photon origin, but allowing interference phenomena to be observed.}
-\item \textbf{Adding polarisation} \ipicCaption{6cm}{tut_3}{With polarisation, we need to treat the 4-basis vector system. The detectors are sensitive to polarisation, and thus can identif which arm
-    the photon came from. Going through the 4-basis vector system, we find that phase information is cancelled out - we have two non-interacting horizontal and vertical systems, and matrix operations
-    do not create a cross over between these terms.}
-  \noindent With polarisation, we need to work in the 4-state basis. \red{The polarises act as intermediate detectors, collapsing the state and stopping interference from taking place}. Effectively,
-  the polarizer matrices look like:
+  \noindent \textbf{so the second beamsplitter was able to combine the two states
+    in the  two arms, loosing information  about the photon origin,  but allowing
+    interference phenomena to be observed.}
+\item \textbf{Adding polarisation} \ipicCaption{6cm}{tut_3}{With polarisation, we
+    need  to treat  the 4-basis  vector system.  The detectors  are sensitive  to
+    polarisation, and  thus can  identif which  arm the  photon came  from. Going
+    through  the  4-basis  vector  system,  we find  that  phase  information  is
+    cancelled out - we have  two non-interacting horizontal and vertical systems,
+    and matrix operations do not create a cross over between these terms.}
+  \noindent With  polarisation, we need  to work  in the 4-state  basis. \red{The
+    polarises act  as intermediate detectors,  collapsing the state  and stopping
+    interference  from taking  place}. Effectively,  the polarizer  matrices look
+  like:
    	
    	\[
           \kbordermatrix{& \iket{U,V} & \iket{U,H} & \iket{L,V} & \iket{L,H}\\
@@ -60,15 +87,25 @@ The states of the photon are characterised as \iket{U}, \iket{L} (upper lower) \
             \Bra{L,H} & 0 & 0 & 0& 0 },
    	\]
    	
-   	\noindent removing a single state of the system. Following through with calculation, one arrives at:
+   	\noindent removing a  single state of the system.  Following through with
+        calculation, one arrives at:
    	\[
-          \iket{\text{Final}} = \frac{1}{2\sqrt{2}}\begin{pmatrix}1\\e^{i\phi}\\-1\\e^{i\phi}\end{pmatrix}.
+          \iket{\text{Final}}                                                   =
+          \frac{1}{2\sqrt{2}}\begin{pmatrix}1\\e^{i\phi}\\-1\\e^{i\phi}\end{pmatrix}.
    	\]
-  	\noindent D1 can measure both \iket{UH} and \iket{UV}, so combigin the two proabilitites $ 1/8+1/8 = 1/4 $ of registering a photon at D1. There is no phase infromation as we have no cross terms
-        (the horizontal and vertical subspaces, corresponding to the upper and lower arms, are not being mixed) \ra \red{A horizontally polaised photon MUST HAVE COME FROM \iket{U}, so we have origin
-          information, and no infromation about phase.}  \ipicCaption{6cm}{tut_4}{With this final beamsplitter, we create a cross-over between the UP and LOWER states (previosuly, LOWER state were
-          always VERTICAL, but now its a mix), and so phase information can be kept.}  We apply the matrix which mixes the horizontal and vertical polarisation elements, allowing for the phase between
-        the two arms (directly corresponding to the two polarisations) to interact:
+  	\noindent D1  can measure both  \iket{UH} and \iket{UV}, so  combigin the
+        two proabilitites $ 1/8+1/8 = 1/4 $  of registering a photon at D1. There
+        is no  phase infromation as  we have no  cross terms (the  horizontal and
+        vertical subspaces,  corresponding to the  upper and lower arms,  are not
+        being mixed) \ra \red{A horizontally  polaised photon MUST HAVE COME FROM
+          \iket{U},  so we  have  origin information,  and  no infromation  about
+          phase.}   \ipicCaption{6cm}{tut_4}{With  this  final  beamsplitter,  we
+          create a cross-over between the  UP and LOWER states (previosuly, LOWER
+          state  were  always  VERTICAL,  but  now  its  a  mix),  and  so  phase
+          information  can  be  kept.}   We  apply the  matrix  which  mixes  the
+        horizontal  and vertical  polarisation elements,  allowing for  the phase
+        between the two arms (directly corresponding to the two polarisations) to
+        interact:
    	\[
           \frac{1}{2}\kbordermatrix{& \iket{U,V} & \iket{U,H} & \iket{L,V} & \iket{L,H}\\
             \Bra{U,V} & 1 & 1 & 0& 0\\
@@ -80,12 +117,18 @@ The states of the photon are characterised as \iket{U}, \iket{L} (upper lower) \
    
       \iframe{\underline{Common errors}
    	\begin{itemize}
-        \item The photons \textbf{do not split} into two photons after the first beam splitter;
+        \item The photons \textbf{do not split}  into two photons after the first
+          beam splitter;
         \item A photon is \textbf{not just a partcle!}
-        \item A single photon behaves as a wave in the MZI, being in a superposition of states \iket{U} and \iket{L} before measurement is performed;
-        \item If we measured the state along arms, the state of the system collapses! There is no chance for interference;
-        \item Measurement of polarisation collapses the state of the photon, such that if a detector detects a horizontal (or vertical polarisation), if must have come from U (or L) and thus WPI is
-          known, and no interfence can take place.
+        \item  A  single  photon behaves  as  a  wave  in  the MZI,  being  in  a
+          superposition  of states  \iket{U} and  \iket{L} before  measurement is
+          performed;
+        \item  If we  measured the  state  along arms,  the state  of the  system
+          collapses! There is no chance for interference;
+        \item Measurement of polarisation collapses the state of the photon, such
+          that if a detector detects  a horizontal (or vertical polarisation), if
+          must have come from  U (or L) and thus WPI is  known, and no interfence
+          can take place.
    	\end{itemize}
 	}
 \newpage
