@@ -1,87 +1,87 @@
-\input{_generic_files/_preamble} \input{_generic_files/_phd_command_file}
+\documentclass{phd_class}%
+% \input{legacy}%
+\graphicspath{{images_hardlinked/}}%
+\addbibresource{bibliography.bib}%
 
-\graphicspath{{images_all_the_notes/}{images_paper_notes/}{images_all_the_notes/data_simulations/}
-  {../dipole/report/images_dipole/data_simulations/}
-  {images_all_the_notes/diagrams_photos/}{images/diagrams_photos/}}
-					
-\addbibresource{bibliography.bib}
+\begin{document}%
 
+\tableofcontents
 
-\begin{document}
-
-\tableofcontents\newpage
+\newpage
 
 %% Fabrication
-\input{all_the_notes/fabrication}
+\input{texfiles/fabrication}
 
 %% Quantum Electrodynamics
-\input{all_the_notes/_coupling_to_system}
+\input{texfiles/coupling_to_system}
 
-\input{all_the_notes/_emission_from_system}
+\input{texfiles/_emission_from_system}
 
-\input{all_the_notes/_scattering_by_system}
+\input{texfiles/_scattering_by_system}
 
-\input{all_the_notes/_relaxation_due_to_noise}
+\input{texfiles/_relaxation_due_to_noise}
 
-\input{all_the_notes/textbook_unitary_transformation}
+\input{texfiles/textbook_unitary_transformation}
 
-\input{all_the_notes/textbook_dissapation}
+\input{texfiles/textbook_dissapation}
 
-\input{all_the_notes/_linbland_operator_in_depth}
+\input{texfiles/_linbland_operator_in_depth}
 
-\input{all_the_notes/textbook_two_level_system_evolution}
+\input{texfiles/textbook_two_level_system_evolution}
 
-\input{all_the_notes/_introducing_qed_operators}
+\input{texfiles/_introducing_qed_operators}
 
-\input{all_the_notes/_charge_basis}
+\input{texfiles/_charge_basis}
 
-\input{all_the_notes/_phase_basis}
+\input{texfiles/_phase_basis}
 
-\newpage 
-\vspace{10cm}
- 
-\begin{center} {\Huge \textbf{Specific Systems} }
-\end{center}
-\newpage
- 
 %% Specific systems
-\input{all_the_notes/qubit_copper_pair_box}
- 
-\input{all_the_notes/qubit_rf_squid}
- 
-\input{all_the_notes/qubit_3jj}
+\input{texfiles/qubit_copper_pair_box}
 
-\input{all_the_notes/qubit_4jj_linear}
- 
-\input{all_the_notes/qubit_4jj_v1}
- 
-\input{all_the_notes/qubit_4jj}
- 
-\input{all_the_notes/qubit_phase}
- 
-\input{all_the_notes/transmon}
- 
-\input{all_the_notes/qubit_resonator_interaction}
- 
-\input{all_the_notes/dark_state}
- 
-% % quantum phase slips
-% \input{all_the_notes/quantum_phase_slip}
- 
-% %%% Hard theory
-% \input{all_the_notes/simulating_circuits} \input{all_the_notes/book_quantum_optics}
- 
-% %%% Base theory i.e. I have a good understanding of this
-% \input{all_the_notes/textbook_interaction_picture}
-% \input{all_the_notes/textbook_dipole_approximation}
-% \input{all_the_notes/textbook_density_matrix}
-% \input{all_the_notes/textbook_open_quantum_systems} \input{all_the_notes/_spin_qubit_atom}
- 
-% \input{all_the_notes/textbook_rabi_oscillations}
-% \input{all_the_notes/textbook_transmission_line}
-% \input{all_the_notes/textbook_perturbation_theory}
-% \input{all_the_notes/textbook_changing_basis}
-% \input{all_the_notes/textbook_fluctuation_dissapation}
- 
+\input{texfiles/qubit_rf_squid}
+
+\input{texfiles/qubit_3jj}
+
+\input{texfiles/qubit_4jj_v1}
+
+\input{texfiles/qubit_4jj}
+
+\input{texfiles/qubit_phase}
+
+\input{texfiles/transmon}
+
+\input{texfiles/resonator_derivation}
+
+\input{texfiles/qubit_resonator_interaction}
+
+\input{texfiles/dark_state}
+
+%% Quantum Phase Slip
+\input{texfiles/quantum_phase_slip}
+
+%%% Hard theory
+\input{texfiles/simulating_circuits}
+
+\input{texfiles/book_quantum_optics}
+
+%%% Base theory i.e. I have a good understanding of this
+\input{texfiles/textbook_interaction_picture}
+
+\input{texfiles/textbook_dipole_approximation}
+
+\input{texfiles/textbook_density_matrix}
+
+\input{texfiles/textbook_open_quantum_systems}
+
+\input{texfiles/_spin_qubit_atom}
+
+\input{texfiles/textbook_rabi_oscillations}
+
+\input{texfiles/textbook_perturbation_theory}
+
+\input{texfiles/textbook_changing_basis}
+
+\input{texfiles/textbook_fluctuation_dissapation}
+
 \printbibliography
 \end{document}

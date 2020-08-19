@@ -1,0 +1,72 @@
+\section{Charge basis\label{sec:charge_basis}}
+\red{\textbf{The  charge  basis is  used,  when  the energy  is  mostly
+    capacitive.}}
+
+\begin{itemize}
+\item \red{It is not continous wavefunctions}, but raising and lowering
+  operators and  discreete charge states \iket{0},  \iket{1}, \iket{2},
+  \iket{3} \ldots;
+\item The operators are defined as
+  \begin{equation}\label{key}
+    \hat{\red{N}}\ket{n} = n\iket{n}\qquad\qquad e^{\pm i\blue{\phi}} = \sum_n\iketbra{n\pm 1}{n} \qquad\qquad \left[\blue{\phi},\red{N}\right] = \frac{2\pi}{\frac{h}{2e}}\left[\Phi,Q\right]\frac{1}{2e} = i
+  \end{equation}
+
+  \noindent $ n $, is the number  of Cooper pairs that have tunneled to
+  an island via the Josephson junction.
+\end{itemize}
+
+\subsection{Prooving the phase raising effect}
+Let us understand, where the phase operator definition
+\begin{equation}\label{key}
+  e^{\pm i\blue{\phi}} = \sum_n\iketbra{n\pm 1}{n},
+\end{equation}
+
+\noindent is coming from.
+
+\begin{enumerate}
+\item Looking at the commutation relation
+
+  \begin{equation}\label{key}
+    \begin{aligned}
+      \icommutation{\hat{\red{N}}}{e^{\pm i \hat{\blue{\phi}}}} = &  \icommutation{\hat{N}}{\sum_{\alpha = 0}^{\infty} \frac{(\pm i\hat{\blue{\phi}})^\alpha}{\alpha!}}\\
+      &         =         \sum_{\alpha         =         0}^{\infty}         (\pm
+      i)^\alpha\frac{\icommutation{\hat{\red{N}}}{\hat{\blue{\phi}}^\alpha}}{\alpha!}
+      \qquad     \icommutation{\hat{\red{N}}}{\hat{\blue{\phi}}}      =     -i,
+      \icommutation{A}{BC}        =       B\icommutation{A}{C}        +
+      \icommutation{A}{B}C
+      \\
+      & = \sum_{\alpha = 0}^{\infty} (\pm i)^\alpha\frac{-\alpha i\hat{\blue{\phi}}^{\alpha - 1}}{\alpha!}\\
+      & = \pm \sum_{\alpha = 1}^{\infty}i^{\alpha - 1}\frac{(\pm\hat{\blue{\phi}})^{\alpha - 1}}{(\alpha - 1)!}\\
+      & = \pm e^{\pm i\hat{\blue{\phi}}}
+    \end{aligned}
+  \end{equation}
+\item Next, if we evaluate
+  \begin{equation}\label{key}
+    \begin{aligned}
+      \hat{\red{N}}\bigg[e^{\pm i\hat{\blue{\phi}}}\ket{n}\bigg] & = \bigg[\pm e^{\pm i\hat{\blue{\phi}}} + e^{\pm i\hat{\blue{\phi}}}\hat{N}\bigg]\ket{n}\\
+      & = (n\pm 1)\bigg[e^{\pm i\hat{\blue{\phi}}}\ket{n}\bigg]
+    \end{aligned}
+  \end{equation}
+\item So  in effect, what we  can say is  that the action of  the phase
+  operator increments the $ n $ number like a ladder operator:
+
+  \begin{equation}\label{key}
+    \begin{aligned}
+      e^{\pm i\hat{\blue{\phi}}}\ket{n} &= C\ket{n \pm 1}\qquad \text{(since $ e^{\pm i\hat{\blue{\phi}}} $ is unitary)}\\
+      &= \ket{n\pm 1}
+    \end{aligned}
+  \end{equation}
+\item \
+  \begin{framed}\noindent
+    So therefore, we can write the phase operator in the following form
+    \begin{equation}\label{key}
+      \begin{aligned}
+        e^{\pm i\hat{\blue{\phi}}} & = \sum_{n}\iketbra{n\pm 1}{n}\\
+        \hat{\red{N}} & = \sum_{n}n\iketbra{n}{n}.
+      \end{aligned}
+    \end{equation}
+
+  \end{framed}
+\end{enumerate}
+
+\newpage

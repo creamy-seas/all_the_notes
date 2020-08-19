@@ -1,0 +1,162 @@
+\section{Representing 2-level system as a spin}
+\label{spin12}
+We call the magnetic dipole the quantity
+
+\begin{equation}\label{eqn:gqmMoment}
+  \vec{\mu} = IA,
+\end{equation}
+
+\noindent  the product  of the  current around  a loop,  by the  area is
+encompasses. It points perpendicular to the plane of the loop.
+
+When placed  inside a uniform  magnetic field,  the torque on  the setup
+will      be      (can      be     proven      by      geometry      and
+$\vec{F} = l\cdot\ \vec{I}\times \vec{B}$
+
+  \begin{equation}
+    \tau = \vec{\mu}\times\vec{B},
+  \end{equation}
+
+  \noindent which  attempts to  rotate the moment  to the  lowest energy
+  configuration,  when  the  magnetic  moment falls  in  line  with  the
+  magnetic field. The energy of a magnetic moment we measure relative to
+  the case  when the magnetic moment  is $\perp$ to the  magnetic field,
+  and taking the integral $\int\tau d\theta$, one gets the energy
+
+  \begin{equation}
+    U = -\vec{\mu} \cdot \vec{B}.
+  \end{equation}
+
+  \noindent Evaluating the moment for a simple electron in orbit like in
+  \autoref{eqn:gqmMoment}
+
+  \begin{equation}
+    \mu = \big[-|e|\frac{v}{2\pi r}\big]\pi r^2 = -\frac{|e|}{2}rv,
+  \end{equation}
+
+  \noindent and remembering that $mrv = L$ - the angular momentum
+
+  \begin{equation}
+    \vec{\mu}= -\frac{|e|}{2m}\vec{L} \qquad \qquad U = -\frac{|e|}{2m}\vec{L}.\vec{B}.
+  \end{equation}
+
+  \noindent  Following  commutation   relations  for  angular  momentum,
+  follows the quantisation  of angular momentum into  ladder like states
+  (we guess the  way that $L_z$ and $L^2$ act  on their eigenstates. The
+  general direction  that this is  done for is the  z-direction, whereby
+  $L_z$ and  $\hat{L}^2$ both become  quantised. In momentum  space this
+  means that  for a  fixed angular  momentum in  one direction,  we know
+  nothing of the other two components.
+
+  The Stern-Gerlach experiment on measuring the deflection of electrons,
+  resulted  in the  speculation that  there  was an  additional type  of
+  `hidden' momentum - the spin. By analogy the magnetic moment from spin
+  is
+
+  \begin{equation}
+    \vec{\mu}_s = -g_e\frac{|e|}{2m_e}\vec{S}.
+    \label{eqn:gqmSpin}
+  \end{equation}
+
+  \noindent Using similar arguments, one finds two eigenvectors
+
+  \begin{equation}
+    \ket{s=1/2,m=+1/2} = \begin{bmatrix}
+      1\\0
+    \end{bmatrix}\qquad \ket{s=1/2,m=-1/2} = \begin{bmatrix}
+      0 \\1
+    \end{bmatrix},
+  \end{equation}
+
+  \noindent  which  are  expressed  in their  eigenbasis,  that  form  a
+  complete set (as long as we don't introduce other degrees of freedom).
+
+
+  Writing out the way spin operators affect these eigenstates (i.e. when
+  we measure spin)
+
+  \begin{equation}
+    \begin{aligned}
+      \hat{S}_z\ket{\uparrow} = +\frac{\hbar}{2}\ket{\uparrow} & \hat{S}_z\ket{\downarrow} = -\frac{\hbar}{2}\ket{\downarrow}\\
+      \hat{S}^2\ket{\uparrow} = \frac{3}{4}\hbar^2\ket{\uparrow} & \hat{S}^2\ket{\downarrow} = \frac{3}{4}\hbar^2\ket{\downarrow}\\
+      \hat{S}_+\ket{\uparrow} = 0 &
+      \hat{S}_+\ket{\downarrow} = \hbar\ket{\uparrow}\\
+      \hat{S}_-\ket{\uparrow} = \hbar\ket{\downarrow} &
+      \hat{S}_-\ket{\downarrow} = 0\\
+    \end{aligned},
+  \end{equation}
+
+  \noindent and taking the  sandwiches $\bra{\uparrow}S\ket{\downarrow}$ to evaluate the
+  matrix elements (and using $S_x = \frac{S_++S_-}{2}$ etc)
+
+  \begin{equation}
+    \begin{aligned}
+      \hat{S}_z = \frac{\hbar}{2}\sigma_x  \qquad \hat{S}_y = \frac{\hbar}{2}\sigma_y
+      \qquad \hat{S}_z = \frac{\hbar}{2}\sigma_z
+    \end{aligned}
+    \label{eqn:gqmPauli}
+  \end{equation}
+
+  \noindent  Thus  the  general  spin operator  is  found  by  combining
+  \eqref{eqn:gqmSpin} and Eq. \ref{eqn:gqmPauli}
+
+  \begin{equation}
+    \hat{\mu} = -g_e\frac{|e|}{2m_e}\hat{S} = -g_e\frac{|e|}{2m_e}\frac{\hbar}{2}\begin{bmatrix}
+      \sigma_x\\\sigma_y\\\sigma_z
+    \end{bmatrix} = -\mu\begin{bmatrix} \sigma_x\\\sigma_y\\\sigma_z
+    \end{bmatrix}
+  \end{equation}
+
+  \noindent The Hamiltonian $\mathcal{H} = \hat{\mu}.\hat{B}$ is then
+
+  \begin{equation}
+    \begin{aligned}
+      \mathcal{H} & = -\mu\left(B_x\sigma_x+B_y\sigma_y+B_z\sigma_z\right)\\
+      &                          \red{\mathbf{                         =
+          -\frac{\hbar}{2}\bigg(\omega_x\sigma_x+\omega_y\sigma_y+\omega_z\sigma_z\bigg)}}
+    \end{aligned},
+  \end{equation}
+
+  \noindent where we introduced  a convenient frequency. \textbf{Any two
+    level system has  this energy spectrum, with an  offset energy}. The
+  dynamics are then:
+  \begin{equation}\label{eqn:evolutionBloch}
+    i\hbar\frac{d\vec{\sigma}}{dt} = \mathcal{H}\vec{\sigma} \propto \vec{B}\cdot\vec{\sigma}
+  \end{equation}
+
+  Further,  the density  matrix for  an arbitrary  two level  system can
+  always   be    written   in    the   form    (remember   normalisation
+  $|\alpha|^2+|\beta|^2 = 1$)
+
+  \begin{equation}
+    \begin{bmatrix}
+      \alpha\\\beta
+    \end{bmatrix}    \qquad\Rightarrow\qquad    \begin{aligned}   \rho    &
+      = \begin{pmatrix} \alpha\\\beta
+      \end{pmatrix}\begin{pmatrix}
+        \alpha^* & \beta^*
+      \end{pmatrix}       =      \begin{pmatrix}       |\alpha|^2      &
+        \alpha\beta^*\\\beta\alpha^*&|\beta|^2
+      \end{pmatrix}\\
+      & = \begin{pmatrix}
+        |\alpha|^2 & (\re{\alpha}+i\im{\alpha})(\re{\beta}-i\im{\beta})\\ (\re{\beta}+i\im{\beta})(\re{\alpha}-i\im{\alpha}) & |\beta|^2\\
+      \end{pmatrix}\\
+      & = \begin{pmatrix}
+        |\alpha|^2 & \re{\alpha}\re{\beta} +\im{\alpha}\im{\beta} +i(\im{\alpha}-\im{\beta})\\ \re{\alpha}\re{\beta} + \im{\alpha}\im{\beta} -i(\im{\alpha}-\im{\beta}) & |\beta|^2\\
+      \end{pmatrix}\\
+      & = \begin{pmatrix}
+        |\alpha|^2 & X + iY\\ X - iY & 1-|\alpha|^2\\
+      \end{pmatrix}\\
+      & = \begin{pmatrix} \frac{1}{2} & 0\\0&\frac{1}{2}
+      \end{pmatrix}  + \begin{pmatrix}  |\alpha|^2-\frac{1}{2} &  0\\0 &
+        -\bigg[|\alpha|^2-\frac{1}{2}\bigg]
+      \end{pmatrix}+ \begin{pmatrix} 0 & X\\X&0
+      \end{pmatrix} + \begin{pmatrix} 0 & +iY\\-iY&0
+      \end{pmatrix}\\
+      &      \mathbf{\red{\rho     =      \frac{1}{2}\bigg(\mathbb{I}     +
+          u_x\sigma_x+u_y\sigma_y+u_z\sigma_z\bigg)}}
+    \end{aligned}
+  \end{equation}
+
+
+  \newpage
