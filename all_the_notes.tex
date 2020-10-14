@@ -1,87 +1,71 @@
 \documentclass{phd_class}%
-% \input{legacy}%
-\graphicspath{{images_hardlinked/}}%
+\graphicspath{{images_hardlinked/}{images_simulation/}}
+
 \addbibresource{bibliography.bib}%
 
 \begin{document}%
 
 \tableofcontents
+\newpage
+
+\section{Random notes to sort}
+\label{sec:random-notes-sort}
+
+\begin{itemize}
+\item When in excited state, qubit emits a single photon -  a Fock state, whose phase is undefined. Therefore this is an
+  incoherent emission.
+\end{itemize}
 
 \newpage
 
 %% Fabrication
-\input{texfiles/fabrication}
+\input{fabrication}%
+\input{experiment}%
 
 %% Quantum Electrodynamics
-\input{texfiles/coupling_to_system}
-
-\input{texfiles/_emission_from_system}
-
-\input{texfiles/_scattering_by_system}
-
-\input{texfiles/_relaxation_due_to_noise}
-
-\input{texfiles/textbook_unitary_transformation}
-
-\input{texfiles/textbook_dissapation}
-
-\input{texfiles/_linbland_operator_in_depth}
-
-\input{texfiles/textbook_two_level_system_evolution}
-
-\input{texfiles/_introducing_qed_operators}
-
-\input{texfiles/_charge_basis}
-
-\input{texfiles/_phase_basis}
+\input{coupling_to_system}%
+\input{_emission_from_system}%
+\input{_scattering_by_system}%
+\input{_relaxation_due_to_noise}%
+\input{textbook_unitary_transformation}%
+\input{textbook_dissapation}%
+\input{_linbland_operator_in_depth}%
+\input{textbook_two_level_system_evolution}%
+\input{_introducing_qed_operators}%
+\input{_charge_basis}%
+\input{_phase_basis}%
 
 %% Specific systems
-\input{texfiles/qubit_copper_pair_box}
-
-\input{texfiles/qubit_rf_squid}
-
-\input{texfiles/qubit_3jj}
-
-\input{texfiles/qubit_4jj_v1}
-
-\input{texfiles/qubit_4jj}
-
-\input{texfiles/qubit_phase}
-
-\input{texfiles/transmon}
-
-\input{texfiles/resonator_derivation}
-
-\input{texfiles/qubit_resonator_interaction}
-
-\input{texfiles/dark_state}
+\input{qubit_copper_pair_box}%
+\input{qubit_rf_squid}%
+\input{qubit_3jj}%
+\input{qubit_4jj_v1}%
+\input{qubit_4jj}%
+\input{qubit_phase}%
+\input{transmon}%
+\input{resonator_derivation}%
+\input{qubit_resonator_interaction}%
+\input{dark_state}%
 
 %% Quantum Phase Slip
-\input{texfiles/quantum_phase_slip}
+\input{quantum_phase_slip}%
 
 %%% Hard theory
-\input{texfiles/simulating_circuits}
-
-\input{texfiles/book_quantum_optics}
+\input{simulating_circuits}%
+\input{book_quantum_optics}%
 
 %%% Base theory i.e. I have a good understanding of this
-\input{texfiles/textbook_interaction_picture}
+\input{textbook_interaction_picture}%
+\input{textbook_dipole_approximation}%
+\input{textbook_density_matrix}%
+\input{textbook_open_quantum_systems}%
+\input{_spin_qubit_atom}%
+\input{textbook_rabi_oscillations}%
+\input{textbook_perturbation_theory}%
+\input{textbook_changing_basis}%
+\input{textbook_fluctuation_dissapation}%
 
-\input{texfiles/textbook_dipole_approximation}
-
-\input{texfiles/textbook_density_matrix}
-
-\input{texfiles/textbook_open_quantum_systems}
-
-\input{texfiles/_spin_qubit_atom}
-
-\input{texfiles/textbook_rabi_oscillations}
-
-\input{texfiles/textbook_perturbation_theory}
-
-\input{texfiles/textbook_changing_basis}
-
-\input{texfiles/textbook_fluctuation_dissapation}
-
+\phantomsection%
 \printbibliography
+
 \end{document}

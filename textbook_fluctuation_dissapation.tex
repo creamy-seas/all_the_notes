@@ -13,14 +13,14 @@
   $ M(t) $ according to the dynamical susceptibility $ X $.
 
   \begin{framed}\noindent
-    \begin{equation}\label{eqn:response_2}
+    \begin{equation}
       M(t) = \int_{-\infty}^{t}X(t - \tau)B(\tau)d\tau.
     \end{equation}
   \end{framed}
 \item  For a  sinusidal  excitation  $ B(t)  =  be^{-i\omega  t} $  the
   response is
   \begin{framed}\noindent
-    \begin{equation}\label{eqn:response_3}
+    \begin{equation}
       \begin{aligned}.M(t)    &=    be^{-i\omega   t}\chi(\omega)\\    \chi(\omega)    &=
         \int_{-\infty}^{\infty}X(\tau)e^{i\omega t}dt
       \end{aligned}
@@ -34,18 +34,18 @@
   \begin{framed}\noindent
     Given  a superposition  of forces  (expressed by  $ b(\omega)  $ in  the
     frequency range)
-    \begin{equation}\label{eqn:freq_2}
+    \begin{equation}
       B(t)     =    \frac{1}{2\pi}\int_{-\infty}^{\infty}b(\omega)e^{-i\omega
         t}d\omega,
     \end{equation}
     \noindent the response  can be found by evaluating  the response at
     frequency:
-    \begin{equation}\label{eqn:freq_3}
+    \begin{equation}
       m(\omega) = \chi(\omega)b(\omega),
     \end{equation}
     \noindent and `summing' them up,  which is equivalent to taking the
     fourier transform
-    \begin{equation}\label{eqn:freq_4}
+    \begin{equation}
       M(t)     =    \frac{1}{2\pi}\int_{-\infty}^{\infty}m(\omega)e^{-i\omega
         t}d\omega.
     \end{equation}
@@ -538,7 +538,8 @@ excitation,
 
  \begin{framed}\noindent
    \noindent      Or      in      terms      of      the      Impedance
-   $ Z = \frac{1}{i\omega \chi(\omega)} $ (equation for capactitive impedance)
+   $  Z =  \frac{1}{i\omega \chi(\omega)}  $ (equation  for capactitive
+   impedance)
 
   \begin{equation}\label{key}
     \frac{1}{Z(\omega)} = \frac{1}{kT}\int_{0}^{\infty}\iaverage{I(0)I(t)}e^{i\omega t}dt.

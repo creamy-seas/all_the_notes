@@ -1,0 +1,157 @@
+\newpage
+
+\section{Quantum phase slip \cite{mooij2005} \label{sec:qps}}
+
+\subsection{Literature}
+\begin{framed}\noindent
+  \begin{itemize}
+  \item \textbf{Charge control of blockade  of Cooper pair tunnelling in
+      highly disordered TiN nanowires in an inductive environment}
+    \begin{enumerate}
+    \item Fabricate several thin superconducting bridges with meanders;
+    \item Measure the  DC voltage, $ V  $, acorss then as  a function of
+      the applied gate voltage, $ V_c $, from underneath the chip;
+    \item Some samples have big oscillations  in $ V $ with gate voltage
+      - Single  Electron Transistor regime, where  nanowire is compoased
+      of grains, which feel a Coulomb Blockade;
+    \item Quantum Phase Slip possible  in other samples, where there are
+      no grains in the wire.
+    \end{enumerate}
+  \end{itemize}
+\end{framed}
+
+Initially quantum  phase slips  were a result  of thermal  activation in
+thin wires.
+
+\subsection{Cooper box duality}
+The system  is dual to  the cooper pair  box system, where  the charging
+energy  creates  a parabollic  dependence,  and  the Josephson  coupling
+energy   $   E_J    $   mixes   states   lifting    degeneracy   as   in
+Sec~\ref{sec:cooper_pair_box}:
+
+ \begin{equation}\label{key}
+   \mathcal{H} = E_c(\hat{n} - n_g)^2 - \frac{E_J}{2}\left[\iketbra{n+1}{n} + \iketbra{n}{n+1}\right].
+ \end{equation}
+
+ \noindent In the qunatum phase slip, we do the same thing, but now with
+ inductor-component energy, $ E_L  = \frac{\Phi_0^2}{2L} $, is parabolic
+ and degeneracy is lifted by the coupling, $ E_s $, due to the tunneling
+ of fluxes (we do not specify yet the exact derivation of this energy):
+
+ \begin{equation}\label{eq:hamiltonian-cqps-standalone}
+   \mathcal{H} = E_L(\hat{n} - f)^2 - \frac{E_s}{2}\left[\iketbra{n+1}{n} + \iketbra{n}{n+1}\right],
+ \end{equation}
+
+ \noindent with $ f = \Phi/\Phi_0 $.
+
+ \begin{framed}\noindent
+   \noindent  The discussion  them stems  off into  how the  Cooper pair
+   tunneling is  dual to the phase  slip, how one gets  similar steps in
+   voltage current  characterisitics. There  is a lot  of math,  which I
+   don't want to get into.
+ \end{framed}
+
+ \subsection{Mooij 2006 paper \cite{mooij2005}}
+ \label{sec:mooij-2006-paper}
+
+ \begin{equation}
+   \begin{aligned}
+     E_{L} & \equiv E_C\\
+     E_{J} & \equiv E_s \\
+     n_{g} & \equiv f
+   \end{aligned}
+ \end{equation}
+
+ \noindent
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[height=7cm]{quantum-phase-slip/mooij_2005_energy_graphs}
+  \caption{\small  The energy  spectra are  dual for  the two  systems -
+    from. In  a) $E_C  >> E_J$  so that charge  is the  relevant quantum
+    number  and  in  b) $E_L  >>  E_s$  so  that  phase is  the  quantum
+    number. \cite{mooij2005}. \label{fig:mooij_2005_energy_graphs}}
+\end{figure}
+
+\subsection{Derivation}
+\label{sec:derivation}
+
+There  is  a  theory  written   in  the  book  \textbf{Devoret:  Quantum
+  Fluctuation  in  electrical  circuits} about  how  \textbf{any  linear
+  circuit   can  be   presented  by   an  equivalent   circuit  with   a
+  frequency-dependent resistor}.
+
+\begin{itemize}
+\item  Current  biased: Resistor  is  in  parallel \hfill  Phase  across
+  junction
+\item Voltage biased: Resistor is in series \hfill No of CP transfered.
+\end{itemize}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[height=7cm]{quantum-phase-slip/mooij_2005_biases}
+  \caption{\small  \textbf{JJ on  left} vs  \textbf{CQPS on  right}. The
+    capacitor is replaced with an inductor to make phase the new defined
+    quantum variable. \label{fig:mooij_2005_biases}}
+\end{figure}
+
+The main  transformation applied  that links the  following hamiltonians
+(we    simply    match    the    inductive   and    QPS    terms    from
+\autoref{eq:hamiltonian-cqps-standalone})  and  we   add  the  necessary
+2$\pi$ factors
+\begin{equation}
+  \begin{aligned}
+    \mathcal{H}_{JJ} & = E_C\hat{q}^2 - E_J\cos\hat{\varphi} \\
+    \mathcal{H}_{CQPS}   &  =   E_L\frac{\hat{\varphi}^2}{(2\pi)^{2}}  -
+    E_S\cos(2\pi\hat{q})
+  \end{aligned}
+\end{equation}
+
+\noindent This requires the following set of transformations:
+
+\begin{itemize}
+\item $\hat{q} \rightarrow - \frac{\varphi}{2\pi}$
+\item $\hat{\varphi} \rightarrow 2\pi q$
+\item $E_s \rightarrow E_J$
+\item $E_L \rightarrow E_C$
+\item $I \Leftrightarrow \frac{V}{R_{q}}$
+\item $Y(\omega) \Leftrightarrow \frac{Z(\omega)}{R_q^2}$
+\end{itemize}
+
+\subsection{Inverse shapiro steps}
+\label{sec:inverse-shap-steps}
+
+Now  if we  take  the  aforementioned mappings  and  apply  them to  the
+equation used to model a typical JJ
+
+\begin{figure}[h]
+  \centering \inkfig{8cm}{typical_jj_setup}
+  \caption{\small Modelling a JJ\label{fig:typical_jj_setup}}
+\end{figure}
+
+\begin{equation}
+  I(t) = \red{I_c\sin\varphi} + \frac{\Phi_{0}}{2\pi}\left[ \green{C \frac{d^2\varphi}{dt^{2}}} + \blue{\frac{1}{R}\frac{d\varphi}{dt}} \right]
+\end{equation}
+
+\noindent  which  leads  to  Shapiro steps.  \red{Add  explanation  from
+  metrology notes}.
+
+Upon subbing in
+\begin{equation}
+  V(t) = \red{V_c\sin(2\pi q)} + 2e\left[ \green{L \frac{d^2q}{dt^{2}}} + \blue{R\frac{dq}{dt}} \right]
+\end{equation}
+
+\noindent where we  now deal with the voltage drops  across the CQPS (in
+becomes a linear circuit). \textbf{Valid when the charge is the relevant
+  quantum number (just like for JJ phase is the quantum number as we are
+  localised in a potential minimum)}
+
+\red{TODO: Plasma frequency in JJ.}
+
+\newpage
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "all_the_notes"
+%%% End:

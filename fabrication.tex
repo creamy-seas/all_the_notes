@@ -1,4 +1,4 @@
-% -*- TeX-master: "../all_the_notes.tex" -*-
+% -*- TeX-master: "all_the_notes.tex" -*-
 
 \section{Fabrication}
 \label{sec:fabrication}
@@ -103,6 +103,9 @@
 \newpage\subsection{Deposition}
 \label{sec:deposition}
 
+\subsubsection{Depsition via parallel angles}
+\label{sec:deps-via-parall}
+
 
 \begin{itemize}
 \item \textbf{Ground planes and  bonding contacts:} Ti (\iunit{10}{nm})
@@ -124,8 +127,8 @@
   \begin{figure}[h]
     \centering \includegraphics[height=8cm]{fabrication_angle}
     \caption{\small    Angle   $\alpha$    shifts   the    pattern   by
-      $ T\tan(\alpha) $  and shortens it by $  t\tan(\alpha).$ Thus the
-      pattern needs  to be made longer  and shifted to get  the desired
+      $ T\tan(\alpha)  $ and shortens  it by  $ t\tan(\alpha).$ Thus  the pattern
+      needs  to  be  made  longer   and  shifted  to  get  the  desired
       structure. \label{fig:fabrication_angle}}
   \end{figure}
   \begin{itemize}
@@ -165,12 +168,34 @@
 A  better deposition  is  the  one that  was  proposed  by Rais,  where
 deposition is done at 0 and 30 degrees.
 \begin{figure}[h]
-  \centering \inkfig{15cm}{0and30}
+  \centering \inkfig{10cm}{0and30}
   \caption{\small  Perpendicular deposition  followed  by 30$^o$  angle
     deposition     will     remove     the    ``shadow''     of     the
     tbar.\label{fig:0and30}}
 \end{figure}
 
+\subsubsection{Perpendicular deposition}
+\label{sec:perp-depos-1}
+
+An even better way to deposit,  is to perform two depositions at 90$^o$
+to each other.
+
+\begin{itemize}
+\item First deposition deposits horizontal strips;
+\item Second deposition deposits vertical strips;
+\item The sharp angle ensures that one deposition is independent of the
+  other;
+\item The \textbf{wall holes} ensure that there is no ``cliffs'' at the
+  end of the strips;
+\end{itemize}
+
+\begin{figure}[h]
+  \centering \inkfig{10cm}{perpendicular_deposition}
+  \caption{\small Sharp  angle of deposition, means  that perpendicular
+    directions will only deposit certain  strips. The holes ensure that
+    there are no ``cliffs'' at the  end of the strips that could impact
+    fabrication quality.  lines\label{fig:perpendicular_deposition}}
+\end{figure}
 
 \subsection{Coupling-capacitance}
 \label{sec:coupling-capacitance}
@@ -200,13 +225,13 @@ deposition is done at 0 and 30 degrees.
      & \red{E = E_J(1-\cos(\phi))} \\
      & \begin{cases}
        E_J = \frac{\Phi_0I_c}{2\pi}\\
-       I_cR_n =  \frac{\pi\Delta(0)}{2e} \qquad  \text{critical current
-         from BCS theory.}
+       I_cR_n =  \frac{\pi\Delta(0)}{2e} \qquad \text{critical  current from
+         BCS theory.}
      \end{cases}
    \end{aligned}
  \end{equation}
 
- \noindent A  typical JJ  will have  an area  of say  \iunit{100 \times
+ \noindent  A  typical  JJ  will  have an  area  of  say  \iunit{100  \times
    200}{nm}$^{2}$
 
  \begin{framed}\noindent
@@ -225,8 +250,8 @@ deposition is done at 0 and 30 degrees.
 
    \includegraphics[height=4cm]{oxidation}
 
-   \red{JJ resistance increases by $ \sim  10\% $ as one goes from room
-     to cryogenic temperatures.}
+   \red{JJ resistance increases by $ \sim 10\%  $ as one goes from room to
+     cryogenic temperatures.}
  \end{framed}
 
  % The resistances go as follows:

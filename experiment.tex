@@ -1,0 +1,28 @@
+% -*- TeX-master: "all_the_notes.tex" -*-
+
+\section{Experiment}
+
+\subsection{S-parameters}
+\label{sec:s-parameters}
+
+\begin{equation}
+  \begin{pmatrix}
+    b_{1}\\b_2
+  \end{pmatrix} = \begin{pmatrix} S_{11} & S_{12} \\ S_{21} & S_{22}
+  \end{pmatrix}
+  \begin{pmatrix}
+    a_{1} \\ a_2
+  \end{pmatrix}
+\end{equation}
+
+\begin{itemize}
+\item $S_{11}$, is the input port voltage reflection coefficient;
+\item $S_{12}$, is the reverse voltage gain;
+\item $S_{21}$, is the forward voltage gain;
+\item $S_{22}$, is the output port voltage reflection coefficient.
+\end{itemize}
+
+\begin{figure}[h]
+  \centering \inkfig{5cm}{s_parameters}
+  \caption{\small Measurement of tranmission and reflection\label{fig:s_parameters}}
+\end{figure}

@@ -1,18 +1,19 @@
-% -*- TeX-master: "../all_the_notes.tex" -*-
+% -*- TeX-master: "all_the_notes.tex" -*-
 
-\section{Transmission line}
+\section{Transmission       line       and       resonator       from
+  circuits}\label{sec:transmission-line}
 
-We treat the  transmission line as a chain of  inductors and capacitors
-and that  is lossless  (i.e $  R=0 $  and $ G  = 0  $ =  no conductance
+We treat the transmission line as a chain of inductors and capacitors
+and  that is  lossless (i.e  $ R=0  $ and  $ G=0  $ =  no conductance
 between the lines) with
 
   \begin{equation}
     l \approx \mu_0 \text{ - the inductance per unit length}\qquad c \approx \epsilon_0 \text{ - the capacitance per unit length},
   \end{equation}
 
-  \noindent as shown in Fig.\ref{transtLine}.  Recall that for a device
-  of     size     $     \alpha     $,    the     capacitance     will     be
-  $ C  \approx \epsilon_0\alpha $.  The  current and the voltage  in the line
+  \noindent  as shown  in  Fig.\ref{transtLine}.  Recall  that for  a
+  device   of    size   $    \alpha   $,    the   capacitance    will   be
+  $ C \approx \epsilon_0\alpha $.  The  current and the voltage in the line
   will have components going in opposite directions
 
   \begin{equation}
@@ -20,18 +21,22 @@ between the lines) with
     \mathbf{V_{\pm} = V_0e^{\pm ikx-i\omega t};\qquad I_{\pm} = I_0e^{\pm ikx-i\omega t}},
   \end{equation}
 
-  \noindent and be related to each other via the complex impedance
+  \noindent and be  related to each other via  the complex impedance.
+  (\textbf{Impedance} is equivalent to \textbf{Resistance} but for an
+  AC circuit,  where charge  buildup and  current through  coils will
+  create time-varying emf in the circuit)
 
  \begin{equation}
    V_{\pm}= \pm ZI_{\pm}
  \end{equation}
 
- \begin{figure}
-   \caption{ \label{transtLine}}
+ \begin{figure}[h]
+   \caption{Treat the transmission  line as a chain  of inductors and
+     capacitors and that is lossless \label{transtLine}}
    \includegraphics[height=3cm]{tline}
  \end{figure}
 
- \noindent  We  write  the  following equations  from  their  classical
+ \noindent  We write  the  following equations  from their  classical
  analogues
 
  \begin{equation}
@@ -47,7 +52,7 @@ between the lines) with
  \end{equation}
 
  \begin{itemize}
- \item     We     substitute    Eq.\eqref{tlineCurrentVoltage}     into
+ \item    We     substitute    Eq.\eqref{tlineCurrentVoltage}    into
    Eq.\eqref{tlineDiff} to get
 
   \begin{equation}
@@ -57,7 +62,8 @@ between the lines) with
       \end{aligned}\right. \Rightarrow\left\lbrace \begin{aligned}
         Z_0&=\frac{V_0}{I_0} = \frac{\omega l }{k}\\
         Z_0&=\frac{V_0}{I_0} = \frac{k}{\omega c}\\
-      \end{aligned}\right.  \Rightarrow \red{\mathbf{Z_0 = \sqrt{\frac{l}{c}}}}\approx
+      \end{aligned}\right.  \Rightarrow \red{\mathbf{Z_0 =
+        \sqrt{\frac{l}{c}}}}\approx
     100\Omega
   \end{equation}
 
@@ -67,8 +73,8 @@ between the lines) with
     \frac{d^2V}{dx^2} = -l\frac{d^2I}{dt\partial x} = -l\bigg(-c\frac{d^2V}{dt^2}\bigg) \Rightarrow V_{xx} = \frac{1}{1/lc}V_{tt},
   \end{equation}
 
-  \noindent  which  has  the  exact  same form  as  the  wave  equation
-  $ y_{xx}=\frac{1}{v^2}y_{tt} $,  from which one can get  the speed of
+  \noindent  which has  the  exact  same form  as  the wave  equation
+  $ y_{xx}=\frac{1}{v^2}y_{tt} $, from which one can get the speed of
   wave propagation
 
   \begin{equation}
@@ -76,18 +82,19 @@ between the lines) with
   \end{equation}
 \end{itemize}
 
-\begin{figure}
+\begin{figure}[h]
+  \centering%
+  \includegraphics[height=4cm]{res1}%
   \caption{\label{tlineres1}}
-  \includegraphics[height=4cm]{res1}
 \end{figure}
 
-So far we have had a transmission line with no boundary conditions. But
-now lets us look at a resonator,  depicted in figure which has two ends
-which are cut off and at which
+So  far   we  have   had  a  transmission   line  with   no  boundary
+conditions. But now  lets us look at a resonator,  depicted in figure
+which has two ends which are cut off and at which
 
 \begin{itemize}
-\item \textbf{The current $ I=0 $}:  no charge may flow at these points
-  of cut.
+\item  \textbf{The current  $ I=0  $}: no  charge may  flow at  these
+  points of cut.
 \end{itemize}
 
 Mathematically speaking
@@ -102,15 +109,15 @@ Mathematically speaking
      \end{aligned} \Rightarrow \red{k=\frac{\pi n}{L}}, \right.
  \end{equation}
 
- \noindent and the total current at  any point in the resonator will be
- a point on a standing wave
+ \noindent and the  total current at any point in  the resonator will
+ be a point on a standing wave
 
  \begin{equation}
    I(x,t) = I_+(x,t) + I_-(x,t) = I_+e^{i\frac{\pi n}{L}x-i\omega t} - I_+e^{-i\frac{\pi n}{L}x-i\omega t} = {{I_0\sin\bigg[\frac{\pi n}{L}x\bigg]e^{-i\omega t}}}.
    \label{tlineCurrent}
  \end{equation}
 
- \noindent  Evaluating  the   voltage  using  Eq.\eqref{tlineDiff}  and
+ \noindent  Evaluating  the  voltage using  Eq.\eqref{tlineDiff}  and
  Eq.\eqref{tlineCurrent}
 
  \begin{equation}
@@ -136,14 +143,14 @@ Mathematically speaking
 
  \begin{figure}
    \includegraphics[height=7cm]{vires}
-   \caption{Voltage has  an anti-node at  the two sides,  while current
-     has  a   node.   Multiple   modes  can   be  accomodated   by  the
+   \caption{Voltage has an anti-node at  the two sides, while current
+     has  a  node.    Multiple  modes  can  be   accomodated  by  the
      resonator\label{tlineVI}}
  \end{figure}
 
  \subsection{The voltages at the gaps of the resonator}
- Now when we consider a boundary, we  shall label + as moving towards a
- boundary,  and -  as moving  away.  By  defining the  transmission and
+ Now when we consider a boundary,  we shall label + as moving towards
+ a boundary, and - as moving  away.  By defining the transmission and
  reflection as
 
  \begin{equation}
@@ -158,15 +165,15 @@ Mathematically speaking
    V_R^{+} & = tV_0e^{ikx-i\omega t},
  \end{align}
 
- \noindent where we assume that no wave is incident from the right hand
- side ($ V_R^{+}=0 $).  Recalling Eq.\eqref{tlineDiff} that relates the
- current  to  the voltage  in  a  line,  let  us evaluate  the  current
- corresponding to each voltage component in the table below
+ \noindent where  we assume that no  wave is incident from  the right
+ hand  side ($  V_R^{+}=0  $).   Recalling Eq.\eqref{tlineDiff}  that
+ relates the  current to the voltage  in a line, let  us evaluate the
+ current corresponding to each voltage component in the table below
 
  \setlength{\extrarowheight}{3mm}
  \begin{table}[h]
-   \caption{In               the                last               step
-     $     \mathbf{I_0}=V_0\frac{k}{\omega     l}=V_0\frac{1}{v     l}     =
+   \caption{In               the              last               step
+     $     \mathbf{I_0}=V_0\frac{k}{\omega    l}=V_0\frac{1}{v     l}    =
      V_0\frac{\sqrt{lc}}{l} = V_0\sqrt{\frac{c}{l}}=V_0/Z_0 $.}
    \hspace*{-2.5cm}
    \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -179,11 +186,11 @@ Mathematically speaking
  \end{table}
 
  \newpage
- Now, the equality of the currents and voltages on the two sides of the
- gap at  $ x=0  $ \red{\textbf{and  including the  potential difference
-     drop                across                 the                gap,
-     $      V_{\text{drop}}       =      I_{R}^{+}Z_{\text{gap}}      =
-     \frac{tI_0e^{-i\omega t}}{i\omega  C_{\text{gap}}} $,  that causes
+ Now, the equality  of the currents and voltages on  the two sides of
+ the  gap  at  $  x=0  $  \red{\textbf{and  including  the  potential
+     difference         drop          across         the         gap,
+     $      V_{\text{drop}}      =     I_{R}^{+}Z_{\text{gap}}      =
+     \frac{tI_0e^{-i\omega t}}{i\omega C_{\text{gap}}} $, that causes
      the current on the other side of the gap}}
 
  \begin{equation}
@@ -208,20 +215,21 @@ Mathematically speaking
    \includegraphics[height=3cm]{gap}
  \end{figure}
 
- Now suppose that we defined another  gap further down the line. Let us
- see what the resulting  voltage at $ x=L $ would  be. The voltage that
- is transmitted across the gap initially is $ tV_0 $
+ Now suppose that  we defined another gap further down  the line. Let
+ us see what the  resulting voltage at $ x=L $  would be. The voltage
+ that is transmitted across the gap initially is $ tV_0 $
 
  \begin{multline}\label{tlineMUltiple}
    tV_0 \rightarrow \left\lbrace \text{travels $ L $ to
        $    x=L    $}\right\rbrace    \rightarrow   tV_0e^{ikL-i\omega    t}    \\
-   \rightarrow\left\lbrace \text{reflects,  travels $ L  $ to $  x=0 $,
-       reflects,  travels  L  to   $  x=L  $  }\right\rbrace\rightarrow
-   r^2tV_0e^{ik3L-i\omega t}\\  \rightarrow\left\lbrace \text{reflects,
-       travels $ L $ to $ x=0 $, reflects, travels L to $ x=L $
+   \rightarrow\left\lbrace \text{reflects, travels $ L  $ to $ x=0 $,
+       reflects,  travels  L  to $  x=L  $  }\right\rbrace\rightarrow
+   r^2tV_0e^{ik3L-i\omega         t}\\        \rightarrow\left\lbrace
+     \text{reflects, travels $ L $ to $ x=0 $, reflects, travels L to
+       $ x=L $
      }\right\rbrace\rightarrow     r^4tV_0e^{ik5L-i\omega      t}     \\
-   \rightarrow\left\lbrace \text{reflects,  travels $ L  $ to $  x=0 $,
-       reflects,  travels  L  to   $  x=L  $  }\right\rbrace\rightarrow
+   \rightarrow\left\lbrace \text{reflects, travels $ L  $ to $ x=0 $,
+       reflects,  travels  L  to $  x=L  $  }\right\rbrace\rightarrow
    r^6tV_0e^{ik7L-i\omega t} \\ \rightarrow\cdots
  \end{multline}
 
@@ -242,20 +250,22 @@ Mathematically speaking
      \begin{aligned}
        e^{i\alpha+i\alpha^2/2} & = 1+i\alpha +O(\alpha^3) \text{ (proof by simple expansion)}\\
        r & = (1+i\alpha)^{-1} \text{ (from before)}
-     \end{aligned}\right.\Rightarrow r^2 \approx e^{-i2\alpha +\alpha^2}
+     \end{aligned}\right.\Rightarrow r^2 \approx e^{-i2\alpha
+     +\alpha^2}
  \end{equation}
 
- \noindent \red{This  and further mathematical  stuff will lead  to the
+ \noindent \red{This and further mathematical  stuff will lead to the
    voltage inside the resonator to be}
 
  \begin{equation}\label{tlineVoltage}
    V_r = \frac{V_0}{\alpha}\frac{i(-1)^{n}e^{-i\omega t}}{1+i\frac{2\delta\omega}{\Delta\omega}};\quad \Delta\omega = 2\alpha^2f_0;\quad \delta\omega = \text{ offset from $ n^{th} $ resonance}.
  \end{equation}
 
- \noindent  \red{As  can  be  seen,  the  maximum  voltage  inside  the
-   resonator is $ 1/\alpha $ times  larger than the external field - we
-   have boosted the  total field from the  combination of reflections.}
- In a similar way the voltage/power leaving the resonator are
+ \noindent  \red{As  can be  seen,  the  maximum voltage  inside  the
+   resonator is $  1/\alpha $ times larger than the  external field -
+   we  have  boosted   the  total  field  from   the  combination  of
+   reflections.}   In a  similar  way the  voltage/power leaving  the
+ resonator are
 
  \begin{equation}\label{tlineLeaving}
    V_{out} = tV_r = \frac{V_0}{\alpha}\frac{i(-1)^{n+1}e^{-i\omega t}}{1+i\frac{2\delta\omega}{\Delta\omega}}; \quad P_{out} = \frac{P_0}{1+\left(\frac{2\delta\omega}{\Delta\omega}\right)^2}.
@@ -267,11 +277,11 @@ Mathematically speaking
   \end{figure}
 
 
-  \red{Important is  the quality factor  of the resonator. This  is the
-    ratio  of the  resonance frequency  to the  width of  the resonance
+  \red{Important is the quality factor of the resonator.  This is the
+    ratio of  the resonance frequency  to the width of  the resonance
     peak}
 
-  \red{\begin{equation}\label{key}                  Q                 =
+  \red{\begin{equation}\label{key}                 Q                =
       \frac{\omega_{\text{resonance}}}{\Delta\omega}=\frac{\pi}{\left(2\omega
           ZC_{gap}\right)^2}.
     \end{equation}}
@@ -281,11 +291,11 @@ Mathematically speaking
      \includegraphics[height=3cm]{res}
    \end{figure}
 
-   Using      results     of      Table.\ref{tab:conversion2},     with
-   $      V      =       V_0\bigg(a+a^\dagger\bigg);\quad      I      =
-   iI_0\bigg(a-a^\dagger\bigg) $,  and the  results from  the classical
+   Using     results     of     Table.\ref{tab:conversion2},     with
+   $      V      =     V_0\bigg(a+a^\dagger\bigg);\quad      I      =
+   iI_0\bigg(a-a^\dagger\bigg) $, and the  results from the classical
    resonator
-   $ V=V_0\cos(\frac{\pi  n}{L}x);\quad I=I_0\sin(\frac{\pi n}{L}x)  $, the
+   $ V=V_0\cos(\frac{\pi n}{L}x);\quad I=I_0\sin(\frac{\pi n}{L}x) $, the
    quantum field is
 
    \begin{align}
@@ -300,11 +310,74 @@ Mathematically speaking
        \mathcal{H} & = \frac{1}{L}\int_{0}^{L}\bigg(\frac{l\hat{I}^2}{2}+\frac{c\hat{V}^2}{2}\bigg)dx \\
        & = \frac{l}{2}\frac{-\hbar\omega}{2l}\bigg(a-a^{\dagger}\bigg)^2\frac{1}{L}\int_{0}^{L}\cos^2(\frac{\pi n}{L}x)dx + \frac{c}{2}\frac{\hbar\omega}{2c}\bigg(a+a^{\dagger}\bigg)^2\frac{1}{L}\int_{0}^{L}\sin^2(\frac{\pi n}{L}x)dx\\
        & = -\frac{\hbar\omega}{4}\frac{1}{2}\bigg(aa-aa^{\dagger}-a^{\dagger}a+a^{\dagger}a^{\dagger}\bigg)+\frac{\hbar\omega}{4}\frac{1}{2}\bigg(aa+aa^{\dagger}+a^{\dagger}a+a^{\dagger}a^{\dagger}\bigg)\\
-       &        =       \frac{\hbar\omega}{8}\bigg(aa^{\dagger}+a^{\dagger}a\bigg)=
+       &       =      \frac{\hbar\omega}{8}\bigg(aa^{\dagger}+a^{\dagger}a\bigg)=
        \frac{\hbar\omega}{8}\bigg((a^{\dagger}a+1)+a^{\dagger}a\bigg)=\mathbf{\hbar\omega\bigg(\hat{N}+\frac{1}{2}\bigg)},
      \end{aligned}
    \end{equation}
 
    \noindent so the resonator is a quantum harmonic oscillator.
 
-   \newpage
+   \subsection{Resonator types}
+   \label{sec:resonator-types}
+
+   \begin{itemize}
+   \item  $\lambda/2$  resonator  -   transmission  lines  at  either
+     end. Transmission is maximum;
+   \item  $\lambda/4$  resonator -  one  end  is grounded,  other  is
+     coupled to transmission line. Transmission has a dip.
+   \end{itemize}
+
+   \subsection{Resonator Emission}
+   \label{sec:resonator-emission}
+
+   This is based off a slightly related paper \cite{Galli_2009} which
+   talks about shining a light on a cavity. In general, the intensity
+   of a signal from a resonator can be fitted by:
+
+   \begin{framed}\noindent
+     \begin{equation}
+       \text{Intensity} = I_0 + I_1 \frac{\left[ q + 2(\omega - \omega_{0})/\Gamma \right]^2}{1 + \left[ 2(\omega - \omega_0)/\Gamma \right]^2}
+     \end{equation}
+
+     \noindent where apart  from scaling and offset  $I_0, I_1$ there
+     is:
+     \begin{itemize}
+     \item
+       $q          =         \frac{\text{Resonant          scattering
+           amplitude}}{\text{Non-resonant amplitude}}$;
+     \item $\Gamma$ is the FWHM of the scattering (linewidth)
+     \end{itemize}
+   \end{framed}
+
+   \noindent  Light shone  on the  cavity in  \autoref{fig:gali_2009}
+   will be reflected in one of two regimes
+   \begin{itemize}
+   \item Emission at the cavity  frequency and inevitable emission to
+     continuum    (non-resonant)    frequency   \hfill    $q\approx1$
+     \autoref{fig:gali_2009}a - asymmetric fit;
+   \item   Non-resonant  emission   at  a   continuum  of   available
+     frequencies \hfill  $q << 0$ \autoref{fig:gali_2009}b  - flipped
+     lorentzian;
+   \item (Not  observed -  very strong  resonant emission  - standard
+     lorentzian) \hfill $q >> 1$.
+   \end{itemize}
+
+     \begin{figure}[h]
+       \centering \includegraphics[height=6cm]{gali_2009}
+       \caption{\small Bigger area of  reflect light means that there
+         is       more      contribution       from      non-resonant
+         processes. \textbf{Note that in  figure B, the lorenztian is
+           flipped  by  the experiment  (from  formula  is should  be
+           upside down).}\label{fig:gali_2009}}
+     \end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[height=5cm]{mathematica/fano_simulation}
+  \caption{\small   Red:   $q=2$,   Orange:   $q=1$,   Blue:   $q=0$.
+    \textbf{Note that when  there is very weak  resonant emission, we
+      are centred on the dip, \red{otherwise the dip will actually be
+        off-center}}.\label{fig:fano_simulation}}
+\end{figure}
+
+\newpage
