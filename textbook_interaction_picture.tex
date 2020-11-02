@@ -1,306 +1,354 @@
 \section{Interaction picture \label{sec:interaction}}
-Given an eigenstates of $\hat{H}_0$, we can easily compute the system evolution 
+Given an  eigenstates of $\hat{H}_0$,  we can easily compute  the system
+evolution
 
 \begin{equation}
-\ket{\psi(t)} = \sum_j\alpha_je^{-iE_jt/\hbar}\ket{\phi_j}.
-\end{equation} 
+  \ket{\psi(t)} = \sum_j\alpha_je^{-iE_jt/\hbar}\ket{\phi_j}.
+\end{equation}
 
-Now to find the state for a system with a Hamiltonian 
+Now to find the state for a system with a Hamiltonian
 
 \begin{equation}
-\hat{H} = {H}_0 +V,
+  \hat{H} = {H}_0 +V,
 \end{equation}
 
 \noindent we define the interaction picture state
 
 \begin{equation}
-\ket{\psi(t)}_I = U_0(t)^\dagger\ket{\psi(t)}_S,
+  \ket{\psi(t)}_I = U_0(t)^\dagger\ket{\psi(t)}_S,
 \end{equation}
 
-\noindent Substituting $\ket{\psi(t)}_S = U_0(t)\ket{\psi(t)}_I$ into the Schrödinger equation $i\hbar\frac{\partial}{\partial t}\ket{\psi(t)}_S = \hat{H}\ket{\psi(t)}_S$
+\noindent  Substituting  $\ket{\psi(t)}_S  = U_0(t)\ket{\psi(t)}_I$  into  the
+Schrödinger                                                     equation
+$i\hbar\frac{\partial}{\partial t}\ket{\psi(t)}_S = \hat{H}\ket{\psi(t)}_S$
 
 \begin{equation}
-\begin{aligned}
-i\hbar\frac{\partial}{\partial t}\left(U_0(t)\ket{\psi(t)}_I\right) = i\hbar\left(U_0(t)\frac{\partial\ket{\psi(t)}_I}{\partial t} + \frac{-iH_0}{\hbar}U_0(t)\ket{\psi(t)}_I\right) \equiv HU_0(t)\ket{\psi(t)}_I,
-\end{aligned}
+  \begin{aligned}
+    i\hbar\frac{\partial}{\partial         t}\left(U_0(t)\ket{\psi(t)}_I\right)         =
+    i\hbar\left(U_0(t)\frac{\partial\ket{\psi(t)}_I}{\partial         t}         +
+      \frac{-iH_0}{\hbar}U_0(t)\ket{\psi(t)}_I\right) \equiv HU_0(t)\ket{\psi(t)}_I,
+  \end{aligned}
 \end{equation}
 
 \noindent multiplying by $U_0^\dagger(t)$
 
 \begin{equation}\label{eqn:interactionPictureHamiltonian}
-\begin{aligned}
-i\hbar\ipartial{\ket{\psi(t)}_I}{t} & = H_I\ket{\psi(t)}_I\\
-& H_i = U_0^\dagger(t)\left[H-H_0\right]U_0(t) = U_0^\dagger(t)\left[V\right]U_0(t).
-\end{aligned}
+  \begin{aligned}
+    i\hbar\ipartial{\ket{\psi(t)}_I}{t} & = H_I\ket{\psi(t)}_I\\
+    &      H_i      =      U_0^\dagger(t)\left[H-H_0\right]U_0(t)      =
+    U_0^\dagger(t)\left[V\right]U_0(t).
+  \end{aligned}
 \end{equation}
 
-\red{\textbf{\large Ultimately, what we have found is that to solve for $H=H_0+V$, one needs to}}
-\textcolor{red}{\begin{enumerate}
-		\item Find $H_I = U_0^\dagger(t)VU_0(t)$
-		\item Solve the interaction Scrodinger equation $i\hbar\ipartial{\ket{\psi(t)}_I}{t} = H_I\ket{\psi(t)}_I$
-		\item Find the Schroinger picture states by unwinding i.e. $\ket{\psi(t)}_S = U_0(t)\ket{\psi(t)}_I$
-\end{enumerate}} 
+\red{\textbf{\large Ultimately, what we have  found is that to solve for
+    $H=H_0+V$, one needs to}} \textcolor{red}{\begin{enumerate}
+  \item Find $H_I = U_0^\dagger(t)VU_0(t)$
+  \item      Solve     the      interaction     Scrodinger      equation
+    $i\hbar\ipartial{\ket{\psi(t)}_I}{t} = H_I\ket{\psi(t)}_I$
+  \item   Find    the   Schroinger    picture   states    by   unwinding
+    i.e. $\ket{\psi(t)}_S = U_0(t)\ket{\psi(t)}_I$
+  \end{enumerate}}
 
 It can be easily shown that expectation values are preserved
 
 \begin{equation}
-_I\bra{\psi}\hat{O}_I\ket{\psi}_I = _S\bra{\psi}U_0U_0^\dagger\hat{O}_SU_0U_0^\dagger\ket{\psi}_s \equiv _S\bra{\psi}\hat{O}_S\ket{\psi}_S
+  _I\bra{\psi}\hat{O}_I\ket{\psi}_I = _S\bra{\psi}U_0U_0^\dagger\hat{O}_SU_0U_0^\dagger\ket{\psi}_s \equiv _S\bra{\psi}\hat{O}_S\ket{\psi}_S
 \end{equation}
 
-\newpage 
+\newpage
 \section{Interaction between light and atom \label{sec:lightAtom}}
 We construct the Hamiltonian for the full system
 
 \begin{equation}
-\hat{H} = \hat{H}_\text{atom} + \hat{H}_\text{light} + \hat{H}_\text{atom - light}. 
+  \hat{H} = \hat{H}_\text{atom} + \hat{H}_\text{light} + \hat{H}_\text{atom - light}.
 \end{equation}
 
 \begin{itemize}
-	\item $\hat{H}_\text{atom}$ comes from the energy levels of the atom
-	\begin{equation}
-	\label{eqn:atomHamiltonian}
-	\hat{H}_\text{atom} = \hbar\omega_a\iketbra{e}{e}\otimes\mathbb{I}_\text{light},
-	\end{equation}
-	
-	\item $\hat{H}_\text{light}$ from Sec.\ref{subsec:singleMode} is the Hamiltonian for the photon modes
-	\begin{equation}
-	\label{eqn:lightHamiltonian}
-	\hat{H}_\text{light} = \mathbb{I}_\text{atom} \otimes \hbar\omega_j\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right),
-	\end{equation}
-	
-	\item and $\hat{H}_\text{atom - light} = - \hat{E}\cdot \hat{D} $ from Sec.\ref{sec:dipole}
-	\begin{equation}
-	\begin{aligned}
-	\hat{H}_\text{atom - light} & = - \left(\mathbf{E_{0x}}(\hat{a}+\hat{a}^\dagger)\mathbf{\red{\sin(kz)}}\right)\left(\red{\mathbf{\vec{d}}}\left(\iketbra{g}{e}+\iketbra{e}{g}\right)\right)\\
-	& = \mathbf{\red{\hbar g(\vec{r})}}\left(\hat{a}+\hat{a}^\dagger\right)\left(\iketbra{g}{e}+\iketbra{e}{g}\right),
-	\end{aligned}
-	\end{equation}	
-\end{itemize}  
+\item $\hat{H}_\text{atom}$ comes from the energy levels of the atom
+  \begin{equation}
+    \label{eqn:atomHamiltonian}
+    \hat{H}_\text{atom} = \hbar\omega_a\iketbra{e}{e}\otimes\mathbb{I}_\text{light},
+  \end{equation}
 
-\noindent where \red{$\hbar g(\vec{r}) = E_{0x}\sin(kz)\vec{d}$} is the coupling strength. Although ideally we should be writing state via the tensor product notation, we shall do this instead save space and write
+\item $\hat{H}_\text{light}$ from before  (\red{find refference}) is the
+  Hamiltonian for the photon modes
+  \begin{equation}
+    \label{eqn:lightHamiltonian}
+    \hat{H}_\text{light} = \mathbb{I}_\text{atom} \otimes \hbar\omega_j\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right),
+  \end{equation}
+
+\item  and $\hat{H}_\text{atom  - light}  =  - \hat{E}\cdot  \hat{D} $  from
+  Sec.\ref{sec:dipole}
+  \begin{equation}
+    \begin{aligned}
+      \hat{H}_\text{atom - light} & = - \left(\mathbf{E_{0x}}(\hat{a}+\hat{a}^\dagger)\mathbf{\red{\sin(kz)}}\right)\left(\red{\mathbf{\vec{d}}}\left(\iketbra{g}{e}+\iketbra{e}{g}\right)\right)\\
+      &                         =                         \mathbf{\red{\hbar
+          g(\vec{r})}}\left(\hat{a}+\hat{a}^\dagger\right)\left(\iketbra{g}{e}+\iketbra{e}{g}\right),
+    \end{aligned}
+  \end{equation}
+\end{itemize}
+
+\noindent where \red{$\hbar g(\vec{r})  = E_{0x}\sin(kz)\vec{d}$} is the
+coupling strength. Although  ideally we should be writing  state via the
+tensor product notation, we shall do this instead save space and write
 
 \begin{equation}
-\ket{g,n}=\ket{g}\otimes\ket{n}
+  \ket{g,n}=\ket{g}\otimes\ket{n}
 \end{equation}
 
 \noindent The full Hamiltonian is then
 
 \begin{equation}
-\hat{H} = \hbar\omega_a\iketbra{e}{e} + \hbar\omega_j\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right) + {\hbar g(\vec{r})}\left(\hat{a}+\hat{a}^\dagger\right)\left(\iketbra{g}{e}+\iketbra{e}{g}\right),
+  \hat{H} = \hbar\omega_a\iketbra{e}{e} + \hbar\omega_j\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right) + {\hbar g(\vec{r})}\left(\hat{a}+\hat{a}^\dagger\right)\left(\iketbra{g}{e}+\iketbra{e}{g}\right),
 \end{equation}
 
-\noindent which we split up into two parts, to use the interaction picture, covered in Sec.\ref{sec:interaction}
+\noindent  which we  split up  into two  parts, to  use the  interaction
+picture, covered in Sec.\ref{sec:interaction}
 
 \begin{equation}
-\left\lbrace 
-\begin{aligned}
-H & = H_0+\red{V}\\
-H_0 & = \hbar\omega_a\iketbra{e}{e} + \hbar\omega_j\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right)\\
-\textcolor{red}{V} & \red{=} \textcolor{red}{{\hbar g(\vec{r})}\left(\hat{a}+\hat{a}^\dagger\right)\left(\iketbra{g}{e}+\iketbra{e}{g}\right)}
-\end{aligned}\right.
-\label{eqn:lightAtomHamiltonians}
+  \left\lbrace
+    \begin{aligned}
+      H & = H_0+\red{V}\\
+      H_0 & = \hbar\omega_a\iketbra{e}{e} + \hbar\omega_j\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right)\\
+      \textcolor{red}{V}       &        \red{=}       \textcolor{red}{{\hbar
+          g(\vec{r})}\left(\hat{a}+\hat{a}^\dagger\right)\left(\iketbra{g}{e}+\iketbra{e}{g}\right)}
+    \end{aligned}\right.
+  \label{eqn:lightAtomHamiltonians}
 \end{equation}
 
 \noindent We compute the interaction Hamiltonian
 
 \begin{equation}
-\left\lbrace
-\begin{aligned}
-H_I & = U_0^\dagger V U_0 \\
-U_0 & = \exp\left[-i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right]\exp\left[-i\omega_a\iketbra{e}{e}t\right]
-\end{aligned}\right. \Rightarrow
+  \left\lbrace
+    \begin{aligned}
+      H_I & = U_0^\dagger V U_0 \\
+      U_0                               &                              =
+      \exp\left[-i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right]\exp\left[-i\omega_a\iketbra{e}{e}t\right]
+    \end{aligned}\right. \Rightarrow
 \end{equation}
 
 \begin{multline}
-\Rightarrow \textcolor{red}{\hbar g(\vec{r})} \times \\
-\exp\left[+i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right]\textcolor{red}{\left(\hat{a}+\hat{a}^\dagger\right)}\exp\left[-i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right] \times\\
-\exp\left[+i\omega_a\iketbra{e}{e}t\right]\textcolor{red}{\left(\iketbra{g}{e}+\iketbra{e}{g}\right)}\exp\left[-i\omega_a\iketbra{e}{e}t\right]
+  \Rightarrow \textcolor{red}{\hbar g(\vec{r})} \times \\
+  \exp\left[+i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right]\textcolor{red}{\left(\hat{a}+\hat{a}^\dagger\right)}\exp\left[-i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right] \times\\
+  \exp\left[+i\omega_a\iketbra{e}{e}t\right]\textcolor{red}{\left(\iketbra{g}{e}+\iketbra{e}{g}\right)}\exp\left[-i\omega_a\iketbra{e}{e}t\right]
 \end{multline}
 
 \noindent Then we proceed term by term
 \begin{itemize}
-	\item $\exp\left[+i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right]\textcolor{red}{\hat{a}}\exp\left[-i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right] = \exp\left[+i\omega_j\hat{a}^\dagger\hat{a}t\right]\textcolor{red}{\hat{a}}\exp\left[-i\omega_j\hat{a}^\dagger\hat{a}t\right]$
-	
-	The lowering operator \textcolor{red}{
-		\begin{equation}
-		\begin{aligned}
-		\hat{a} & =
-		\begin{bmatrix}
-		\bra{0}\hat{a}\ket{0} & \bra{0}\hat{a}\ket{1} & \cdots\\
-		\bra{1}\hat{a}\ket{0} & \bra{1}\hat{a}\ket{1} & \cdots\\
-		\bra{2}\hat{a}\ket{0} & \bra{2}\hat{a}\ket{1} & \cdots\\
-		\vdots & \vdots & \ddots\\
-		\end{bmatrix}
-		= \begin{bmatrix}
-		\bra{0}0 & \bra{0}\sqrt{1}\ket{0} & \cdots\\
-		\bra{1}0 & \bra{1}\sqrt{1}\ket{0} & \cdots\\
-		\bra{2}0 & \bra{2}\sqrt{1}\ket{0} & \cdots\\
-		\vdots & \vdots & \ddots\\	
-		\end{bmatrix}
-		= \begin{bmatrix}
-		0 & \sqrt{1} & \cdots\\
-		0 & 0 & \cdots\\
-		0 & 0 & \cdots\\
-		\vdots & \vdots & \ddots\\	
-		\end{bmatrix}\\
-		& = \sum_n\sqrt{n}\iketbra{n-1}{n}
-		\end{aligned}
-		\end{equation}}
-	
-	\noindent and thus evaluating
-	
-	\begin{equation}
-	\begin{aligned}
-	e^{+i\omega_jt\hat{a}^\dagger\hat a} & \left[\sum_n\sqrt{n}\iketbra{n-1}{n}\right]e^{+i\omega_jt\hat{a}^\dagger\hat a}\\
-	& = \sum_n \sqrt{n}e^{+i\omega_jt\hat{a}^\dagger\hat a}\ket{n-1}\bra{n}e^{-i\omega_jt\hat{a}^\dagger\hat a} \qquad \leftarrow\text{ expand exponential operator}\\
-	& = \sum_n \sqrt{n}e^{+i\omega_j(n-1)t}\ket{n-1}\bra{n}e^{-i\omega_jnt}\\
-	& = e^{+i\omega_j(n-1)t}\left[\sum_n \sqrt{n}\ket{n-1}\bra{n}\right]e^{-i\omega_jnt}\\
-	& = e^{+i\omega_j(n-1)t}\hat{a}e^{-i\omega_jnt}\\ & \blue{\mathbf{\equiv  \text{\textbf{exp}}[-i\omega_jt]\hat{a}}}
-	\end{aligned}
-	\end{equation}
-	
-	\item $\exp\left[+i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right]\textcolor{red}{\hat{a}^\dagger}\exp\left[-i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right] = \blue{\mathbf{\text{\textbf{exp}}[+i\omega_jt]\hat{a}^\dagger}}$
-	
-	\item \begin{equation}
-	\begin{aligned}
-	\exp\left[+i\omega_a\iketbra{e}{e}t\right]&\textcolor{red}{\iketbra{g}{e}}\exp\left[-i\omega_a\iketbra{e}{e}t\right] \\
-	& = \bigg[\exp\left[+i\omega_at\left(\mathbb{I} - \iketbra{g}{g}\right)\right]\textcolor{red}{\ket{g}}\bigg]\bigg[\textcolor{red}{\bra{e}}\exp\left[-i\omega_a\iketbra{e}{e}t\right]\bigg]\\
-	& = \bigg[\exp\left[+i\omega_at\left(1 - 1\right)\right]\textcolor{red}{\ket{g}}\bigg]\bigg[\textcolor{red}{\bra{e}}\exp\left[-i\omega_a1t\right]\bigg]\\
-	& = \bigg[\exp\left[+i\omega_at0\right]\bigg]\textcolor{red}{\ket{g}}\textcolor{red}{\bra{e}}\bigg[\exp\left[-i\omega_at\right]\bigg]\\
-	& \blue{\mathbf{\equiv \text{\textbf{exp}}\left[-i\omega_at\right]\iketbra{g}{e}}}
-	\end{aligned}
-	\end{equation}
-	\item $\exp\left[+i\omega_a\iketbra{e}{e}t\right]\textcolor{red}{\iketbra{g}{e}}\exp\left[-i\omega_a\iketbra{e}{e}t\right] \blue{\mathbf{\equiv \text{\textbf{exp}}\left[+i\omega_at\right]\iketbra{e}{g}}} $
+\item
+  $\exp\left[+i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right]\textcolor{red}{\hat{a}}\exp\left[-i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right]
+  =
+  \exp\left[+i\omega_j\hat{a}^\dagger\hat{a}t\right]\textcolor{red}{\hat{a}}\exp\left[-i\omega_j\hat{a}^\dagger\hat{a}t\right]$
+
+  The lowering operator \textcolor{red}{
+    \begin{equation}
+      \begin{aligned}
+        \hat{a} & =
+        \begin{bmatrix}
+          \bra{0}\hat{a}\ket{0} & \bra{0}\hat{a}\ket{1} & \cdots\\
+          \bra{1}\hat{a}\ket{0} & \bra{1}\hat{a}\ket{1} & \cdots\\
+          \bra{2}\hat{a}\ket{0} & \bra{2}\hat{a}\ket{1} & \cdots\\
+          \vdots & \vdots & \ddots\\
+        \end{bmatrix}
+        = \begin{bmatrix}
+          \bra{0}0 & \bra{0}\sqrt{1}\ket{0} & \cdots\\
+          \bra{1}0 & \bra{1}\sqrt{1}\ket{0} & \cdots\\
+          \bra{2}0 & \bra{2}\sqrt{1}\ket{0} & \cdots\\
+          \vdots & \vdots & \ddots\\
+        \end{bmatrix}
+        = \begin{bmatrix}
+          0 & \sqrt{1} & \cdots\\
+          0 & 0 & \cdots\\
+          0 & 0 & \cdots\\
+          \vdots & \vdots & \ddots\\
+        \end{bmatrix}\\
+        & = \sum_n\sqrt{n}\iketbra{n-1}{n}
+      \end{aligned}
+    \end{equation}}
+
+  \noindent and thus evaluating
+
+  \begin{equation}
+    \begin{aligned}
+      e^{+i\omega_jt\hat{a}^\dagger\hat a} & \left[\sum_n\sqrt{n}\iketbra{n-1}{n}\right]e^{+i\omega_jt\hat{a}^\dagger\hat a}\\
+      & = \sum_n \sqrt{n}e^{+i\omega_jt\hat{a}^\dagger\hat a}\ket{n-1}\bra{n}e^{-i\omega_jt\hat{a}^\dagger\hat a} \qquad \leftarrow\text{ expand exponential operator}\\
+      & = \sum_n \sqrt{n}e^{+i\omega_j(n-1)t}\ket{n-1}\bra{n}e^{-i\omega_jnt}\\
+      & = e^{+i\omega_j(n-1)t}\left[\sum_n \sqrt{n}\ket{n-1}\bra{n}\right]e^{-i\omega_jnt}\\
+      &      =      e^{+i\omega_j(n-1)t}\hat{a}e^{-i\omega_jnt}\\      &
+      \blue{\mathbf{\equiv \text{\textbf{exp}}[-i\omega_jt]\hat{a}}}
+    \end{aligned}
+  \end{equation}
+
+\item
+  $\exp\left[+i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right]\textcolor{red}{\hat{a}^\dagger}\exp\left[-i\omega_j\left(\hat{a}^\dagger\hat{a}+{1}/{2}\right)t\right]
+  = \blue{\mathbf{\text{\textbf{exp}}[+i\omega_jt]\hat{a}^\dagger}}$
+
+\item \begin{equation}
+    \begin{aligned}
+      \exp\left[+i\omega_a\iketbra{e}{e}t\right]&\textcolor{red}{\iketbra{g}{e}}\exp\left[-i\omega_a\iketbra{e}{e}t\right] \\
+      & = \bigg[\exp\left[+i\omega_at\left(\mathbb{I} - \iketbra{g}{g}\right)\right]\textcolor{red}{\ket{g}}\bigg]\bigg[\textcolor{red}{\bra{e}}\exp\left[-i\omega_a\iketbra{e}{e}t\right]\bigg]\\
+      & = \bigg[\exp\left[+i\omega_at\left(1 - 1\right)\right]\textcolor{red}{\ket{g}}\bigg]\bigg[\textcolor{red}{\bra{e}}\exp\left[-i\omega_a1t\right]\bigg]\\
+      & = \bigg[\exp\left[+i\omega_at0\right]\bigg]\textcolor{red}{\ket{g}}\textcolor{red}{\bra{e}}\bigg[\exp\left[-i\omega_at\right]\bigg]\\
+      &                                             \blue{\mathbf{\equiv
+          \text{\textbf{exp}}\left[-i\omega_at\right]\iketbra{g}{e}}}
+    \end{aligned}
+  \end{equation}
+\item
+  $\exp\left[+i\omega_a\iketbra{e}{e}t\right]\textcolor{red}{\iketbra{g}{e}}\exp\left[-i\omega_a\iketbra{e}{e}t\right]
+  \blue{\mathbf{\equiv
+      \text{\textbf{exp}}\left[+i\omega_at\right]\iketbra{e}{g}}} $
 \end{itemize}
 
 Combining the results
 
 \begin{equation}
-\begin{aligned}
-H_I & = \hbar g(\vec{r})\bigg[\blue{\exp^{-i\omega_jt}\hat{a}}+\blue{\exp^{+i\omega_jt}\hat{a}^\dagger}\bigg]\bigg[\blue{\exp^{-i\omega_at}\iketbra{g}{e}}+\blue{\exp^{+i\omega_at}\iketbra{e}{g}}\bigg] \\
-& = \hbar g(\vec{r})\bigg(\mathbf{\exp\left[-i(\omega_j-\omega_a)t\right]\ \hat{a}\iketbra{e}{g}} \quad + \quad \mathbf{\exp\left[i(\omega_j-\omega_a)t\right]\ \hat{a}^\dagger\iketbra{g}{e}} \\
-& \quad + \quad \mathbf{\exp\left[-i(\omega_j+\omega_a)t\right]\ \hat{a}\iketbra{g}{e}} \quad + \quad \mathbf{\exp\left[i(\omega_j+\omega_a)t\right]\ \hat{a}^\dagger\iketbra{e}{g}}\bigg)
-\end{aligned}
-\label{eqn:fullHamiltonianLightAtom}
+  \begin{aligned}
+    H_I & = \hbar g(\vec{r})\bigg[\blue{\exp^{-i\omega_jt}\hat{a}}+\blue{\exp^{+i\omega_jt}\hat{a}^\dagger}\bigg]\bigg[\blue{\exp^{-i\omega_at}\iketbra{g}{e}}+\blue{\exp^{+i\omega_at}\iketbra{e}{g}}\bigg] \\
+    & = \hbar g(\vec{r})\bigg(\mathbf{\exp\left[-i(\omega_j-\omega_a)t\right]\ \hat{a}\iketbra{e}{g}} \quad + \quad \mathbf{\exp\left[i(\omega_j-\omega_a)t\right]\ \hat{a}^\dagger\iketbra{g}{e}} \\
+    &  \quad  +  \quad  \mathbf{\exp\left[-i(\omega_j+\omega_a)t\right]\
+      \hat{a}\iketbra{g}{e}}           \quad           +           \quad
+    \mathbf{\exp\left[i(\omega_j+\omega_a)t\right]\
+      \hat{a}^\dagger\iketbra{e}{g}}\bigg)
+  \end{aligned}
+  \label{eqn:fullHamiltonianLightAtom}
 \end{equation}
 
 \subsection{Resonance}
 
-Looking at Eq.\eqref{eqn:fullHamiltonianLightAtom} at resonance, i.e. \red{\Large $\mathbf{\omega_a = \omega_j = \omega}$}
+Looking   at   Eq.\eqref{eqn:fullHamiltonianLightAtom}   at   resonance,
+i.e. \red{\Large $\mathbf{\omega_a = \omega_j = \omega}$}
 
 \begin{equation}
-H_I = \hbar g(\vec{r}) \bigg(\hat{a}\iketbra{e}{g} \quad+\quad \hat{a}^\dagger\iketbra{g}{e} \quad+\quad \textcolor{red}{\exp\left[-i2\omega t\right]\hat{a}\iketbra{g}{e}} \quad+\quad \textcolor{red}{\exp\left[i2\omega t\right]\hat{a}^\dagger\iketbra{e}{g}}\bigg),
+  H_I = \hbar g(\vec{r}) \bigg(\hat{a}\iketbra{e}{g} \quad+\quad \hat{a}^\dagger\iketbra{g}{e} \quad+\quad \textcolor{red}{\exp\left[-i2\omega t\right]\hat{a}\iketbra{g}{e}} \quad+\quad \textcolor{red}{\exp\left[i2\omega t\right]\hat{a}^\dagger\iketbra{e}{g}}\bigg),
 \end{equation}
 
-\noindent The two terms in \textcolor{red}{red} are neglected in the \textbf{\large ROTATING WAVE APPROXIMATION} - this is suitable for when the oscillations are much faster than the time-scales of the most significant physical processes.
+\noindent The  two terms  in \textcolor{red}{red}  are neglected  in the
+\textbf{\large ROTATING WAVE APPROXIMATION} -  this is suitable for when
+the  oscillations are  much  faster  than the  time-scales  of the  most
+significant physical processes.
 
-Physically speaking, we keep energy conserving processes, where excitation/de-excitation processes pair up with photon destruction/creation.
+Physically  speaking,   we  keep  energy  conserving   processes,  where
+excitation/de-excitation     processes    pair     up    with     photon
+destruction/creation.
 
 \begin{equation}
-H_I = \hbar g(\vec{r}) \bigg(\hat{a}\iketbra{e}{g} \quad+\quad \hat{a}^\dagger\iketbra{g}{e} \bigg).
-\label{eqn:rwa1}
+  H_I = \hbar g(\vec{r}) \bigg(\hat{a}\iketbra{e}{g} \quad+\quad \hat{a}^\dagger\iketbra{g}{e} \bigg).
+  \label{eqn:rwa1}
 \end{equation}
 \vspace{6ex}
 
-\noindent Now we solve for the initial condition $\ket{\psi(0)}_I = \ket{g,1}$. Notice that since
+\noindent    Now     we    solve     for    the     initial    condition
+$\ket{\psi(0)}_I = \ket{g,1}$. Notice that since
 
 \begin{equation}
-\label{eqn:effect}
-H_I\ket{g,1} = \hbar g\ket{e,0} \qquad H_I\ket{e,0} = \hbar g\ket{g,1},
+  \label{eqn:effect}
+  H_I\ket{g,1} = \hbar g\ket{e,0} \qquad H_I\ket{e,0} = \hbar g\ket{g,1},
 \end{equation}
 
-\noindent which means that there is only coupling between $\ket{g,1}$ and $\ket{e,0}$ states. As proof of this, recall the evolution of the density matrix from Eq.\eqref{eqn:denMatEvolution}, $\rho(t) = \sum_{i=1}^{n} p_iU(t)\Ket{\Psi_i}\Bra{\Psi_i}U(t)^{\dagger}$, and ``zooming-in'' on
+\noindent which  means that there  is only coupling  between $\ket{g,1}$
+and $\ket{e,0}$  states. As proof of  this, recall the evolution  of the
+density        matrix        from        Eq.\eqref{eqn:denMatEvolution},
+$\rho(t)                         =                        \sum_{i=1}^{n}
+p_iU(t)\Ket{\Psi_i}\Bra{\Psi_i}U(t)^{\dagger}$, and ``zooming-in'' on
 
 \begin{equation}
-\label{eqn:resonance4}
-\begin{aligned}
-U(t)\ket{\Psi_i} = e^{-i\frac{\hat{H}}{\hbar}t}\ket{\Psi_i} & = \sum_k \frac{\left( -i\frac{\hat{H}}{\hbar}t\right)^k }{k!}\ket{\Psi_i}\\
-& = \sum_k \frac{\left(\frac{-it}{\hbar}\right)^k }{k!}\textcolor{red}{\hat{H}^k\ket{\Psi_i}},
-\end{aligned}
+  \label{eqn:resonance4}
+  \begin{aligned}
+    U(t)\ket{\Psi_i} = e^{-i\frac{\hat{H}}{\hbar}t}\ket{\Psi_i} & = \sum_k \frac{\left( -i\frac{\hat{H}}{\hbar}t\right)^k }{k!}\ket{\Psi_i}\\
+    &       =        \sum_k       \frac{\left(\frac{-it}{\hbar}\right)^k
+    }{k!}\textcolor{red}{\hat{H}^k\ket{\Psi_i}},
+  \end{aligned}
 \end{equation}
 
-\noindent and thus if the only $\ket{\Psi_i}$ was $\ket{g,1}$, which we showed can only transform to something proportional to $\ket{e,0}$ in the \textcolor{red}{red}, these will be the only to states in the system.
+\noindent and thus if the  only $\ket{\Psi_i}$ was $\ket{g,1}$, which we
+showed can  only transform to  something proportional to  $\ket{e,0}$ in
+the  \textcolor{red}{red}, these  will  be  the only  to  states in  the
+system.
 
 Thus the general state of the system will be
 
 \begin{equation}
-\label{eqn:resonance_GeneralEquation}
-\ket{\psi(t)}_I = \alpha(t)\ket{g,1} + \beta(t)\ket{e,0}.
+  \label{eqn:resonance_GeneralEquation}
+  \ket{\psi(t)}_I = \alpha(t)\ket{g,1} + \beta(t)\ket{e,0}.
 \end{equation}
 
-\noindent Substituting into the Schroedinger equation, using Eq.\eqref{eqn:rwa1} and Eq.\eqref{eqn:effect},
+\noindent   Substituting   into   the   Schroedinger   equation,   using
+Eq.\eqref{eqn:rwa1} and Eq.\eqref{eqn:effect},
 
 \begin{equation}
-\begin{aligned}
-\ipartial{\ket{\psi}_I}{t} & = -\frac{i}{\hbar}H_I\ket{\psi}_I\\
-\ipartial{\alpha}{t}\ket{g,1} + \ipartial{\beta}{t}\ket{e,0} & = -\frac{i}{\hbar} \bigg(\alpha H_I\ket{g,1} + \beta H_I\ket{e,0} \bigg)\\
-\ipartial{\alpha}{t}\ket{g,1} + \ipartial{\beta}{t}\ket{e,0} & = -ig\bigg(\alpha\ket{e,0} + \beta\ket{g,1} \bigg)\\
-\end{aligned}
+  \begin{aligned}
+    \ipartial{\ket{\psi}_I}{t} & = -\frac{i}{\hbar}H_I\ket{\psi}_I\\
+    \ipartial{\alpha}{t}\ket{g,1} + \ipartial{\beta}{t}\ket{e,0} & = -\frac{i}{\hbar} \bigg(\alpha H_I\ket{g,1} + \beta H_I\ket{e,0} \bigg)\\
+    \ipartial{\alpha}{t}\ket{g,1} + \ipartial{\beta}{t}\ket{e,0} & = -ig\bigg(\alpha\ket{e,0} + \beta\ket{g,1} \bigg)\\
+  \end{aligned}
 \end{equation}
 
 \noindent Multiplying by $\ket{g,1}$ and $\ket{e,0}$
 
 \begin{equation}
-\left\lbrace
-\begin{aligned}
-\ipartial{\alpha}{t} & = -ig\beta\\
-\ipartial{\beta}{t} & = -ig\alpha\\
-\end{aligned}\right.
-\Rightarrow \left\lbrace
-\begin{aligned}
-\ipartial{\alpha^2}{t} & = -ig\ipartial{\beta}{t} = -ig(-ig\alpha)=-g^2\alpha\\
-\ipartial{\beta}{t^2} & = -ig\ipartial{\alpha}{t} = -ig(-ig\beta)=-g^2\beta\\
-\end{aligned}\right.
+  \left\lbrace
+    \begin{aligned}
+      \ipartial{\alpha}{t} & = -ig\beta\\
+      \ipartial{\beta}{t} & = -ig\alpha\\
+    \end{aligned}\right.
+  \Rightarrow \left\lbrace
+    \begin{aligned}
+      \ipartial{\alpha^2}{t} & = -ig\ipartial{\beta}{t} = -ig(-ig\alpha)=-g^2\alpha\\
+      \ipartial{\beta}{t^2} & = -ig\ipartial{\alpha}{t} = -ig(-ig\beta)=-g^2\beta\\
+    \end{aligned}\right.
 \end{equation}
 
-\noindent And solving for the initial conditions $\alpha(0) = 1, \beta(0) = 0$
+\noindent     And     solving     for     the     initial     conditions
+$\alpha(0) = 1, \beta(0) = 0$
 
 \begin{equation}
-\left\lbrace
-\begin{aligned}
-\alpha(t) & = \exp[igt]\\
-\beta(t) & = \exp[igt]
-\end{aligned}\right.
-\Rightarrow
-\left\lbrace
-\begin{aligned}
-\alpha(t) & = \cos(gt)\\
-\beta(t) & = i\sin(gt)
-\end{aligned}\right.,
+  \left\lbrace
+    \begin{aligned}
+      \alpha(t) & = \exp[igt]\\
+      \beta(t) & = \exp[igt]
+    \end{aligned}\right.
+  \Rightarrow
+  \left\lbrace
+    \begin{aligned}
+      \alpha(t) & = \cos(gt)\\
+      \beta(t) & = i\sin(gt)
+    \end{aligned}\right.,
 \end{equation}
 
-\noindent resulting in 
+\noindent resulting in
 
 \begin{equation}
-\begin{aligned}
-\ket{\psi(t)}_I & = \cos(gt)\ket{g,1}+i\sin(gt)\ket{e,0}\\
-\ket{\psi(t)}_S & = \cos(gt)U_0(t)\ket{g,1}+i\sin(gt)U_0(t)\ket{e,0}\\
-& = \cos(gt)\exp[-it \hat{H}_0/\hbar]\ket{g,1}+i\sin(gt)\exp[-it \hat{H}_0/\hbar]\ket{e,0}.
-\end{aligned}
+  \begin{aligned}
+    \ket{\psi(t)}_I & = \cos(gt)\ket{g,1}+i\sin(gt)\ket{e,0}\\
+    \ket{\psi(t)}_S & = \cos(gt)U_0(t)\ket{g,1}+i\sin(gt)U_0(t)\ket{e,0}\\
+    &  =   \cos(gt)\exp[-it  \hat{H}_0/\hbar]\ket{g,1}+i\sin(gt)\exp[-it
+    \hat{H}_0/\hbar]\ket{e,0}.
+  \end{aligned}
 \end{equation}
 
 \noindent Using Eq.\eqref{eqn:lightAtomHamiltonians}
 
 \begin{equation}
-\begin{aligned}
-\hat{H}_0\ket{g}\ket{1} & = \bigg[\hbar\omega\iketbra{e}{e}\otimes\mathbb{I}_\text{light} + \mathbb{I}_\text{atom}\otimes \hbar\omega\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right)\bigg]\ket{g}\otimes\ket{1}  \\
-& = \hbar\omega\iketbra{e}{e}\ket{g} \otimes \ket{1} + \ket{g}\otimes \hbar\omega\left(\hat{n}+\frac{1}{2}\right)\ket{1}\\
-& = 0  \ket{g} \otimes\ket{1} + \ket{g} \otimes \hbar\omega(1+1/2)\ket{1}\\
-& = \left(0+3\hbar\omega/2)\right)\ket{g,1} = \frac{3\hbar\omega}{2}\ket{g,1}\\
-\hat{H}_0\ket{e}\ket{0} & = (\hbar\omega + \hbar\omega/2) = \frac{3\hbar\omega}{2}\ket{e,0}
-\end{aligned}
+  \begin{aligned}
+    \hat{H}_0\ket{g}\ket{1} & = \bigg[\hbar\omega\iketbra{e}{e}\otimes\mathbb{I}_\text{light} + \mathbb{I}_\text{atom}\otimes \hbar\omega\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right)\bigg]\ket{g}\otimes\ket{1}  \\
+    & = \hbar\omega\iketbra{e}{e}\ket{g} \otimes \ket{1} + \ket{g}\otimes \hbar\omega\left(\hat{n}+\frac{1}{2}\right)\ket{1}\\
+    & = 0  \ket{g} \otimes\ket{1} + \ket{g} \otimes \hbar\omega(1+1/2)\ket{1}\\
+    & = \left(0+3\hbar\omega/2)\right)\ket{g,1} = \frac{3\hbar\omega}{2}\ket{g,1}\\
+    \hat{H}_0\ket{e}\ket{0}   &  =   (\hbar\omega  +   \hbar\omega/2)  =
+    \frac{3\hbar\omega}{2}\ket{e,0}
+  \end{aligned}
 \end{equation}
 
 \noindent one gets a constant phase factor
 
-\textcolor{red}{\begin{equation}
-	\ket{\psi(t)}_s = \exp[-i3\omega t/2]\bigg[\cos(gt)\ket{g,1}+i\sin(gt)\ket{e,0}\bigg]
-	\end{equation}}
+\textcolor{red}{\begin{equation}   \ket{\psi(t)}_s    =   \exp[-i3\omega
+    t/2]\bigg[\cos(gt)\ket{g,1}+i\sin(gt)\ket{e,0}\bigg]
+  \end{equation}}
 
 \noindent For any arbitrary $n$, it can be shown that
 
-\textcolor{red}{\begin{equation}
-	\ket{\psi(t)}_I = \cos(\sqrt{n}gt)\ket{g,n}+i\sin(\sqrt{n}gt)\ket{e,n-1}
-	\end{equation}}  
+\textcolor{red}{\begin{equation}            \ket{\psi(t)}_I            =
+    \cos(\sqrt{n}gt)\ket{g,n}+i\sin(\sqrt{n}gt)\ket{e,n-1}
+  \end{equation}}
 
 \newpage

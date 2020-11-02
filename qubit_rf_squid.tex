@@ -1,13 +1,12 @@
 % -*- TeX-master: "all_the_notes.tex" -*-
 
 
-\section{RF    SQUID     (Flux    qubit).     $     E_J/E_C\sim    50
-  $ \label{sec:rfSquid}}
+\section{RF SQUID (Flux qubit).  $ E_J/E_C\sim 50 $ \label{sec:rfSquid}}
 
 \begin{framed}\noindent
-  \noindent  The RF  SQUID composes  of a  JJ in  a loop  with a  big
-  inductor.   \red{This inductor  was neglected  for the  CPB in  the
-    previous section, since $E_C,E_J>>E_L$}.
+  \noindent The RF SQUID composes of a JJ in a loop with a big inductor.
+  \red{This inductor was neglected for  the CPB in the previous section,
+    since $E_C,E_J>>E_L$}.
   \begin{center}
     \includegraphics[height=4.5cm]{flux_1}
   \end{center}
@@ -16,13 +15,13 @@
 
 
 \begin{enumerate}
-\item \red{\textbf{Potential energy part}} comes  from the JJ and the
+\item \red{\textbf{Potential  energy part}}  comes from  the JJ  and the
   inductor, where we use the phase quantisation in a loop to get
 
   {\begin{equation}
       \label{l3-energy1}
       \begin{aligned}
-        U          =           1          -E_J\cos(\phi_J)          +
+        U           =           1           -E_J\cos(\phi_J)           +
         \frac{\Phi_0^2}{(2\pi)^22L}(\phi_\text{ext}-\phi_J)^2,
       \end{aligned}
     \end{equation}}
@@ -33,8 +32,8 @@
   \noindent
   \noindent resulting in a `wiggled' parabollic potential.
 
-\item \red{\textbf{The  charging kinetic  part}} is from  the voltage
-  being induced by the changing flux on the JJ
+\item \red{\textbf{The charging kinetic part}} is from the voltage being
+  induced by the changing flux on the JJ
 
   \begin{equation}\label{key}
     T = \frac{C_J}{2}\dot{\Phi}_J^2.
@@ -49,8 +48,8 @@
   \begin{equation}\label{key}
     Q_J = \frac{d\mathcal{L}}{d\dot{\Phi}_J} = C_J\dot{\Phi}_J,
   \end{equation}
-  \noindent is just an offset of  the induced charge on the capacitor
-  due to the JJ voltage.
+  \noindent is just an offset of the induced charge on the capacitor due
+  to the JJ voltage.
 
 \item So we arrive at the following set of operators
 
@@ -75,27 +74,27 @@
       \mathcal{H} & = \hat{Q}_J\dot{\hat{\Phi}}_J - \mathcal{L}\\
       & = \frac{\hat{Q}_J^2}{2C_J} - E_J\cos(\hat{\phi}_J) + \frac{\Phi_0^2}{(2\pi)^22L}(\phi_\text{ext}-\hat{\phi}_J)^2\\
       &    =   \mathbf{\red{E_C{\hat{N}^2}-    E_J\cos(\hat{\phi}_J)   +
-          E_L(\phi_\text{ext}-\hat{\phi}_J)^2}}\qquad          E_c          =
+          E_L(\phi_\text{ext}-\hat{\phi}_J)^2}}\qquad        E_c       =
       \frac{(2e)^2}{2C_J}\quad E_L = \frac{\Phi_0^2}{(2\pi)^22L}.
     \end{aligned}
   \end{equation}
 \end{framed}
 
-\item\red{\large So  now one  has a parabolic  potential term  in the
-    Hamiltonian, unlike in  the Cooper Pair box case  where there was
-    only the cosine potential}
+\item\red{\large  So now  one  has  a parabolic  potential  term in  the
+    Hamiltonian, unlike in the Cooper Pair box case where there was only
+    the cosine potential}
   \begin{itemize}
-  \item $ \phi_{\text{ext}} $ controls the shape of the potential and
+  \item $  \phi_{\text{ext}} $ controls  the shape of the  potential and
     hence the energies of each eigenstate
   \item $ \phi_{\text{JJ}} $ is the dynamic parameter of the qubit.
   \end{itemize}
 \end{enumerate}
 
 \newpage
-\subsection{Numerical                   solution                   of
+\subsection{Numerical                     solution                    of
   Hamiltonian\label{subsec:flux_numerical}}
-There is  a numerical method  to solve  for the RF-SQUID,  whereby we
-dice up the state of the system into individual values at discretised
+There is a  numerical method to solve for the  RF-SQUID, whereby we dice
+up  the  state of  the  system  into  individual values  at  discretised
 positions, with as step of $ \Delta \delta $
 
 \[
@@ -123,13 +122,12 @@ positions, with as step of $ \Delta \delta $
     \mathcal{H}     \psi     &      =     \left[\red{E_c\hat{N}^2}     -
       \blue{E_J\cos(\hat{\phi}_J) +
         E_L(\phi_\text{ext}-\hat{\phi}_J)^2} \right]\psi\\
-    &       =      \left[\red{-E_C\frac{\partial}{\partial\phi_J^2}}       +
+    &     =      \left[\red{-E_C\frac{\partial}{\partial\phi_J^2}}     +
       \blue{U(\phi_J)}\right]\psi &\equiv E\psi
   \end{aligned}
 \end{equation}
 
-\noindent  for  this   wavefunction  made  up  of  a   lot  of  small
-contributions.
+\noindent for this wavefunction made up of a lot of small contributions.
 
 \begin{figure}[h]
   \centering \includegraphics[height=4cm]{dicedUp}
@@ -143,7 +141,7 @@ contributions.
      \frac{d}{d\phi_J^2}\left(\omega_i\right) = \frac{\frac{\omega_{i+1} - \omega_i}{\Delta\delta} - \frac{\omega_{i} - \omega_{i-1}}{\Delta\delta}}{\Delta\delta} = \red{\frac{1}{\Delta\delta^2}\left[\omega_{i+1}+\omega_{i-1}-2\omega_{i}\right]}.
    \end{equation}
 
-   \noindent  We rewrite  Eq.~\eqref{eqn:flux_1} with  the derivative
+   \noindent  We  rewrite  Eq.~\eqref{eqn:flux_1}  with  the  derivative
    Eq.~\eqref{eqn:flux_2} to get
    \begin{equation}\label{key}
      \begin{aligned}
@@ -177,7 +175,7 @@ contributions.
          \mathbf{U(\phi_J)} & = \mathbf{E_L(\phi_\text{ext} - \phi_J)^2 - E_J\cos(\phi_J)}\\
          E_c & = \frac{(2e)^2}{2C}\\
          E_L & = \frac{\Phi_0^2}{2L(2\pi)^2}\\
-         E_J        &        =        \frac{\Phi_0I_c}{2\pi}        =
+         E_J         &         =        \frac{\Phi_0I_c}{2\pi}         =
          \frac{\Phi_0}{2\pi}\frac{\pi\Delta(0)}{2eR}
        \end{aligned}
      \right.
@@ -191,10 +189,10 @@ contributions.
 
  \newpage
  \subsection{Solution in the degenerate case}
- There  is a  nice  solution when  eigenstates  are degenerate,  that
- occurs  with  a  symmetrical  double  well  potential.   Eigenstates
- \iket{\psi(0)}   and  \iket{\psi(2\pi)}   constitute   to  the   two
- circulating current directions.
+ There is a  nice solution when eigenstates are  degenerate, that occurs
+ with a  symmetrical double well potential.   Eigenstates \iket{\psi(0)}
+ and  \iket{\psi(2\pi)}  constitute  to   the  two  circulating  current
+ directions.
 
 \begin{figure}[h]
   \centering \includegraphics[height=3cm]{double}
@@ -203,8 +201,8 @@ contributions.
 \noindent
 
 \begin{enumerate}
-\item We look for contribution to the  wavefunction at $ \phi_J = 0 $
-  and  $ \phi_J  =  2\pi $,  `sampling' much  more  strictly than  in
+\item We look for contribution to the wavefunction at $ \phi_J = 0 $ and
+  $  \phi_J   =  2\pi   $,  `sampling'  much   more  strictly   than  in
   Section~\ref{subsec:flux_numerical}:
   \[
     \psi \rightarrow \begin{pmatrix}
@@ -241,7 +239,7 @@ contributions.
     \end{aligned}
   \end{equation}
 
-\item \blue{\noindent  Thus the  potential is symmetrical  and states
+\item  \blue{\noindent  Thus the  potential  is  symmetrical and  states
     \iket{0} or \iket{1} are degenerate if
 
   \[
@@ -251,16 +249,16 @@ contributions.
 \begin{figure}[h]
   \begin{center}
     \includegraphics[height=3cm]{l3degen}
-    \caption{\small The two  lowest energies for the  system near the
-      double  potential  well.    The  loop  is  biased   by  a  flux
-      corresponding  to  $\phi_\text{ext}\approx\pi$  - half  a  flux
+    \caption{\small  The two  lowest energies  for the  system near  the
+      double potential well.  The loop is biased by a flux corresponding
+      to     $\phi_\text{ext}\approx\pi$      -     half      a     flux
       quantum.\label{fig:l3degen}}
   \end{center}
 \end{figure}
 
-\item  The  energy  difference  between  the  two  wells  located  at
-  $\phi_{J1}=0$  and  $  \phi_{J2}=2\pi   $  (or  equivalently  at  a
-  separation of 2$ \pi $).
+\item  The   energy  difference  between   the  two  wells   located  at
+  $\phi_{J1}=0$ and $ \phi_{J2}=2\pi $  (or equivalently at a separation
+  of 2$ \pi $).
 
   \begin{equation}
     \begin{aligned}
@@ -274,8 +272,8 @@ contributions.
   \end{equation}
 
   \begin{framed}\noindent
-  \item  So  for   the  potential  part  accounts   for  two  states,
-    \iket{\psi(0)} and  \iket{\psi(2\pi)} at two  different energies,
+  \item   So  for   the  potential   part  accounts   for  two   states,
+    \iket{\psi(0)}  and  \iket{\psi(2\pi)}  at two  different  energies,
     which we can write as a diagonal matrix
 
   \begin{equation}\label{key}
@@ -289,23 +287,23 @@ contributions.
 
 \end{framed}
 
-\item               The               \red{kinetic               term
-    $ \red{-E_C\frac{\partial}{\partial\phi_J^2}}  $} is  evaluted as
-  in Chapter~\ref{subsec:flux_numerical}
+\item                The                \red{kinetic                term
+    $ \red{-E_C\frac{\partial}{\partial\phi_J^2}}  $} is evaluted  as in
+  Chapter~\ref{subsec:flux_numerical}
 
   \begin{equation}\label{}
     \begin{aligned}
       \frac{d}{d\phi_J^2}\omega_i & = \frac{\frac{\omega_{i+1} - \omega_i}{\Delta\delta} - \frac{\omega_{i} - \omega_{i-1}}{\Delta\delta}}{\Delta\delta} = \red{\frac{1}{\Delta\delta^2}\left[\omega_{i+1}+\omega_{i-1}-2\omega_{i}\right]}\\
       \bullet \frac{d}{d\phi_J^2}\psi(0) & = \frac{1}{(2\pi)^2}\left[\psi(2\pi) + \grey{\psi(-2\pi)} - 2\psi(0)\right] \grey{\approx} \frac{1}{4\pi^2}\left[\psi(2\pi) - 2\psi(0)\right]\\
-      \bullet\frac{d}{d\phi_J^2}\psi(2\pi)             &            =
-      \frac{1}{(2\pi)^2}\left[\grey{\psi(4\pi)}    +   {\psi(0)}    -
-        2\psi(2\pi)\right]                             \grey{\approx}
-      \frac{1}{4\pi^2}\left[\psi(0) - 2\psi(2\pi)\right],
+      \bullet\frac{d}{d\phi_J^2}\psi(2\pi)              &              =
+      \frac{1}{(2\pi)^2}\left[\grey{\psi(4\pi)}     +    {\psi(0)}     -
+        2\psi(2\pi)\right]  \grey{\approx} \frac{1}{4\pi^2}\left[\psi(0)
+        - 2\psi(2\pi)\right],
     \end{aligned}
   \end{equation}
 
-  \noindent where  we assume  that for the  lowest energy  states the
-  wavefucntion      is     negligible      outside     the      well:
+  \noindent  where we  assume  that  for the  lowest  energy states  the
+  wavefucntion      is      negligible       outside      the      well:
   $ \psi(4\pi) = \psi(-2\pi) = 0 $.
 
 \item In matrix form this looks like
@@ -330,17 +328,17 @@ contributions.
   \begin{equation}
     \begin{aligned}
       \mathcal{H} &\approx -\frac{\varepsilon}{2}\sigma_z - \frac{\Delta}{2}\sigma_x = \kbordermatrix{ &  \iket{\psi(0)} & \iket{\psi(2\pi)}\\
-        \bra{\psi(0)} & -\varepsilon/2 & -\Delta/2\\ \bra{\psi(2\pi)}
-        & -\Delta/2& \varepsilon/2 }
+        \bra{\psi(0)} & -\varepsilon/2  & -\Delta/2\\ \bra{\psi(2\pi)} &
+        -\Delta/2& \varepsilon/2 }
       \qquad \red{\text{when } \phi_\text{ext} \approx\pi} \\
       \varepsilon & = \frac{\Phi_0}{2L}\delta\Phi  \qquad\qquad \text{controlled by bias flux}\\
-      \Delta  & =  \frac{2E_C}{4\pi^2} \qquad\qquad\text{anticrossing
+      \Delta  &   =  \frac{2E_C}{4\pi^2}  \qquad\qquad\text{anticrossing
         energy between states \iket{0} and \iket{1}}
     \end{aligned}
   \end{equation}
 \end{framed}
 
-\item Solving  as in  Chapter~\ref{sec:firstLecture} using  a unitary
+\item  Solving  as  in Chapter~\ref{sec:firstLecture}  using  a  unitary
   rotation
   \begin{equation}
     \label{l1-newH}
@@ -352,8 +350,8 @@ contributions.
       \tan(\theta) & = \frac{\Delta}{\epsilon}\\
     \end{aligned},
   \end{equation}
-  \noindent  with eigenvectors  and  eigenvalues being  a mixture  of
-  persistence      current       states      \iket{\circlearrowleft},
+  \noindent  with  eigenvectors  and  eigenvalues  being  a  mixture  of
+  persistence       current        states       \iket{\circlearrowleft},
   \iket{\circlearrowright}.
 
  \begin{equation}\label{key}
@@ -363,26 +361,25 @@ contributions.
      -\cos(\theta/2).
    \end{pmatrix}
  \end{equation}
-\item  With  states  \iket{\circlearrowleft}  $  \equiv  +I_p  $  and
-  $ \iket{\circlearrowright} \equiv -I_p  $ the expectation values of
-  the current:
+\item  With   states  \iket{\circlearrowleft}   $  \equiv  +I_p   $  and
+  $ \iket{\circlearrowright} \equiv -I_p $ the expectation values of the
+  current:
   \begin{equation}\label{key}
     \begin{aligned}
       \iaverage{I}_{\iket{0}} & = I_p\cos(\theta/2)^2 - I_p \sin(\theta/2)^2 = I_p\cos(\theta)\\
       \iaverage{I}_{\iket{1}} & = I_p\sin(\theta/2)^2 - I_p \cos(\theta/2)^2 = - I_p\cos(\theta)\\
     \end{aligned}
   \end{equation}
-\item  Now  we  perform  a  transformation to  rotate  the  state  by
+\item  Now  we   perform  a  transformation  to  rotate   the  state  by
   $ 2\alpha = \theta $
 
  \begin{equation}
    \mathbf{U=e^{i\frac{\theta}{2}\sigma_y}} =  \cos(\alpha)\mathbb{I}+i\sin(\alpha)\sigma_y
  \end{equation}
 
- \noindent to rotate the basis  in this plane. \red{\textbf{Note that
-     the  transformation   uses  an   angle  HALF  of   the  required
-     turn}}. The  {time independent Hamiltonian} will  be transformed
- according to Eq.\eqref{uninewschrodinger},  and evaluating using the
+ \noindent to rotate the basis in this plane. \red{\textbf{Note that the
+     transformation uses an angle HALF of the required turn}}. The {time
+   independent Hamiltonian} will be transformed and evaluating using the
  commutation relations Eq.\eqref{uniComm1}
 
  \begin{equation}
@@ -399,9 +396,9 @@ contributions.
 \item\
 
   \begin{framed}\noindent
-    \noindent In the rotated frame we  have a two level system, where
-    the biasing flux, and the  anticrossing energies come together to
-    create new system eigenstates:
+    \noindent In the rotated frame we have a two level system, where the
+    biasing flux, and the anticrossing  energies come together to create
+    new system eigenstates:
 
     \includegraphics[height=5cm]{together}
 
@@ -411,7 +408,7 @@ contributions.
     \mathcal{H'} = -\frac{\Delta E}{2}\sigma_z
   \end{equation}
 
-  \red{With eigenstates $ \iket{\psi(0)}, \iket{\psi(2\pi)} $ (mix of
+  \red{With  eigenstates   $  \iket{\psi(0)},  \iket{\psi(2\pi)}  $   (mix  of
     persistent current states) at energies
     \begin{equation}\label{key}
       \pm\frac{\Delta E}{2} \qquad \Delta E = \sqrt{\varepsilon^2 + \Delta^2}\qquad\varepsilon = \frac{\Phi_0}{2L}\delta\Phi  \qquad	\Delta = \frac{2E_C}{4\pi^2}.
@@ -420,25 +417,24 @@ contributions.
 \end{framed}
 \end{enumerate}
 
-\noindent    Fig.\ref{fig:l3wavefun}    depicts   the    approximated
-wavefunctions and  Fig.\ref{fig:l3energy} the energies  for different
-external fields.
+\noindent Fig.\ref{fig:l3wavefun} depicts the approximated wavefunctions
+and Fig.\ref{fig:l3energy} the energies for different external fields.
 
 \begin{figure}[h]
   \centering \includegraphics[height=10cm]{l3wavefun}
-  \caption{The  wavefunctions  of  the  RF SQUID  as  a  function  of
-    $\phi_J$  for different  external flux  $\phi_\text{ext}$ biases.
-    Notice how the  different flux biases change the  symmetry of the
-    potential and the shape of the wavefunctions}
+  \caption{The wavefunctions of  the RF SQUID as a  function of $\phi_J$
+    for different  external flux  $\phi_\text{ext}$ biases.   Notice how
+    the different flux  biases change the symmetry of  the potential and
+    the shape of the wavefunctions}
   \label{fig:l3wavefun}
 \end{figure}
 
 \begin{figure}[h]
   \begin{center}
     \includegraphics[height=7cm]{l3energy}
-    \caption{\small  The energy  levels  and their  differences as  a
-      function  of the  \textbf{applied flux}  $\phi_\text{ext}$.  At
-      the    degeneracy     point,    the    levels     come    close
+    \caption{\small  The  energy  levels  and  their  differences  as  a
+      function of  the \textbf{applied flux} $\phi_\text{ext}$.   At the
+      degeneracy      point,       the      levels       come      close
       together.\label{fig:l3energy}}
   \end{center}
 \end{figure}
@@ -446,14 +442,14 @@ external fields.
 \newpage
 
  \subsection{Question about fabrication}
- There is  a technological  limitation to this  kind of  device. Once
- needs a large inductance $L$, but be able to keep a relatively small
- size. Otherwise the capacitance $ C $ of the system grows too large,
+ There is a technological limitation to  this kind of device. Once needs
+ a  large  inductance $L$,  but  be  able  to  keep a  relatively  small
+ size. Otherwise  the capacitance $ C  $ of the system  grows too large,
  which prevents the tunnelling of the localised states.
 
- A proposal  is to replace  the classical  inductor with a  JJ, which
- provides plenty  of inductance,  while keeping a  considerable size.
- Will it work?  Lets evaluate the potential energy
+ A  proposal is  to  replace the  classical inductor  with  a JJ,  which
+ provides plenty of inductance, while keeping a considerable size.  Will
+ it work?  Lets evaluate the potential energy
 
  \begin{equation}
    \left\lbrace\begin{aligned}
@@ -466,14 +462,14 @@ external fields.
      & = -E_J\bigg[\cos(\phi'+\frac{\phi_\text{ext}}{2}) + \alpha\cos(\phi'-\frac{\phi_\text{ext}}{2})\bigg]\\
      & = -E_J\bigg[\cos(\phi')\cos(\frac{\phi_\text{ext}}{2}) + \alpha\cos(\phi')\cos(\frac{\phi_\text{ext}}{2})\\
      & - \sin(\phi')\sin(\frac{\phi_\text{ext}}{2}) + \alpha\sin(\phi')\sin(\frac{\phi_\text{ext}}{2}) \bigg]\\
-     &                                                              \approx
+     &                                                           \approx
      -E_J(1+\alpha)\bigg[\cos(\phi')\cos(\frac{\phi_\text{ext}}{2})\bigg]
    \end{aligned}
  \end{equation}
 
- \noindent  There is  no parabolic  dependence, making  the localised
- states unsuitable  - the eigenstates  will tunnel across all  of the
- possible wells  formed by the  cosine potential. \textbf{So  this is
-   not possible with just replacing an inductor with a JJ.}
+ \noindent There is no parabolic dependence, making the localised states
+ unsuitable -  the eigenstates  will tunnel across  all of  the possible
+ wells formed by  the cosine potential. \textbf{So this  is not possible
+   with just replacing an inductor with a JJ.}
 
  \newpage

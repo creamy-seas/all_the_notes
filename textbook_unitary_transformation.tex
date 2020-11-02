@@ -40,7 +40,7 @@ The Hermitian conjugate of an operator is defined as
  \begin{equation}\label{uniPauli}
    U(\sigma_x) = \begin{pmatrix}
      \cos{\alpha} & i\sin{\alpha}\\i\sin{\alpha}&\cos{\alpha}
-   \end{pmatrix};\quad   U(\sigma_u)   =   \begin{pmatrix}   \cos{\alpha}   &
+   \end{pmatrix};\quad  U(\sigma_u)  =  \begin{pmatrix}  \cos{\alpha}  &
      \sin{\alpha}\\-\sin{\alpha}&\cos{\alpha}
    \end{pmatrix};\quad  U(\sigma_z)  =   \begin{pmatrix}  e^{i\alpha}  &
      0\\0&e^{-i\alpha}
@@ -55,8 +55,8 @@ The Hermitian conjugate of an operator is defined as
  \end{equation}
 
  \noindent         When         a         unitary         transformation
- \red{$  \Psi'=U\Psi \leftrightarrow  \Psi =  U^{\dagger}\Psi'$} is  applied, the  \schrodinger
- equation will be modified as such
+ \red{$  \Psi'=U\Psi   \leftrightarrow  \Psi  =   U^{\dagger}\Psi'$}  is
+ applied, the \schrodinger equation will be modified as such
 
  \begin{equation}\label{duninewschroer}
    \begin{aligned}
@@ -99,8 +99,9 @@ Pauli Matrices
  \end{equation}
 
  \subsection{Example application\label{subsec:ExampleApplication}}
- A general  two levels system with  energy separation $ \varepsilon  $ interaction
- between the two states of strength $ \Delta $ can be written
+ A  general two  levels system  with energy  separation $  \varepsilon $
+ interaction  between the  two  states of  strength $  \Delta  $ can  be
+ written
 
  \begin{equation}
    \label{l1-uni}
@@ -134,9 +135,8 @@ $ 2\alpha = \theta $
 
   \noindent to rotate  the basis in this  plane.  \red{\textbf{Note that
       the transformation uses an angle HALF of the required turn}}.  The
-  {time  independent  Hamiltonian}  will  be  transformed  according  to
-  Eq.\eqref{uninewschrodinger},  and  evaluating using  the  commutation
-  relations Eq.\eqref{uniComm1}
+  {time  independent Hamiltonian}  will be  transformed, and  evaluating
+  using the commutation relations Eq.\eqref{uniComm1}
 
   \begin{equation}\label{uniRot}
     \begin{aligned}
@@ -179,8 +179,8 @@ $ 2\alpha = \theta $
 
  \subsection{Example application 2\label{subsec:Rabi}}
  Now  we have  a qubit  that  is driven  by a  resonant external  field,
- \red{this time  it is not  a $ \Delta $  intractions as the  strength varies
-   with time}
+ \red{this  time it  is not  a $  \Delta $  intractions as  the strength
+   varies with time}
 
   \begin{equation}\label{app2}
     \mathcal{H} = -\frac{\hbar\omega_0}{2}\sigma_z-\hbar\Omega\cos(\omega_0 t)\sigma_x
@@ -296,22 +296,24 @@ $ 2\alpha = \theta $
          \end{pmatrix} $ & NOT = $\begin{pmatrix} 0 & -i \\-i&0
          \end{pmatrix} $ &\\
          Y&$         -\frac{\hbar\Omega}{2}\sigma_y          $         &
-                                                $ \begin{pmatrix} \cos{\Omega
-                                                    t/2}    &    -\sin{\Omega
-                                                           t/2}\\\sin{\Omega
-                                                    t/2}&\cos{\Omega t/2}
-                                                \end{pmatrix}
-                                                          $ &  FLIP =
-                                                              $\begin{pmatrix}
-                                                                0   &  -1
-                                                                \\1&0
-                                                              \end{pmatrix}
-                                                                     $  &   H  =
-                                                                          $
-                                                                          \frac{1}{\sqrt{2}}\begin{pmatrix}
-                                                                            1   &  -1
-                                                                            \\1&1
-                                                                          \end{pmatrix} $\\
+                                                $        \begin{pmatrix}
+                                                    \cos{\Omega  t/2}  &
+                                                                       -\sin{\Omega
+                                                                         t/2}\\\sin{\Omega
+                                                           t/2}&\cos{\Omega
+                                                                 t/2}
+                                                             \end{pmatrix}
+                                                                 $ &  FLIP =
+                                                                     $\begin{pmatrix}
+                                                                       0   &  -1
+                                                                       \\1&0
+                                                                     \end{pmatrix}
+                                                                            $  &   H  =
+                                                                                 $
+                                                                                 \frac{1}{\sqrt{2}}\begin{pmatrix}
+                                                                                   1   &  -1
+                                                                                   \\1&1
+                                                                                 \end{pmatrix} $\\
          Z&$         -\frac{\hbar\Omega}{2}\sigma_z          $         &
                                                 $        \begin{pmatrix}
                                                     e^{-i\Omega  t/2}  &
