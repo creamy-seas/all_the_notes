@@ -1,55 +1,129 @@
 \newpage
 
-\section{Quantum phase slip \cite{mooij2005} \label{sec:qps}}
+\section{Coherent Quantum Phase Slip (CQPS) \cite{mooij2005} \label{sec:qps}}
 
 \subsection{Literature}
 \begin{framed}\noindent
   \begin{itemize}
-  \item \textbf{Charge control of blockade  of Cooper pair tunnelling in
-      highly disordered TiN nanowires in an inductive environment}
+  \item \textbf{Trivia}
     \begin{enumerate}
+    \item Dual to  the JJ effect, where instead of  coherent transfer of charge,
+      we have coherent transfer of flux
+    \item Each phase slip event releases an energy $I\Phi_0$.
+    \item In \cite{mooij2005} there is  a simplfying assumption that CQPS ``just
+      happens'' with $E_s/h = 100\,\text{GHz}$;
+    \item Writes  must have \textbf{large kinetic  inductance} and \textbf{small
+        capacitance}. This will give impedance
+      \begin{equation}
+        Z_{c} = \sqrt{\frac{L}{C}}
+      \end{equation}
+
+      \noindent       \red{and       for        frequent       phase       slips
+        \,$Z_{c} > R_q = \frac{h}{4e^2}$\,}.
+
+    \item Just like in JJ, the CQPS  has trapped voltage in potential minima for
+      voltages that do not exceed
+      \begin{equation}
+        V_{C} = \frac{2\pi E_{S}}{2e}
+      \end{equation}
+    \item Need  to have large  normal state resistivity  in order to  have large
+      impedance when in superconducting state - \red{large inductance}
+    \item  We will  observe when  the flux  is localised  i.e. weak  phase slip,
+      \,$E_{L}>> E_s$\,
+    \item Quantum phase slip process is a tunneling one:
+      \begin{equation}
+        E_{S} = E_0\exp(-\kappa \bar{\omega})
+      \end{equation}
+
+      \noindent where $\bar{\omega}$ is the line  width and $\kappa$ is the characteristic
+      width at  which the  wire becomes  a one-dimensional  channel \textbf{with
+        large quantum fluctuations possible}
+    \end{enumerate}
+  \item \textbf{Experiment}
+    \begin{enumerate}
+    \item   Fabricate  with   strongly  disordered   superconductors  near   the
+      superconductor-insulator transition  (Niobium Nitride for example)  - this
+      will prevent gapless excitations \cite{Astafiev_2012}.
     \item Fabricate several thin superconducting bridges with meanders;
-    \item Measure the  DC voltage, $ V  $, acorss then as  a function of
-      the applied gate voltage, $ V_c $, from underneath the chip;
-    \item Some samples have big oscillations  in $ V $ with gate voltage
-      - Single  Electron Transistor regime, where  nanowire is compoased
-      of grains, which feel a Coulomb Blockade;
-    \item Quantum Phase Slip possible  in other samples, where there are
-      no grains in the wire.
+    \item  Measure the  DC voltage,  $ V  $, acorss  then as  a function  of the
+      applied gate voltage, $ V_c $, from underneath the chip;
+    \item Some samples have big oscillations in $ V $ with gate voltage - Single
+      Electron Transistor regime,  where nanowire is compoased  of grains, which
+      feel a Coulomb Blockade;
+    \item  Quantum Phase  Slip possible  in other  samples, where  there are  no
+      grains in the wire.
     \end{enumerate}
   \end{itemize}
 \end{framed}
 
-Initially quantum  phase slips  were a result  of thermal  activation in
-thin wires.
+Initially quantum phase slips were a result of thermal activation in thin wires.
 
 \subsection{Cooper box duality}
-The system  is dual to  the cooper pair  box system, where  the charging
-energy  creates  a parabollic  dependence,  and  the Josephson  coupling
-energy   $   E_J    $   mixes   states   lifting    degeneracy   as   in
-Sec~\ref{sec:cooper_pair_box}:
+The system  is dual  to the cooper  pair box system,  where the  charging energy
+creates a parabollic dependence, and the Josephson coupling energy $ E_J $ mixes
+states lifting degeneracy as in Sec~\ref{sec:cooper_pair_box}:
 
  \begin{equation}\label{key}
-   \mathcal{H} = E_c(\hat{n} - n_g)^2 - \frac{E_J}{2}\left[\iketbra{n+1}{n} + \iketbra{n}{n+1}\right].
+   \mathcal{H} = \red{E_c(\hat{n} - n_g)^2} - \blue{\frac{E_J}{2}\left[\iketbra{n+1}{n} + \iketbra{n}{n+1}\right]}.
  \end{equation}
 
- \noindent In the qunatum phase slip, we do the same thing, but now with
- inductor-component energy, $ E_L  = \frac{\Phi_0^2}{2L} $, is parabolic
- and degeneracy is lifted by the coupling, $ E_s $, due to the tunneling
- of fluxes (we do not specify yet the exact derivation of this energy):
+ \noindent  In the  qunatum phase  slip,  we do  the  same thing,  but now  with
+ inductor-component  energy,  $  E_L  = \frac{\Phi_0^2}{2L}  $,  is  parabolic  and
+ degeneracy is lifted by  the coupling, $ E_s $, due to  the tunneling of fluxes
+ (we do not specify yet the exact derivation of this energy):
 
  \begin{equation}\label{eq:hamiltonian-cqps-standalone}
-   \mathcal{H} = E_L(\hat{n} - f)^2 - \frac{E_s}{2}\left[\iketbra{n+1}{n} + \iketbra{n}{n+1}\right],
+   \mathcal{H} = \red{E_L(\hat{n} - f)^2} - \blue{\frac{E_s}{2}\left[\iketbra{n+1}{n} + \iketbra{n}{n+1}\right]},
  \end{equation}
 
  \noindent with $ f = \Phi/\Phi_0 $.
 
  \begin{framed}\noindent
-   \noindent  The discussion  them stems  off into  how the  Cooper pair
-   tunneling is  dual to the phase  slip, how one gets  similar steps in
-   voltage current  characterisitics. There  is a lot  of math,  which I
-   don't want to get into.
+   \noindent The discussion them stems off into how the Cooper pair tunneling is
+   dual  to the  phase  slip, how  one  gets similar  steps  in voltage  current
+   characterisitics.  There is a lot of math, which I don't want to get into.
  \end{framed}
+
+ In both cases, a truncation of  the Hamiltonian results in states (solving like
+ in             \autoref{sec:firstLecture})              and             setting
+ $\delta\Phi = \Phi_{\text{ext}}-  \left( N + \frac{1}{2}  \right)\Phi_0$ as the
+ deviation from a degeneracy point between states \iket{N} and \iket{N + 1}:
+
+ {\scriptsize \begin{equation} \mathcal{H} = \begin{pmatrix}
+       \frac{\Phi_0^2}{2L}\left( N - \frac{\Phi_{\text{ext}}}{\Phi_0} \right) & -\frac{E_s}{2} \\
+       -\frac{E_s}{2}     &     \frac{\Phi_0^2}{2L}\left(     N    +     1     -
+         \frac{\Phi_{\text{ext}}}{\Phi_0} \right)
+     \end{pmatrix} =
+     \begin{pmatrix}
+       \frac{\Phi_0}{2L}\left( \Phi_0N - \Phi_{\text{ext}}\right) & -\frac{E_s}{2} \\
+       -\frac{E_s}{2}   &    \frac{\Phi_0}{2L}\left(   \Phi_0N   +    \Phi_0   -
+         \Phi_{\text{ext}}\right)
+     \end{pmatrix} =
+     \begin{pmatrix}
+       -\delta\Phi I_p  + \frac{\Phi_{0}I_p}{2}  & -\frac{E_s}{2} \\
+       -\frac{E_s}{2} & +\delta\Phi I_p + \frac{\Phi_{0}I_p}{2}
+     \end{pmatrix}
+   \end{equation}}
+
+ \noindent we get
+
+ \begin{equation}
+   \begin{aligned}
+     \left\lbrace\begin{aligned}    \mathcal{H}   &    =   \mathbf{-\frac{\Delta
+             E}{2}\begin{pmatrix}  \cos(\theta)  & \sin(\theta)\\\sin(\theta)  &
+             -\cos(\theta)
+           \end{pmatrix}}\\
+         \Delta E & = \sqrt{\epsilon^2+\Delta^2}\\
+         \tan(\theta) & = \frac{\Delta}{\epsilon}
+       \end{aligned}\right.
+   \end{aligned}
+ \end{equation}
+
+ \noindent      in     which      case     $\Delta      \equiv     E_s$      and
+ $\epsilon =  2I_p\delta\Phi =  \frac{\Phi_{0}}{L_{k}}\delta\Phi$ is  the energy
+ difference between neighbouring states (neighbours on the diagonal).
+
+
 
  \subsection{Mooij 2006 paper \cite{mooij2005}}
  \label{sec:mooij-2006-paper}
@@ -68,42 +142,38 @@ Sec~\ref{sec:cooper_pair_box}:
 \begin{figure}[h]
   \centering
   \includegraphics[height=7cm]{quantum-phase-slip/mooij_2005_energy_graphs}
-  \caption{\small  The energy  spectra are  dual for  the two  systems -
-    from. In  a) $E_C  >> E_J$  so that charge  is the  relevant quantum
-    number  and  in  b) $E_L  >>  E_s$  so  that  phase is  the  quantum
+  \caption{\small The energy spectra are dual for  the two systems - from. In a)
+    $E_C  >> E_J$  so that  charge  is the  relevant  quantum number  and in  b)
+    $E_L     >>      E_s$     so      that     phase     is      the     quantum
     number. \cite{mooij2005}. \label{fig:mooij_2005_energy_graphs}}
 \end{figure}
 
 \subsection{Derivation}
 \label{sec:derivation}
 
-There  is  a  theory  written   in  the  book  \textbf{Devoret:  Quantum
-  Fluctuation  in  electrical  circuits} about  how  \textbf{any  linear
-  circuit   can  be   presented  by   an  equivalent   circuit  with   a
-  frequency-dependent resistor}.
+There is  a theory written in  the book \textbf{Devoret: Quantum  Fluctuation in
+  electrical circuits} about how \textbf{any  linear circuit can be presented by
+  an equivalent circuit with a frequency-dependent resistor}.
 
 \begin{itemize}
-\item  Current  biased: Resistor  is  in  parallel \hfill  Phase  across
-  junction
+\item Current biased: Resistor is in parallel \hfill Phase across junction
 \item Voltage biased: Resistor is in series \hfill No of CP transfered.
 \end{itemize}
 
 \begin{figure}[h]
-  \centering
-  \includegraphics[height=7cm]{quantum-phase-slip/mooij_2005_biases}
-  \caption{\small  \textbf{JJ on  left} vs  \textbf{CQPS on  right}. The
-    capacitor is replaced with an inductor to make phase the new defined
-    quantum variable. \label{fig:mooij_2005_biases}}
+  \centering \includegraphics[height=7cm]{quantum-phase-slip/mooij_2005_biases}
+  \caption{\small \textbf{JJ on left} vs  \textbf{CQPS on right}.  The capacitor
+    is  replaced  with  an  inductor  to make  phase  the  new  defined  quantum
+    variable. \label{fig:mooij_2005_biases}}
 \end{figure}
 
-The main  transformation applied  that links the  following hamiltonians
-(we    simply    match    the    inductive   and    QPS    terms    from
-\autoref{eq:hamiltonian-cqps-standalone})  and  we   add  the  necessary
-2$\pi$ factors
+The main transformation applied that links the following hamiltonians (we simply
+match the inductive and QPS terms from \autoref{eq:hamiltonian-cqps-standalone})
+and we add the necessary 2$\pi$ factors
 \begin{equation}
   \begin{aligned}
     \mathcal{H}_{JJ} & = E_C\hat{q}^2 - E_J\cos\hat{\varphi} \\
-    \mathcal{H}_{CQPS}   &  =   E_L\frac{\hat{\varphi}^2}{(2\pi)^{2}}  -
+    \mathcal{H}_{CQPS}     &    =     E_L\frac{\hat{\varphi}^2}{(2\pi)^{2}}    -
     E_S\cos(2\pi\hat{q})
   \end{aligned}
 \end{equation}
@@ -122,8 +192,8 @@ The main  transformation applied  that links the  following hamiltonians
 \subsection{Inverse shapiro steps}
 \label{sec:inverse-shap-steps}
 
-Now  if we  take  the  aforementioned mappings  and  apply  them to  the
-equation used to model a typical JJ
+Now if we take  the aforementioned mappings and apply them  to the equation used
+to model a typical JJ
 
 \begin{figure}[h]
   \centering \inkfig{8cm}{typical_jj_setup}
@@ -134,24 +204,332 @@ equation used to model a typical JJ
   I(t) = \red{I_c\sin\varphi} + \frac{\Phi_{0}}{2\pi}\left[ \green{C \frac{d^2\varphi}{dt^{2}}} + \blue{\frac{1}{R}\frac{d\varphi}{dt}} \right]
 \end{equation}
 
-\noindent  which  leads  to  Shapiro steps.  \red{Add  explanation  from
-  metrology notes}.
+\noindent which  leads to  Shapiro steps.   \red{Add explanation  from metrology
+  notes}.
 
 Upon subbing in
 \begin{equation}
   V(t) = \red{V_c\sin(2\pi q)} + 2e\left[ \green{L \frac{d^2q}{dt^{2}}} + \blue{R\frac{dq}{dt}} \right]
 \end{equation}
 
-\noindent where we  now deal with the voltage drops  across the CQPS (in
-becomes a linear circuit). \textbf{Valid when the charge is the relevant
-  quantum number (just like for JJ phase is the quantum number as we are
-  localised in a potential minimum)}
+\noindent where we now deal with the voltage drops across the CQPS (in becomes a
+linear circuit).  \textbf{Valid  when the charge is the  relevant quantum number
+  (just  like for  JJ phase  is the  quantum  number as  we are  localised in  a
+  potential minimum)}
 
-\red{TODO: Plasma frequency in JJ.}
+\subsection{Plasma Frequency}
+\label{sec:plasma-frequency}
 
-\newpage
+The JJ can be viewed as an inductance  with a shunt capacitor due to it's finite
+size   (inductance   actually   depends   on    the   phase   across   the   JJ,
+$L_{\text{kin} = \frac{\Phi_{0}}{2\pi I_c\cos(\varphi_0}}$):
 
-%%% Local Variables:
-%%% mode: latex
-%%% TeX-master: "all_the_notes"
-%%% End:
+\begin{equation}
+  \left\{
+    \begin{aligned}
+      Z & = Z_{c} + Z_L \\
+      Z_C & = \frac{1}{j\omega C}\\
+      Z_L & = j\omega L
+    \end{aligned}
+  \right. \Rightarrow Z = \frac{L/C}{j \left( \omega L - \frac{1}{\omega
+        C}
+    \right)} \Rightarrow \omega_{\text{res}} = \frac{1}{\sqrt{LC}}.
+\end{equation}
+
+
+\noindent
+\begin{figure}[h]
+  \centering \inkfig{3cm}{lc_resonance}
+  \caption{\small    LC     cirucit    that    is    set     up    inside    the
+    JJ\label{fig:lc_resonance}}
+\end{figure}
+
+\subsection{What sets the energies}
+\label{sec:what-sets-energies}
+
+\begin{minipage}{0.45\textwidth}
+  \begin{framed}\noindent
+    \textbf{JJ}
+    \begin{enumerate}
+    \item  $E_J  =  \frac{R_{q}}{R_{\square}/N_{sq}}\frac{\Delta(0)}{2}$  \hfill
+      $E_J \propto N_{sq}$
+    \item $E_C = \frac{e^2}{2C_{\Sigma}}$ \hfill $E_C \propto \frac{1}{Area}$
+    \end{enumerate}
+  \end{framed}
+\end{minipage}
+\begin{minipage}{0.45\textwidth}
+  \begin{framed}\noindent
+    \textbf{CQPS}
+    \begin{enumerate}
+    \item          $E_L          =          \frac{\Phi_0^2}{2L}$          \hfill
+      $E_L \propto \frac{1}{\text{Wire Length}}$
+    \item \hfill $E_S \propto \text{Wire length}$
+    \end{enumerate}
+  \end{framed}
+\end{minipage}
+
+\subsection{Standard of voltage}
+\label{sec:standard-voltage}
+
+Just like JJ has a damping factor (\autoref{eq:jj-damping}) so does the CQPS
+
+\begin{equation}
+  Q_{\text{QPS}}^2 = \beta_L = 2\pi \frac{V_{c}}{2e}\frac{L}{R^{2}} = 2\pi^{2}\frac{E_{s}}{E_{L}}\left( \frac{R_{q}}{R} \right)^2.
+\end{equation}
+
+\newpage Too much damping is bad, as on the washboard potential is gives rise to
+hysteresis, and  while $E_s$  and $E_L$  are fixed  in order  to operate  in the
+voltage localisation regime, it is possible to increase R to 60\,k$\Omega$.
+
+\subsection{Coherent quantum phase slip 2012 \cite{Astafiev_2012}}
+\label{sec:coher-quant-phase}
+
+Oleg drove the CQPS system in the two level approximation by a resonant drive.
+
+\begin{framed}\noindent
+  The Hamiltonian near a degeneracy point can be written
+
+  \begin{equation}
+    \begin{aligned}
+      \mathcal{H}        &\approx        -\frac{\varepsilon}{2}\sigma_z        -
+      \frac{\Delta}{2}\sigma_x = \begin{pmatrix}
+        -\varepsilon/2  &  -\Delta/2 \\
+        -\Delta/2 & \varepsilon/2
+      \end{pmatrix} \qquad \red{\text{when } \Phi\approx(N+\frac{1}{2})\Phi_0} \\
+      \varepsilon & = \frac{\Phi_0}{L}\delta\Phi = 2I_p\delta\Phi  \qquad\qquad \text{controlled by bias flux, and yes, there is a factor of 2 - not an error!}\\
+      \Delta & = E_s \qquad\qquad\text{Degeneracy  lifted by the coupling of the
+        flux states}
+    \end{aligned}
+  \end{equation}
+
+  \noindent which can be rotated to give
+
+  \begin{equation}
+    \mathcal{H'} = -\frac{\Delta E}{2}\sigma_z \qquad \Delta E = \sqrt{\varepsilon^2 + \Delta^2}
+  \end{equation}
+
+  \noindent     Now    we     applying     a     driving    field     (labelling
+  $\omega_0=\Delta E/\hbar$).   From \autoref{sec:dipole_coupling}  the coupling
+  $\hbar\Omega=                  \left|I_{mw}\right|MI_p\zeta                  =
+  MI_p\left|I_{mw}\right|\frac{E_s}{\Delta E}$
+
+    \begin{equation}
+      \mathcal{H}'' = -\frac{\hbar\omega_0}{2}\sigma_z-\hbar\Omega\cos(\omega_0 t)\sigma_x,
+    \end{equation}
+
+    \noindent         and        applying         a        rotating         wave
+    $U(t)  =   \exp\left[-i\frac{\omega_0  t}{2}\sigma_z\right]$   and  removing
+    fast-oscillating terms
+
+    \begin{equation}
+      \mathcal{H}''' = -\frac{\hbar\Omega}{2}\sigma_x
+    \end{equation}
+
+    \noindent            which            evolves           the            state
+    $U(t)  =  e^{-i\mathcal{H}'''/\hbar  t}  =  e^{i\Omega  t/2\sigma_x}$  which
+    evolves
+
+    \begin{equation}
+      \ket{\Psi} = U\ket{0} = \cos(\frac{\Omega t}{2})\ket{0}+e^{i\pi/2}\sin(\frac{\Omega t}{2})\ket{1}.
+    \end{equation}
+
+    \noindent \red{Since $h\Omega \ne 0$ only  is $E_s \ne 0$ this will directly
+      show CQPS if one finds that the field interacts with the system.}
+  \end{framed}
+
+  \subsubsection{Choosing material}
+  \label{sec:choosing-material}
+
+  CQPS  occurs   due  to   fluctuations  in  the   order  parameters   $\Psi$  (
+  $\left|\Psi\right|^2$ is  proportional to number of  CP.)  \textbf{Suprisingly
+    to see CQPS, we  need to have a low CP concentration to  have a big Ginsburg
+    parameter}
+
+  \begin{equation}
+    G_{i} = \frac{1}{\nu \Delta \xi^3}
+  \end{equation}
+
+  \noindent where $\nu=$DOS,  $\Delta$ is the sc gap and  $\xi$ is the coherence
+  length.    To   get    small   $\xi$   we   need   to   be    close   to   the
+  superconductor-insulator transition at which point
+
+  \begin{equation}
+    \text{Cohrence length } \xi \approx \xi_{localisation}
+  \end{equation}
+
+  \noindent  \textbf{An  alternative explanation}  is  to  limit the  number  of
+  conductive channels
+
+  \begin{equation}
+    N_{ch} = \frac{R_{K}}{R}, \quad R_K=\frac{h}{e^{2}}
+  \end{equation}
+
+  \noindent  since $E_s  \propto e^{-aN_{ch}}$,  so we  need a  highly resistive
+  material.
+
+  \begin{framed}\noindent
+    Materials that fit are NbN and TiN where $\xi = 30\,\text{nm}$.
+
+    At around 2.7\,K the sheet inductance is
+
+    \begin{equation}
+      \begin{aligned}
+        R_{sq} & = 1.7\,k\Omega \\
+        L_{sq} & = \frac{\hbar R_{sq}}{\pi\Delta} \approx 0.7\,\text{nH}
+      \end{aligned}
+    \end{equation}
+
+    \noindent
+  \end{framed}
+
+  Another  great way  to get  material parameters  is done  by \textbf{Peltonen}
+  \cite{Peltonen_2018}:
+  \begin{itemize}
+  \item Measure resonator whose frequency:
+    \begin{equation}
+      \left\{\begin{aligned}
+          f_{n} &= \frac{nv}{2L}, \quad n \in \mathbb{Z} \\
+          v & = \frac{1}{\sqrt{lc}}
+        \end{aligned}\right.
+    \end{equation}
+
+  \item Estimate $c_{l}\approx 7\times10^{-10}\,\text{F/m}$ and thus deduce $l$.
+  \end{itemize}
+
+  \subsubsection{Fitting of results}
+  \label{sec:fitting-results}
+
+  Results are measured  using two-tone spectroscopy and  fitting performed using
+  $\Delta E = \sqrt{(2I_p\delta\Phi)^2 + E_s^2}$ to get
+
+  \begin{itemize}
+  \item E$_s$ = 10\,GHz \hfill $\zeta = 10\,\text{nm}$
+  \item L$_k$ = 42\,nH (compared to prediction from BCS of 23\,nH)
+  \item \textbf{Proof that  there is a linear inductance in  the system (not the
+      non  linear one  as for  JJ) by  two-tone data  with different  excitation
+      paths}
+
+    \begin{figure}[h]
+      \centering
+      \includegraphics[height=7cm]{2012_astafiev_coherent-quantum-phase-slip/fitting-cqps-transition}
+      \caption{\small Energy to excite the system comes from either \blue{second
+          tone}, \green{second  tone + first  tone}, \red{two second tone  + one
+          first tone}.  In contrast, the prediction  using a JJ RF-SQUID is very
+        different. \label{fig:fitting-cqps-transition}}
+    \end{figure}
+
+  \end{itemize}
+
+  \noindent It is not identical to  BCS prediction due to exponential dependence
+  of the sample on material parameters.
+
+  \subsection{Evidence  for  coherent  quantum phase-slips  across  a  Josephson
+    junction array \cite{Manucharyan_2012}}
+  \label{sec:evid-coher-quant}
+
+  \begin{framed}\noindent
+    \begin{itemize}
+    \item A phase slip destroys superconducting order in a narrow wire
+    \item There will  be shifting of energies, turning  energy-level shifts into
+      linewidths.
+    \item Gradient of order parameter  $\Psi$, gives the non-dissipative current
+      (supercurrent) \textbf{that is constant along the wire}.
+    \item Thinner wire == more phase slips
+    \item Phase slip can occur by  $\pm 2\pi$ and preserve the single-valuedness
+      of the macroscopic wave function $\Psi$.  Summing up the total phase slips
+      that can occur anywhere $m = \sum_im_i $.
+    \item Phase slips  do not have to be \textbf{dissapative}  - multiple CPS in
+      different location can interefe with each other.
+    \item A phase slip dissipates and  energy $I\Phi_{0}$, where $I$ is the bias
+      current.
+    \item Phase  slip energy can  vary \textbf{by  a lot} so  it may be  hard to
+      catch it within the laboratory ranges.
+    \end{itemize}
+
+    \begin{framed}\noindent
+      \textbf{So in this  experiment, they take a long chain  of JJ (to minimize
+        effect of  lumped circuits}. Phase  slips will change the  inductance of
+      this chain, which will be registered by a fluxonium qubit.
+      \begin{itemize}
+      \item  \textbf{Fluxonium  qubit} is  single  JJ  shunted  by an  array  of
+        JJ. Readout by coupling it to a resonator
+      \item Large $E_{J}/E_C$ mean that phase fluctuations are small - not a lot
+        of phase slips.
+      \end{itemize}
+    \end{framed}
+  \end{framed}
+
+  \subsection{Coherent     flux     tunneling      through     NbN     nanowires
+    \cite{Peltonen_2013}}
+  \label{sec:coher-flux-tunn}
+  \begin{framed}\noindent
+    \begin{itemize}
+    \item  Tunneling rate  depends  exponentially on  the  number of  conducting
+      channels $N_{ch}$
+    \item For the following
+      \begin{equation}
+        E_{S} = E_0\exp(-\kappa \bar{\omega})
+      \end{equation}
+      \noindent one can get
+
+      \begin{equation}
+        \begin{aligned}
+          E_0 & = \frac{\Delta}{\xi^2} \frac{\left( h/4e^2 \right)}{R_{\square}}l\bar{\omega} \\
+          \kappa & = a \frac{\left( h/4e^2 \right)}{R_{\square}}\frac{1}{\xi}
+        \end{aligned}
+      \end{equation}
+
+      \noindent            where           $l\approx            500\,\text{nm}$,
+      $\Delta \approx 1.6\,\text{meV}$, $\xi=4\,\text{nm}$.
+    \item BCS theory fails in disordered material
+    \end{itemize}
+  \end{framed}
+
+  \subsection{Coherent dynamics  and decoherence in a  superconducting weak link
+    \cite{Peltonen_2016}}
+  \label{sec:coher-dynam-decoh}
+
+  \begin{framed}\noindent
+    \begin{itemize}
+    \item NbN thickness of $2-3\,\text{nm}$
+    \item  First  deposition  creates  the  large  grounds  planes  \ira  second
+      deposition using negative  resist \textbf{calixarene} and \textbf{reactive
+        ion etching} etches away the pieces of NbN that are uncovered.
+    \item  \textbf{Do  not remove  negative  resist  afterwards} -  it  protects
+      against ageing.
+    \item  Two tone  spectroscopy  to measure  energies -  \textbf{Nont-resonant
+        coupling between  qubit and resonator} allows  one to map out  the qubit
+      energies through changes in the resonator
+    \item Fitting  of $\sqrt{\left(  2I_p\delta\Phi \right)^2  + E_s^2}$  to the
+      spectrum allows one to find:
+      \begin{itemize}
+      \item $I_{p} \approx 40\,nA$
+      \item $L_K = \frac{\Phi_0}{2I_{p}} \approx 25\,nH$
+      \end{itemize}
+      \begin{center}
+        \includegraphics[height=4cm]{2016_peltonen_coherent-dynamics-and-decoherence-in-a-superconducting-weak-link.pdf/spectroscopy}
+      \end{center}
+
+    \item \textbf{Stark shift} (\autoref{sec:stark-shift}) tells us that
+      \begin{equation}
+        U\mathcal{H}U^{\dagger} \approx \hbar\omega_ra^{\dag}a + \left[\frac{\hbar\Omega}{2} + \blue{\frac{g^{2}}{\Delta}\left( a^{\dagger}a + \frac{1}{2} \right)} \right]\sigma_z
+      \end{equation}
+
+      \noindent depending  on number of  photon in resonator, the  atom's energy
+      will shift
+    \item When big  powers are applied, the \textbf{Lorentzian  dip} will deform
+      into a Gaussian blur. At low power the FWHM=26\,MHz gives a dephasing rate
+      (total                                                          dephasing)
+      $\Gamma_2 = \pi \times \text{FWHM} = 8\times10^{7}\,\text{per second}$
+    \item Authors  show that as  magnetic field is  moved from $\delta\Phi  = 0$
+      relaxation rate $\Gamma_1$ stays constant, but decoherence rate $\Gamma_2$
+      increases \textbf{due  to low  frequency flux  fluctuations into  the flux
+        degree of freedom}
+    \end{itemize}
+  \end{framed}
+
+
+  %%% Local Variables:
+  %%% mode: latex
+  %%% TeX-master: "all_the_notes"
+  %%% End:

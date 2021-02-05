@@ -1,19 +1,19 @@
 \documentclass{phd_class}%
-\graphicspath{{images_hardlinked/}{images_simulation/}}
-
+\graphicspath{{images_hardlinked/}{images_simulation/}}%
 \addbibresource{bibliography.bib}%
 
 \begin{document}%
-
-\tableofcontents
-\newpage
+\pagecolor{gray!20}%
+\tableofcontents%
+\newpage%
 
 \section{Random notes to sort}
 \label{sec:random-notes-sort}
 
 \begin{itemize}
-\item When in excited state, qubit emits a single photon -  a Fock state, whose phase is undefined. Therefore this is an
-  incoherent emission.
+\item When  in excited  state, qubit  emits a single  photon -  a Fock
+  state, whose  phase is undefined.   Therefore this is  an incoherent
+  emission.
 \end{itemize}
 
 \newpage
@@ -34,6 +34,7 @@
 \input{_introducing_qed_operators}%
 \input{_charge_basis}%
 \input{_phase_basis}%
+\input{tls}%
 
 %% Specific systems
 \input{qubit_copper_pair_box}%
@@ -49,6 +50,7 @@
 
 %% Quantum Phase Slip
 \input{quantum_phase_slip}%
+\input{single_photon}%
 
 %%% Hard theory
 \input{simulating_circuits}%

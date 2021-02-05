@@ -1,0 +1,58 @@
+\newpage
+\section{Single Photon}
+\label{sec:single-photon}
+
+\begin{itemize}
+\item High efficiency;
+\item On-demand, deterministic operation;
+\item Low timing jitter;
+\item Control shape of wave packet \cite{Forn_D_az_2017}
+\end{itemize}
+
+\subsection{What is spectral density}
+\label{sec:what-spectr-dens}
+
+An excellent  paper \cite{Hoi_2015} says  that \textbf{for an atom  to transition
+  \iket{1} \ira \iket{0} the rate of transition, according to \red{Fermi's golden
+    rule}, is proportional to the spectral density of electromagnetic modes}.
+
+\begin{framed}\noindent
+  Thus,  measuring lifetime  of  an  atom probes  the  local  strength of  vacuum
+  fluctuations  at that  transition  frequency.  \textbf{The  frequency-dependent
+    spatial structure of the vacuum}
+\end{framed}
+
+Once a relaxation occurs, a photon of frequency $\omega_{\text{qubit}}$ and wavelength
+
+\begin{equation}
+  \lambda(\Phi) = \frac{2\pi v}{\omega_{\text{qubit}}}, \quad v = \frac{1}{\sqrt{lc}}
+\end{equation}
+
+\noindent is emitted into the line.
+
+\subsection{Making measurement}
+\label{sec:making-measurement}
+
+For normalisation,  subtract the reference when  the photon source it  turned off
+for the different measurements \cite{Pechal_2016}:
+\begin{itemize}
+\item Power (\iabs{V})
+\item $\left|\iaverage{a}\right|$
+\item $\iaverage{a^{\dagger}a}$
+\item $\iaverage{a^{\dagger}a^{\dagger}aa}$
+\end{itemize}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[height=8cm]{2016_pechal_superconducting-switch-for-fast-on-chip-routing-of-quantum-microwave-fields/single-photon-moments}
+  \caption{\small Ignore  the green line.   $a \propto $ equator  component (coherent),
+    and      $a^{\dagger}a     \propto      $     relaxation      from     excited      state
+    (incoherent) \label{fig:single-photon-moments}}
+\end{figure}
+
+\noindent
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "all_the_notes"
+%%% End:
